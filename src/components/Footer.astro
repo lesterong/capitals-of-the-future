@@ -6,7 +6,7 @@ const today = new Date();
   <div class="absolute top-0 h-10 w-full rounded-b-full bg-gray-50"></div>
   <div class="max-w-6xl mx-auto px-4 pt-16 pb-7 text-sky-700">
     <div class="flex justify-between">
-      <div class="grid grid-cols-3 min-w-96">
+      <div class="grid gap-8 grid-cols-1 min-[428px]:grid-cols-2 md:grid-cols-3 w-3/4 max-w-xs md:max-w-md">
         <nav class="flex flex-col space-y-1">
           <span class="text-sm font-bold mb-2">Cities</span>
           <a href="/singapore">Singapore</a>
@@ -33,7 +33,7 @@ const today = new Date();
         <p>Place, power, and<br />possibility in Southeast Asia</p>
       </div>
     </div>
-    <div class="text-sky-600/60 text-sm mt-7">
+    <div class="text-sky-600/60 text-sm mt-7 text-center sm:text-left">
       &copy; {today.getFullYear()} Capitals of the Future. All rights reserved.
     </div>
   </div>
