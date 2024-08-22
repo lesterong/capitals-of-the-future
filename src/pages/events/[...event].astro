@@ -28,8 +28,8 @@ const { Content } = await render();
     <div class="max-w-6xl px-4 mx-auto">
       <CardTags type="events" tags={data.cities} />
       <h1 class="font-bold text-5xl max-w-3xl mt-1">{data.title}</h1>
-      <p class="text-gray-500 mt-2">{data.description}</p>
-      <p class="text-gray-500 mt-4">
+      <p class="text-gray-500 mt-2 text-lg">{data.description}</p>
+      <p class="text-gray-500 mt-4 text-sm">
         <FormattedDate date={data.eventDate} /> / {data.organisers.join(', ')} / 0 comments
       </p>
     </div>
