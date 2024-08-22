@@ -44,7 +44,7 @@ const allCityNews = getSortedNewsByCity(await getCollection("news"), name);
     </div>
   </header>
   <main>
-    <div class:list={["bg-gray-50 rounded-[40px] pt-12"]}>
+    <div class:list={["bg-gray-50 rounded-[40px] pt-12 z-10"]}>
       <div class="max-w-6xl px-4 mx-auto">
         <SectionHeader title={`Latest research on ${name}`} />
         <SectionHeader title={`Upcoming events on ${name}`} />
@@ -68,6 +68,6 @@ const allCityNews = getSortedNewsByCity(await getCollection("news"), name);
         <SectionHeader title={`Social media on ${name}`} />
       </div>
     </div>
-    <Footer />
   </main>
+  <Footer />
 </Layout>

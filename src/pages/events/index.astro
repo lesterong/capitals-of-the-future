@@ -30,6 +30,6 @@ const allEvents = await getCollection("event");
         {allEvents.map((event) => <EventCard {...event.data} />)}
       </div>
     </div>
-    <Footer />
   </main>
+  <Footer />
 </Layout>
