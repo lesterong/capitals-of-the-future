@@ -14,14 +14,16 @@ const city = defineCollection({
 
 const event = defineCollection({
   type: "content",
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    eventDate: z.coerce.date(),
-    cities: z.array(z.string()).refine((val) => val.length > 0, {
-      message: "At least one city must be selected for an event.",
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      eventDate: z.coerce.date(),
+      cities: z.array(z.string()).refine((val) => val.length > 0, {
+        message: "At least one city must be selected for an event.",
+      }),
+      heroImg: image().optional(),
     }),
-  }),
 });
 
 const blog = defineCollection({
