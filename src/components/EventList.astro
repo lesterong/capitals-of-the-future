@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import CardContainer from "./CardContainer.astro";
+import EventCard from "./EventCard.astro";
+import SectionHeader from "./SectionHeader.astro";
+import Button from "./Button.astro";
+
+type Props = {
+  events: CollectionEntry<"event">[];
+  city?: string;
+};
+
+const { events, city } = Astro.props;
+---
+
+<SectionHeader title={`Upcoming events${city ? ` in ${city}` : ""}`} />
+<CardContainer>
+  {events.map((event) => <EventCard {...event.data} />)}
+</CardContainer>
+<a href={`/events${city ? `?city=${city}` : ""}`}>
+  <Button
+    label={`View ${city ? "" : "all "}events ${city ? ` in ${city}` : ""}`}
+    class="mt-8 mb-16"
+  />
+</a>

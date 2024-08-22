@@ -15,6 +15,7 @@ import { getSortedNews } from "@utils/newsUtils";
 import { getSortedResearch } from "@utils/researchUtils";
 import ContentContainer from "@components/ContentContainer.astro";
 import CardContainer from "@components/CardContainer.astro";
+import EventList from "@components/EventList.astro";
 
 const { data: allCities } = await getEntry("city", "cities");
 const allEvents = getSortedEvents(await getCollection("event"));
@@ -57,13 +58,7 @@ const allResearch = getSortedResearch(await getCollection("research"));
             allCities.length > 6 ? "md:mt-16" : "md:mt-2",
           ]}
         >
-          <SectionHeader title="Upcoming events" />
-          <CardContainer>
-            {allEvents.map((event) => <EventCard {...event.data} />)}
-          </CardContainer>
-          <a href="/events">
-            <Button label="View all events" class="mt-8 mb-16" />
-          </a>
+          <EventList events={allEvents} />
           <SectionHeader title="Latest research" />
           <div class="grid mt-6 grid-cols-1 gap-y-7">
             {allResearch.map((research) => <ResearchCard {...research.data} />)}

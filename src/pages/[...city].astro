@@ -15,6 +15,7 @@ import NewsCard from "@components/NewsCard.astro";
 import ContentContainer from "@components/ContentContainer.astro";
 import CardContainer from "@components/CardContainer.astro";
 import ResearchCard from "@components/ResearchCard.astro";
+import EventList from "@components/EventList.astro";
 
 export const getStaticPaths = async () => {
   {
@@ -65,13 +66,7 @@ const allCityResearch = getSortedResearchByCity(
         <a href={`/research?city=${name}`}>
           <Button label={`View research on ${name}`} class="mt-8 mb-16" />
         </a>
-        <SectionHeader title={`Upcoming events on ${name}`} />
-        <CardContainer>
-          {allCityEvents.map((event) => <EventCard {...event.data} />)}
-        </CardContainer>
-        <a href={`/events?city=${name}`}>
-          <Button label={`View ${name} events`} class="mt-8 mb-16" />
-        </a>
+        <EventList events={allCityEvents} city={name} />
         <SectionHeader title={`Latest news on ${name}`} />
         <CardContainer>
           {allCityNews.map((news) => <NewsCard {...news.data} />)}
