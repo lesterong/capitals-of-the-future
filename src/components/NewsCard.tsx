@@ -23,7 +23,7 @@ const NewsCard = ({
         />
       )}
       <p className="mt-2 text-gray-700">{description}</p>
-      <div className="text-gray-500 mt-6">
+      <div className="text-gray-500 mt-6 text-sm">
         {newsDate.toLocaleDateString("en-us", {
           year: "numeric",
           month: "short",

@@ -30,7 +30,7 @@ const { Content } = await render();
       <h1 class="font-bold text-5xl max-w-3xl mt-1">{data.title}</h1>
       <p class="text-gray-500 mt-2">{data.description}</p>
       <p class="text-gray-500 mt-4">
-        <FormattedDate date={data.eventDate} /> / 0 comments
+        <FormattedDate date={data.eventDate} /> / {data.organisers.join(', ')} / 0 comments
       </p>
     </div>
   </header>
