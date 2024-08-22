@@ -7,26 +7,13 @@ import ContentContainer from "@components/ContentContainer.astro";
 import EventList from "@components/EventList.astro";
 import { getSortedEvents } from "@utils/eventUtils";
 import { EVENTS_PER_PAGE } from "consts";
+import PaginatedEventList from "@components/PaginatedEventList";
 
 const allEvents = getSortedEvents(await getCollection("event"));
 ---
 
 <Layout title="Events">
   <Navbar />
-  <header class="pt-32 pb-6 relative">
-    <div class="max-w-6xl px-4 mx-auto">
-      <div class="flex gap-1">
-        <h1 class="font-bold text-5xl">Events</h1>
-        <span>{allEvents.length}</span>
-      </div>
-    </div>
-  </header>
-  <main>
-    <ContentContainer class="min-h-lvh">
-      <div class="max-w-6xl px-4 mx-auto">
-        <EventList events={allEvents.slice(0, EVENTS_PER_PAGE)} listOnly />
-      </div>
-    </ContentContainer>
-  </main>
+  <PaginatedEventList client:load events={allEvents} />
   <Footer />
 </Layout>
