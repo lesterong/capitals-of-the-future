@@ -2,10 +2,12 @@ import { defineCollection, z } from "astro:content";
 
 const city = defineCollection({
   type: "data",
-  schema: z.object({
-    name: z.string(),
-    description: z.string(),
-  }),
+  schema: z.array(
+    z.object({
+      name: z.string(),
+      description: z.string(),
+    }),
+  ),
 });
 
 const blog = defineCollection({
