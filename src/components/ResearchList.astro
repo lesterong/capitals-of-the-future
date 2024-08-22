@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from "astro:content";
+import SectionHeader from "./SectionHeader.astro";
+import Button from "./Button.astro";
+import ResearchCard from "./ResearchCard.astro";
+
+type Props = {
+  research: CollectionEntry<"research">[];
+  city?: string;
+  listOnly?: boolean;
+};
+
+const { research, city, listOnly = false } = Astro.props;
+---
+
+{
+  !listOnly && (
+    <SectionHeader title={`Latest research${city ? ` on ${city}` : ""}`} />
+  )
+}
+<div class:list={["grid grid-cols-1 gap-y-7", { "mt-6": !listOnly }]}>
+  {research.map((n) => <ResearchCard {...n.data} />)}
+</div>
+{
+  !listOnly && (
+    <a href={`/research${city ? `?city=${city}` : ""}`}>
+      <Button
+        label={`View ${city ? "" : "all "}research ${city ? ` on ${city}` : ""}`}
+        class="mt-8 mb-16"
+      />
+    </a>
+  )
+}
