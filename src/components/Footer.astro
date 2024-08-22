@@ -1,17 +1,31 @@
 ---
+import { getEntry } from "astro:content";
+
 const today = new Date();
+const { data: allCities } = await getEntry("city", "cities");
 ---
 
 <footer class="relative bg-sky-200">
   <div class="absolute top-0 h-10 w-full rounded-b-full bg-gray-50"></div>
   <div class="max-w-6xl mx-auto px-4 pt-16 pb-7 text-sky-700">
     <div class="flex justify-between">
-      <div class="grid gap-8 grid-cols-1 min-[428px]:grid-cols-2 md:grid-cols-3 w-3/4 max-w-xs md:max-w-md">
-        <nav class="flex flex-col space-y-1">
+      <div
+        class={`grid gap-8 grid-cols-1 min-[428px]:grid-cols-2 md:grid-cols-4 w-3/4 max-w-xs md:max-w-md`}
+      >
+        <nav
+          class:list={[
+            "flex flex-col space-y-1",
+            allCities.length < 10 ? "col-span-1" : "col-span-2",
+          ]}
+        >
           <span class="text-sm font-bold mb-2">Cities</span>
-          <a href="/singapore">Singapore</a>
-          <a href="/nusantara">Nusantara</a>
-          <a href="/putrajaya">Putrajaya</a>
+          <div class:list={["grid", allCities.length < 10 ? "grid-cols-1" : "grid-cols-2"]}>
+            {
+              allCities.map((city) => (
+                <a href={`/${city.name.toLowerCase()}`}>{city.name}</a>
+              ))
+            }
+          </div>
         </nav>
         <nav class="flex flex-col space-y-1">
           <span class="text-sm font-bold mb-2">Sitemap</span>
@@ -30,7 +44,9 @@ const today = new Date();
         <p class="text-sky-900 font-bold text-[40px] leading-9 w-48">
           Capitals of the future
         </p>
-        <p class="leading-5">Place, power, and<br />possibility in Southeast Asia</p>
+        <p class="leading-5">
+          Place, power, and<br />possibility in Southeast Asia
+        </p>
       </div>
     </div>
     <div class="text-sky-600/60 text-sm mt-7 text-center sm:text-left">
