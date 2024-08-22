@@ -3,16 +3,18 @@ import "../styles/global.css";
 import "@fontsource-variable/plus-jakarta-sans";
 import "@fontsource-variable/plus-jakarta-sans/wght-italic.css";
 import plusJakartaSans from "@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2?url";
+import { SITE_TITLE, SITE_DESCRIPTION } from "consts";
 
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
+const { title: pageTitle, description = SITE_DESCRIPTION, image = "/blog-placeholder-1.jpg" } = Astro.props;
+const title = !pageTitle ? SITE_TITLE : `${SITE_TITLE} | ${pageTitle}`
 ---
 
 <!doctype html>
