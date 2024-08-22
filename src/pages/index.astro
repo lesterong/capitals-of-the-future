@@ -21,7 +21,14 @@ const { data: allCities } = await getEntry("city", "cities");
     </div>
     <div class="absolute bottom-0 h-10 w-full rounded-t-full bg-gray-50"></div>
   </div>
-  <div class="md:h-dvh flex justify-center items-center">
+  <div
+    class:list={[
+      "mt-6 md:h-dvh flex justify-center",
+      allCities.length > 6
+        ? "md:mt-6 md:h-auto"
+        : "md:mt-0 md:h-dvh items-center",
+    ]}
+  >
     <div class="max-w-6xl w-full px-4">
       <SectionHeader title="3 cities" />
       <p class="font-bold text-5xl">Many connections.</p>
@@ -31,7 +38,12 @@ const { data: allCities } = await getEntry("city", "cities");
     </div>
   </div>
   <div>
-    <div class="max-w-6xl px-4 mx-auto">
+    <div
+      class:list={[
+        "max-w-6xl px-4 mx-auto mt-16",
+        allCities.length > 6 ? "md:mt-16" : "md:mt-2",
+      ]}
+    >
       <SectionHeader title="Upcoming events" />
       <SectionHeader title="Latest research" />
       <SectionHeader title="Latest news" />
