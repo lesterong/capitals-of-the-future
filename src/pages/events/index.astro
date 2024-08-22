@@ -16,13 +16,8 @@ const allEvents = getSortedEvents(await getCollection("event")).slice(0, EVENTS_
 <Layout title="Events">
   <Navbar />
   <header class="pt-32 pb-6 relative">
-    <div
-      class="h-[50vh] w-full absolute top-0 left-0 -z-10 before:content-[''] before:absolute before:top-0 before:left-0 before:bottom-0 before:right-0 before:bg-black/60"
-    >
-      <Image src={singapore} alt="" class="object-cover w-full h-full" />
-    </div>
     <div class="max-w-6xl px-4 mx-auto">
-      <h1 class="font-bold text-5xl text-white">Events</h1>
+      <h1 class="font-bold text-5xl">Events</h1>
     </div>
   </header>
   <main>
