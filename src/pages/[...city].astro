@@ -1,11 +1,14 @@
 ---
 import Footer from "@components/Footer.astro";
 import Navbar from "@components/Navbar.astro";
-import { getEntry, type InferEntrySchema } from "astro:content";
+import { getCollection, getEntry, type InferEntrySchema } from "astro:content";
 import { Image } from "astro:assets";
 import Layout from "layouts/Layout.astro";
 import singapore from "@assets/putrajaya.jpg";
 import SectionHeader from "@components/SectionHeader.astro";
+import { getSortedEventsByCity } from "@utils/eventUtils";
+import EventCard from "@components/EventCard.astro";
+import Button from "@components/Button.astro";
 
 export const getStaticPaths = async () => {
   {
@@ -22,6 +25,7 @@ export const getStaticPaths = async () => {
 type Props = InferEntrySchema<"city">[number];
 
 const { name } = Astro.props;
+const allCityEvents = getSortedEventsByCity(await getCollection("event"), name);
 ---
 
 <Layout title={name}>
@@ -40,6 +44,15 @@ const { name } = Astro.props;
     <div class:list={["bg-gray-50 rounded-[40px] pt-12 h-dvh"]}>
       <div class="max-w-6xl px-4 mx-auto">
         <SectionHeader title={`Latest research on ${name}`} />
+        <SectionHeader title={`Upcoming events on ${name}`} />
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6 gap-x-4 gap-y-7"
+        >
+          {allCityEvents.map((event) => <EventCard {...event.data} />)}
+        </div>
+        <a href={`/events?city=${name}`}>
+          <Button label={`View ${name} events`} class="mt-8 mb-16" />
+        </a>
         <SectionHeader title={`Latest news on ${name}`} />
         <SectionHeader title={`Social media on ${name}`} />
       </div>

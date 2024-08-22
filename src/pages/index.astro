@@ -10,9 +10,10 @@ import ResearchCard from "@components/ResearchCard.astro";
 import { getCollection } from "astro:content";
 import Navbar from "@components/Navbar.astro";
 import Footer from "@components/Footer.astro";
+import { getSortedEvents } from "@utils/eventUtils";
 
 const { data: allCities } = await getEntry("city", "cities");
-const allEvents = await getCollection("event");
+const allEvents = getSortedEvents(await getCollection("event"));
 const allNews = await getCollection("news");
 const allResearch = await getCollection("research");
 ---
