@@ -23,7 +23,7 @@ const allResearch = getSortedResearch(await getCollection("research"));
 <Layout>
   <Navbar />
   <main>
-    <div class="relative h-dvh">
+    <div class="relative h-lvh">
       <div class="px-4 h-full flex items-center mx-auto max-w-6xl">
         <div class="w-96">
           <h1 class="text-7xl font-bold">Capitals of the future</h1>
@@ -36,8 +36,8 @@ const allResearch = getSortedResearch(await getCollection("research"));
     <ContentContainer class={allCities.length > 6 ? "md:pt-12" : "md:pt-6"}>
       <div
         class:list={[
-          "md:h-dvh flex justify-center",
-          allCities.length > 6 ? "md:h-auto" : "md:h-dvh items-center",
+          "flex justify-center",
+          allCities.length > 6 ? "" : "md:h-lvh items-center",
         ]}
       >
         <div class="max-w-6xl w-full px-4">
