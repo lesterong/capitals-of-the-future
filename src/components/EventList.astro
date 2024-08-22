@@ -24,7 +24,7 @@ const { events, city, listOnly = false } = Astro.props;
     { "mt-6": !listOnly },
   ]}
 >
-  {events.map((event) => <EventCard {...event.data} />)}
+  {events.map((event) => <EventCard slug={event.slug} {...event.data} />)}
 </div>
 {
   !listOnly && (

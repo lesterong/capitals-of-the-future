@@ -4,15 +4,17 @@ import FormattedDate from "@components/FormattedDate.astro";
 import { Picture } from "astro:assets";
 import CardTags from "./CardTags.astro";
 
-type Props = InferEntrySchema<"event">;
-const { title, description, eventDate, heroImg, cities } = Astro.props;
+type Props = InferEntrySchema<"event"> & { slug: string };
+const { title, description, eventDate, heroImg, cities, slug } = Astro.props;
 ---
 
 <article>
   <CardTags type="events" tags={cities} />
-  <h3 class="text-xl font-bold mt-1">
-    {title}
-  </h3>
+  <a href={`/events/${slug}`} class="hover:text-sky-700 hover:underline">
+    <h3 class="text-xl font-bold mt-1">
+      {title}
+    </h3>
+  </a>
   {
     heroImg && (
       <Picture
