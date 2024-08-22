@@ -1,13 +1,13 @@
 import { defineCollection, z } from "astro:content";
 
+const citySchema = z.object({
+  name: z.string(),
+  description: z.string(),
+});
+
 const city = defineCollection({
   type: "data",
-  schema: z.array(
-    z.object({
-      name: z.string(),
-      description: z.string(),
-    }),
-  ),
+  schema: z.array(citySchema),
 });
 
 const blog = defineCollection({
@@ -22,3 +22,4 @@ const blog = defineCollection({
 });
 
 export const collections = { blog, city };
+export type CityProps = z.infer<typeof citySchema>

@@ -1,0 +1,17 @@
+---
+import type { CityProps } from "../content/config";
+import Button from "../components/Button.astro";
+
+type Props = CityProps;
+const { name, description } = Astro.props;
+---
+
+<div>
+  <h3 class="text-2xl font-bold">{name}</h3>
+  <p class="leading-5 mt-3 pl-4 border-l-2 border-gray-300 text-gray-700">
+    {description}
+  </p>
+  <a href={`/${name.toLowerCase()}`}>
+    <Button className="mt-4" label={`Discover ${name}`} />
+  </a>
+</div>

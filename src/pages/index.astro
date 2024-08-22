@@ -4,6 +4,7 @@ import Button from "../components/Button.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import Layout from "../layouts/Layout.astro";
+import CityCard from "../components/CityCard.astro";
 
 const { data: allCities } = await getEntry("city", "cities");
 ---
@@ -25,19 +26,7 @@ const { data: allCities } = await getEntry("city", "cities");
       <SectionHeader title="3 cities" />
       <p class="font-bold text-5xl">Many connections.</p>
       <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4">
-        {
-          allCities.map((city) => (
-            <div>
-              <h3 class="text-2xl font-bold">{city.name}</h3>
-              <p class="leading-5 mt-3 pl-4 border-l-2 border-gray-300 text-gray-700">
-                {city.description}
-              </p>
-              <a href={`/${city.name.toLowerCase()}`}>
-                <Button className="mt-4" label={`Discover ${city.name}`} />
-              </a>
-            </div>
-          ))
-        }
+        {allCities.map((city) => <CityCard {...city} />)}
       </div>
     </div>
   </div>
