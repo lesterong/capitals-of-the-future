@@ -3,7 +3,7 @@ import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 ---
 
-<header class="flex justify-center max-w-6xl px-4 mx-auto fixed w-full left-0 right-0 z-10">
+<div class="flex justify-center max-w-6xl px-4 mx-auto fixed w-full left-0 right-0 z-10">
   <nav class="flex justify-between items-center w-full mt-2 px-4 py-2 bg-white/70 backdrop-blur-xl rounded-xl">
     <h2 class="font-bold text-lg uppercase">
       <a href="/">{SITE_TITLE}</a>
@@ -16,4 +16,4 @@ import { SITE_TITLE } from "../consts";
       <HeaderLink href="/information">Information</HeaderLink>
     </div>
   </nav>
-</header>
+</div>
