@@ -1,13 +1,20 @@
 ---
-import type { CityProps } from "../content/config";
+import type { InferEntrySchema } from "astro:content";
 import Button from "../components/Button.astro";
+import { Picture } from "astro:assets";
 
-type Props = CityProps;
-const { name, description } = Astro.props;
+type Props = InferEntrySchema<"city">[number];
+const { name, description, mainImg } = Astro.props;
 ---
 
 <div>
-  <h3 class="text-2xl font-bold">{name}</h3>
+  <Picture
+    class="rounded-lg aspect-video"
+    src={mainImg}
+    formats={["avif", "webp"]}
+    alt=""
+  />
+  <h3 class="text-2xl mt-2 font-bold">{name}</h3>
   <p class="leading-5 mt-3 pl-4 border-l-2 border-gray-300 text-gray-700">
     {description}
   </p>
