@@ -7,7 +7,12 @@ const { type, tags = [] } = Astro.props;
 ---
 
 <div class="flex items-center space-x-1">
-  <span class="text-sm font-bold uppercase text-sky-600">{type}</span>
+  <a
+    href={`/${type}`}
+    class="text-sm font-bold uppercase transition-colors text-sky-600 hover:text-sky-800"
+  >
+    {type}
+  </a>
   <span>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -23,9 +28,11 @@ const { type, tags = [] } = Astro.props;
   <div class="shrink flex flex-wrap gap-1">
     {
       tags.map((tag) => (
-        <button class="text-sm bg-gray-100 border border-gray-200/70 px-2 py-0.5 rounded-lg">
-          {tag}
-        </button>
+        <a href={`/${tag.toLowerCase()}`}>
+          <button class="text-sm bg-gray-100 border border-gray-200/70 px-2 py-0.5 rounded-lg transition-all hover:border-sky-600 active:scale-95">
+            {tag}
+          </button>
+        </a>
       ))
     }
   </div>
