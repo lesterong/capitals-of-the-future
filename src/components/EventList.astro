@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import EventCard from "./EventCard.astro";
+import EventCard from "./EventCard";
 import SectionHeader from "./SectionHeader.astro";
 import Button from "./Button.astro";
 
@@ -24,7 +24,7 @@ const { events, city, listOnly = false } = Astro.props;
     { "mt-6": !listOnly },
   ]}
 >
-  {events.map((event) => <EventCard slug={event.slug} {...event.data} />)}
+  {events.map((event) => <EventCard slug={event.slug} data={event.data} />)}
 </div>
 {
   !listOnly && (

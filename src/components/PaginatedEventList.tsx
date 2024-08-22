@@ -1,5 +1,5 @@
-import CardTags from "./CardTags";
 import type { CollectionEntry } from "astro:content";
+import EventCard from "./EventCard";
 
 const PaginatedEventList = ({
   events,
@@ -36,34 +36,3 @@ const PaginatedEventList = ({
 };
 
 export default PaginatedEventList;
-
-const EventCard = ({ slug, data }: CollectionEntry<"event">) => {
-  const { title, description, heroImg, eventDate, cities } = data;
-  return (
-    <article>
-      <CardTags type="events" tags={cities} />
-      <a
-        href={`/events/${slug}`}
-        className="hover:text-sky-700 hover:underline"
-      >
-        <h3 className="text-xl font-bold mt-1">{title}</h3>
-      </a>
-      {heroImg && (
-        <img
-          src={heroImg.src}
-          alt=""
-          className="rounded-lg aspect-video mt-2"
-        />
-      )}
-      <p className="mt-2 text-gray-700">{description}</p>
-      <div className="text-gray-500 mt-6">
-        {eventDate.toLocaleDateString("en-us", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        })}{" "}
-        / 0 comments
-      </div>
-    </article>
-  );
-};
