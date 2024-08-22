@@ -26,6 +26,22 @@ const event = defineCollection({
     }),
 });
 
+const research = defineCollection({
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      abstract: z.string(),
+      authors: z.string(),
+      publication: z.string(),
+      pubDate: z.coerce.date(),
+      cities: z.array(z.string()).refine((val) => val.length > 0, {
+        message: "At least one city must be selected for a research paper.",
+      }),
+      heroImg: image().optional(),
+    }),
+});
+
 const blog = defineCollection({
   type: "content",
   schema: z.object({
@@ -37,4 +53,4 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog, city, event };
+export const collections = { blog, city, event, research };

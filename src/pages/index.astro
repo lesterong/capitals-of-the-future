@@ -11,6 +11,7 @@ import ResearchCard from "@components/ResearchCard.astro";
 
 const { data: allCities } = await getEntry("city", "cities");
 const allEvents = await getCollection("event");
+const allResearch = await getCollection("research");
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -52,19 +53,14 @@ const allEvents = await getCollection("event");
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6 gap-x-4 gap-y-7"
       >
-        {
-          allEvents.map((event) => {
-            return <EventCard {...event.data} />;
-          })
-        }
+        {allEvents.map((event) => <EventCard {...event.data} />)}
       </div>
       <a href="/events">
         <Button label="View all events" className="mt-8 mb-16" />
       </a>
       <SectionHeader title="Latest research" />
       <div class="grid mt-6 grid-cols-1 gap-y-7">
-        <ResearchCard />
-        <ResearchCard />
+        {allResearch.map((research) => <ResearchCard {...research.data} />)}
       </div>
       <a href="/research">
         <Button label="View all research" className="mt-8 mb-16" />
