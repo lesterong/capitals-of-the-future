@@ -30,7 +30,7 @@ const CardTags = ({
       </span>
       <div className="shrink flex flex-wrap gap-1">
         {tags.map((tag) => (
-          <a href={`/${tag.toLowerCase()}`}>
+          <a href={`/${tag.toLowerCase()}`} key={tag}>
             <button className="text-sm bg-gray-100 border border-gray-200/70 px-2 py-0.5 rounded-lg transition-all hover:border-sky-600 active:scale-95">
               {tag}
             </button>

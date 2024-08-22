@@ -20,6 +20,7 @@ const event = defineCollection({
       title: z.string(),
       description: z.string(),
       eventDate: z.coerce.date(),
+      organisers: z.array(z.string()),
       cities: z.array(z.string()).refine((val) => val.length > 0, {
         message: "At least one city must be selected for an event.",
       }),
