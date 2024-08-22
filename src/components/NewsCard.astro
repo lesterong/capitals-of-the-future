@@ -1,0 +1,32 @@
+---
+import type { InferEntrySchema } from "astro:content";
+import FormattedDate from "@components/FormattedDate.astro";
+import { Picture } from "astro:assets";
+import CardTags from "./CardTags.astro";
+
+type Props = InferEntrySchema<"news">;
+const { title, description, newsDate, heroImg, cities } = Astro.props;
+---
+
+<article>
+  <CardTags type="news" tags={cities} />
+  <h3 class="text-xl font-bold mt-1">
+    {title}
+  </h3>
+  {
+    heroImg && (
+      <Picture
+        class="rounded-lg aspect-video mt-2"
+        src={heroImg}
+        formats={["avif", "webp"]}
+        alt=""
+      />
+    )
+  }
+  <p class="mt-2 text-gray-700">
+    {description}
+  </p>
+  <div class="text-gray-500 mt-6">
+    <FormattedDate date={newsDate} /> / 0 comments
+  </div>
+</article>
