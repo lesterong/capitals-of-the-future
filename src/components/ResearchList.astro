@@ -2,7 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import SectionHeader from "./SectionHeader.astro";
 import Button from "./Button.astro";
-import ResearchCard from "./ResearchCard.astro";
+import ResearchCard from "./ResearchCard";
 
 type Props = {
   research: CollectionEntry<"research">[];
@@ -19,7 +19,7 @@ const { research, city, listOnly = false } = Astro.props;
   )
 }
 <div class:list={["grid grid-cols-1 gap-y-7", { "mt-6": !listOnly }]}>
-  {research.map((n) => <ResearchCard {...n.data} />)}
+  {research.map((r) => <ResearchCard slug={r.slug} data={r.data} />)}
 </div>
 {
   !listOnly && (
