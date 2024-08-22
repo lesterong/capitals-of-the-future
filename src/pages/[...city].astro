@@ -9,6 +9,8 @@ import SectionHeader from "@components/SectionHeader.astro";
 import { getSortedEventsByCity } from "@utils/eventUtils";
 import EventCard from "@components/EventCard.astro";
 import Button from "@components/Button.astro";
+import { getSortedNewsByCity } from "@utils/newsUtils";
+import NewsCard from "@components/NewsCard.astro";
 
 export const getStaticPaths = async () => {
   {
@@ -26,6 +28,7 @@ type Props = InferEntrySchema<"city">[number];
 
 const { name } = Astro.props;
 const allCityEvents = getSortedEventsByCity(await getCollection("event"), name);
+const allCityNews = getSortedNewsByCity(await getCollection("news"), name);
 ---
 
 <Layout title={name}>
@@ -41,7 +44,7 @@ const allCityEvents = getSortedEventsByCity(await getCollection("event"), name);
     </div>
   </header>
   <main>
-    <div class:list={["bg-gray-50 rounded-[40px] pt-12 h-dvh"]}>
+    <div class:list={["bg-gray-50 rounded-[40px] pt-12"]}>
       <div class="max-w-6xl px-4 mx-auto">
         <SectionHeader title={`Latest research on ${name}`} />
         <SectionHeader title={`Upcoming events on ${name}`} />
@@ -54,6 +57,14 @@ const allCityEvents = getSortedEventsByCity(await getCollection("event"), name);
           <Button label={`View ${name} events`} class="mt-8 mb-16" />
         </a>
         <SectionHeader title={`Latest news on ${name}`} />
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6 gap-x-4 gap-y-7"
+        >
+          {allCityNews.map((news) => <NewsCard {...news.data} />)}
+        </div>
+        <a href={`/news?city=${name}`}>
+          <Button label={`View ${name} news`} class="mt-8 mb-16" />
+        </a>
         <SectionHeader title={`Social media on ${name}`} />
       </div>
     </div>

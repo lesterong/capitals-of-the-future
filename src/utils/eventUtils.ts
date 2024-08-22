@@ -1,7 +1,7 @@
 import type { CollectionEntry } from "astro:content";
 
-export const getSortedEvents = (posts: CollectionEntry<"event">[]) => {
-  return posts.sort(
+export const getSortedEvents = (events: CollectionEntry<"event">[]) => {
+  return events.sort(
     (a, b) =>
       Math.floor(
         new Date(b.data.eventDate ?? b.data.eventDate).getTime() / 1000,
@@ -12,5 +12,5 @@ export const getSortedEvents = (posts: CollectionEntry<"event">[]) => {
   );
 };
 
-export const getSortedEventsByCity = (posts: CollectionEntry<"event">[], city: string) =>
-  getSortedEvents(posts.filter((post) => post.data.cities.includes(city)));
+export const getSortedEventsByCity = (events: CollectionEntry<"event">[], city: string) =>
+  getSortedEvents(events.filter((event) => event.data.cities.includes(city)));
