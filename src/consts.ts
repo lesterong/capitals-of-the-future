@@ -3,3 +3,5 @@
 
 export const SITE_TITLE = "Capitals of the Future";
 export const SITE_DESCRIPTION = "Welcome to my website!";
+export const EVENTS_PER_PAGE = 6
+export const NEWS_PER_PAGE = 6

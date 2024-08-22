@@ -7,8 +7,10 @@ import singapore from "@assets/putrajaya.jpg";
 import { getCollection } from "astro:content";
 import ContentContainer from "@components/ContentContainer.astro";
 import EventList from "@components/EventList.astro";
+import { getSortedEvents } from "@utils/eventUtils";
+import { EVENTS_PER_PAGE } from "consts";
 
-const allEvents = await getCollection("event");
+const allEvents = getSortedEvents(await getCollection("event")).slice(0, EVENTS_PER_PAGE);
 ---
 
 <Layout title="Events">
