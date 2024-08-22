@@ -18,25 +18,41 @@ const { data: allCities } = await getEntry("city", "cities");
           ]}
         >
           <span class="text-sm font-bold mb-2">Cities</span>
-          <div class:list={["grid gap-1", allCities.length < 10 ? "grid-cols-1" : "grid-cols-2"]}>
+          <div
+            class:list={[
+              "grid gap-1",
+              allCities.length < 10 ? "grid-cols-1" : "grid-cols-2",
+            ]}
+          >
             {
               allCities.map((city) => (
-                <a href={`/${city.name.toLowerCase()}`}>{city.name}</a>
+                <a
+                  href={`/${city.name.toLowerCase()}`}
+                  class="hover:text-sky-500 transition-colors"
+                >
+                  {city.name}
+                </a>
               ))
             }
           </div>
         </nav>
         <nav class="flex flex-col space-y-1">
           <span class="text-sm font-bold mb-2">Sitemap</span>
-          <a href="/events">Events</a>
-          <a href="/news">News</a>
-          <a href="/research">Research</a>
-          <a href="/information">Information</a>
+          <a href="/events" class="hover:text-sky-500 transition-colors"
+            >Events</a
+          >
+          <a href="/news" class="hover:text-sky-500 transition-colors">News</a>
+          <a href="/research" class="hover:text-sky-500 transition-colors"
+            >Research</a
+          >
+          <a href="/information" class="hover:text-sky-500 transition-colors"
+            >Information</a
+          >
         </nav>
         <nav class="flex flex-col space-y-1">
           <span class="text-sm font-bold mb-2">Socials</span>
-          <a href="#">Facebook</a>
-          <a href="#">LinkedIn</a>
+          <a href="#" class="hover:text-sky-500 transition-colors">Facebook</a>
+          <a href="#" class="hover:text-sky-500 transition-colors">LinkedIn</a>
         </nav>
       </div>
       <div class="flex space-y-1 flex-col items-end text-right">
