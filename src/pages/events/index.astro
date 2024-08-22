@@ -1,29 +1,30 @@
 ---
 import Footer from "@components/Footer.astro";
 import Navbar from "@components/Navbar.astro";
-import { Image } from "astro:assets";
 import Layout from "layouts/Layout.astro";
-import singapore from "@assets/putrajaya.jpg";
 import { getCollection } from "astro:content";
 import ContentContainer from "@components/ContentContainer.astro";
 import EventList from "@components/EventList.astro";
 import { getSortedEvents } from "@utils/eventUtils";
 import { EVENTS_PER_PAGE } from "consts";
 
-const allEvents = getSortedEvents(await getCollection("event")).slice(0, EVENTS_PER_PAGE);
+const allEvents = getSortedEvents(await getCollection("event"));
 ---
 
 <Layout title="Events">
   <Navbar />
   <header class="pt-32 pb-6 relative">
     <div class="max-w-6xl px-4 mx-auto">
-      <h1 class="font-bold text-5xl">Events</h1>
+      <div class="flex gap-1">
+        <h1 class="font-bold text-5xl">Events</h1>
+        <span>{allEvents.length}</span>
+      </div>
     </div>
   </header>
   <main>
     <ContentContainer class="min-h-dvh">
       <div class="max-w-6xl px-4 mx-auto">
-        <EventList events={allEvents} listOnly />
+        <EventList events={allEvents.slice(0, EVENTS_PER_PAGE)} listOnly />
       </div>
     </ContentContainer>
   </main>
