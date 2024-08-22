@@ -7,12 +7,14 @@ import Layout from "layouts/Layout.astro";
 import singapore from "@assets/putrajaya.jpg";
 import SectionHeader from "@components/SectionHeader.astro";
 import { getSortedEventsByCity } from "@utils/eventUtils";
+import { getSortedNewsByCity } from "@utils/newsUtils";
+import { getSortedResearchByCity } from "@utils/researchUtils";
 import EventCard from "@components/EventCard.astro";
 import Button from "@components/Button.astro";
-import { getSortedNewsByCity } from "@utils/newsUtils";
 import NewsCard from "@components/NewsCard.astro";
 import ContentContainer from "@components/ContentContainer.astro";
 import CardContainer from "@components/CardContainer.astro";
+import ResearchCard from "@components/ResearchCard.astro";
 
 export const getStaticPaths = async () => {
   {
@@ -31,6 +33,10 @@ type Props = InferEntrySchema<"city">[number];
 const { name } = Astro.props;
 const allCityEvents = getSortedEventsByCity(await getCollection("event"), name);
 const allCityNews = getSortedNewsByCity(await getCollection("news"), name);
+const allCityResearch = getSortedResearchByCity(
+  await getCollection("research"),
+  name
+);
 ---
 
 <Layout title={name}>
@@ -49,6 +55,16 @@ const allCityNews = getSortedNewsByCity(await getCollection("news"), name);
     <ContentContainer>
       <div class="max-w-6xl px-4 mx-auto">
         <SectionHeader title={`Latest research on ${name}`} />
+        <div class="grid mt-6 grid-cols-1 gap-y-7">
+          {
+            allCityResearch.map((research) => (
+              <ResearchCard {...research.data} />
+            ))
+          }
+        </div>
+        <a href={`/research?city=${name}`}>
+          <Button label={`View research on ${name}`} class="mt-8 mb-16" />
+        </a>
         <SectionHeader title={`Upcoming events on ${name}`} />
         <CardContainer>
           {allCityEvents.map((event) => <EventCard {...event.data} />)}
@@ -61,7 +77,7 @@ const allCityNews = getSortedNewsByCity(await getCollection("news"), name);
           {allCityNews.map((news) => <NewsCard {...news.data} />)}
         </CardContainer>
         <a href={`/news?city=${name}`}>
-          <Button label={`View ${name} news`} class="mt-8 mb-16" />
+          <Button label={`View news on ${name}`} class="mt-8 mb-16" />
         </a>
         <SectionHeader title={`Social media on ${name}`} />
       </div>

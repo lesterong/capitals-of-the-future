@@ -12,13 +12,14 @@ import Navbar from "@components/Navbar.astro";
 import Footer from "@components/Footer.astro";
 import { getSortedEvents } from "@utils/eventUtils";
 import { getSortedNews } from "@utils/newsUtils";
+import { getSortedResearch } from "@utils/researchUtils";
 import ContentContainer from "@components/ContentContainer.astro";
 import CardContainer from "@components/CardContainer.astro";
 
 const { data: allCities } = await getEntry("city", "cities");
 const allEvents = getSortedEvents(await getCollection("event"));
 const allNews = getSortedNews(await getCollection("news"));
-const allResearch = await getCollection("research");
+const allResearch = getSortedResearch(await getCollection("research"));
 ---
 
 <Layout>
