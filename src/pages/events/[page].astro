@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
+import Layout from "layouts/Layout.astro";
+import EventCard from "@components/EventCard.astro";
+import Footer from "@components/Footer.astro";
+import Navbar from "@components/Navbar.astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allEvents = await getCollection("event");
+  return paginate(allEvents, { pageSize: 6 });
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { page } = Astro.props;
+console.log(page.currentPage);
+---
+
+<Layout title="Events">
+  <Navbar />
+  <header class="pt-32 pb-6 relative">
+    <div class="max-w-6xl px-4 mx-auto">
+      <h1 class="font-bold text-5xl">Events</h1>
+    </div>
+  </header>
+  <main>
+    <div class:list={["bg-gray-50 rounded-[40px] pt-12 h-dvh"]}>
+      <div
+        class="max-w-6xl px-4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+      >
+        {page.data.map(({ data: event }) => <EventCard {...event} />)}
+      </div>
+    </div>
+    <Footer />
+  </main>
+</Layout>
