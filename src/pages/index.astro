@@ -1,45 +1,32 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="text-gray-900 bg-gray-50">
-    <Header />
-    <main class="">
-      <div class="relative h-[calc(100dvh+40px)] bg-sky-200">
-        <div class="px-4 h-full flex items-center mx-auto max-w-6xl">
-          <div class="w-96">
-            <h1 class="text-7xl font-bold">Capitals of the future</h1>
-            <p class="mt-8">
-              The future of our cities. What's it going to be like?
-            </p>
-          </div>
-        </div>
-        <div class="absolute bottom-0 h-10 w-full rounded-t-full bg-gray-50">
-        </div>
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div class="relative h-[calc(100dvh+40px)] bg-sky-200">
+    <div class="px-4 h-full flex items-center mx-auto max-w-6xl">
+      <div class="w-96">
+        <h1 class="text-7xl font-bold">Capitals of the future</h1>
+        <p class="mt-8">
+          The future of our cities. What's it going to be like?
+        </p>
       </div>
-      <div class="h-dvh">
-        <div class="max-w-6xl px-4 mx-auto">
-          <SectionHeader title="3 cities" />
-          <p class="font-bold text-5xl">Many connections.</p>
-        </div>
-      </div>
-      <div>
-        <div class="max-w-6xl px-4 mx-auto">
-          <SectionHeader title="Upcoming events" />
-          <SectionHeader title="Latest research" />
-          <SectionHeader title="Latest news" />
-        </div>
-      </div>
-    </main>
-    <Footer />
-  </body>
-</html>
+    </div>
+    <div class="absolute bottom-0 h-10 w-full rounded-t-full bg-gray-50"></div>
+  </div>
+  <div class="h-dvh">
+    <div class="max-w-6xl px-4 mx-auto">
+      <SectionHeader title="3 cities" />
+      <p class="font-bold text-5xl">Many connections.</p>
+    </div>
+  </div>
+  <div>
+    <div class="max-w-6xl px-4 mx-auto">
+      <SectionHeader title="Upcoming events" />
+      <SectionHeader title="Latest research" />
+      <SectionHeader title="Latest news" />
+    </div>
+  </div>
+</Layout>
