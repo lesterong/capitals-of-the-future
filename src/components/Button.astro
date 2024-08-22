@@ -1,0 +1,17 @@
+---
+interface Props {
+  className?: string;
+  label: string;
+}
+
+const { label, className = "" } = Astro.props;
+---
+
+<button
+  class:list={[
+    "border rounded-2xl px-4 py-1 border-gray-900 hover:bg-sky-600 hover:border-transparent hover:text-white",
+    className,
+  ]}
+>
+  {label}
+</button>
