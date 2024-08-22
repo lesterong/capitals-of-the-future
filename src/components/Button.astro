@@ -1,10 +1,10 @@
 ---
 interface Props {
-  className?: string;
+  class?: string;
   label: string;
 }
 
-const { label, className = "" } = Astro.props;
+const { label, class: className = "" } = Astro.props;
 ---
 
 <button

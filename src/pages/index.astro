@@ -65,14 +65,14 @@ const allResearch = await getCollection("research");
             {allEvents.map((event) => <EventCard {...event.data} />)}
           </div>
           <a href="/events">
-            <Button label="View all events" className="mt-8 mb-16" />
+            <Button label="View all events" class="mt-8 mb-16" />
           </a>
           <SectionHeader title="Latest research" />
           <div class="grid mt-6 grid-cols-1 gap-y-7">
             {allResearch.map((research) => <ResearchCard {...research.data} />)}
           </div>
           <a href="/research">
-            <Button label="View all research" className="mt-8 mb-16" />
+            <Button label="View all research" class="mt-8 mb-16" />
           </a>
           <SectionHeader title="Latest news" />
           <div
@@ -81,7 +81,7 @@ const allResearch = await getCollection("research");
             {allNews.map((event) => <NewsCard {...event.data} />)}
           </div>
           <a href="/news">
-            <Button label="View all news" className="mt-8 mb-16" />
+            <Button label="View all news" class="mt-8 mb-16" />
           </a>
         </div>
       </div>
