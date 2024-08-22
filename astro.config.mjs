@@ -6,6 +6,9 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    '/events/1': '/events'
+  },
   site: "https://example.com",
   integrations: [mdx(), sitemap(), tailwind()]
 });
