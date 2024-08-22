@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import NewsCard from "./NewsCard.astro";
+import NewsCard from "./NewsCard";
 import SectionHeader from "./SectionHeader.astro";
 import Button from "./Button.astro";
 
@@ -24,7 +24,7 @@ const { news, city, listOnly = false } = Astro.props;
     { "mt-6": !listOnly },
   ]}
 >
-  {news.map((n) => <NewsCard {...n.data} />)}
+  {news.map((n) => <NewsCard slug={n.slug} data={n.data} />)}
 </div>
 {
   !listOnly && (
