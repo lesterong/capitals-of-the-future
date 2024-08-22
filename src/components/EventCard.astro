@@ -1,10 +1,15 @@
 ---
+import type { InferEntrySchema } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import { Picture } from "astro:assets";
 
+type Props = InferEntrySchema<"event">;
+const { title, description, eventDate, cities } = Astro.props;
 ---
 
 <article>
   <div class="flex items-center space-x-1">
-    <span class="text-sm font-bold uppercase text-sky-600">EVENTS</span>
+    <span class="text-sm font-bold uppercase text-sky-600">Events</span>
     <span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -19,20 +24,21 @@
           d="m9 20.247 6-16.5"></path>
       </svg>
     </span>
-    <button class="text-sm bg-gray-200 px-2 py-0.5 rounded-lg">
-      Singapore
-    </button>
-    <button class="text-sm bg-gray-200 px-2 py-0.5 rounded-lg">
-      Nusantara
-    </button>
+    {
+      cities.map((city) => (
+        <button class="text-sm bg-gray-200 px-2 py-0.5 rounded-lg">
+          {city}
+        </button>
+      ))
+    }
   </div>
   <h3 class="text-xl font-bold mt-1">
-    The cities of Singapore, Nusantara and Putrajaya
+    {title}
   </h3>
   <p class="mt-3 text-gray-700">
-    Find out about how Singapore, Nusantara and Putrajaya come together as one.
+    {description}
   </p>
   <div class="text-gray-500 mt-6">
-    Aug 20, 2024 / 0 comments
+    <FormattedDate date={eventDate} /> / 0 comments
   </div>
 </article>

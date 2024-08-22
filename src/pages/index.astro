@@ -6,8 +6,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import Layout from "../layouts/Layout.astro";
 import CityCard from "../components/CityCard.astro";
 import EventCard from "components/EventCard.astro";
+import { getCollection } from "astro:content";
 
 const { data: allCities } = await getEntry("city", "cities");
+const allEvents = await getCollection('event')
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -49,13 +51,9 @@ const { data: allCities } = await getEntry("city", "cities");
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6 gap-x-4 gap-y-7"
       >
-        <EventCard />
-        <EventCard />
-        <EventCard />
-        <EventCard />
-        <EventCard />
-        <EventCard />
-        <EventCard />
+        {allEvents.map((event) => {
+          return <EventCard {...event.data} />
+        })}
       </div>
       <a href="/events">
         <Button label="View all events" className="mt-8 mb-16" />

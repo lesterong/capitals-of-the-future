@@ -2,11 +2,26 @@ import { defineCollection, z } from "astro:content";
 
 const city = defineCollection({
   type: "data",
-  schema: ({ image }) => z.array(z.object({
-    name: z.string(),
+  schema: ({ image }) =>
+    z.array(
+      z.object({
+        name: z.string(),
+        description: z.string(),
+        mainImg: image(),
+      }),
+    ),
+});
+
+const event = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
     description: z.string(),
-    mainImg: image(),
-  })),
+    eventDate: z.coerce.date(),
+    cities: z.array(z.string()).refine((val) => val.length > 0, {
+      message: "At least one city must be selected for an event.",
+    }),
+  }),
 });
 
 const blog = defineCollection({
@@ -20,4 +35,4 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog, city };
+export const collections = { blog, city, event };
