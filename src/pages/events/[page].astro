@@ -8,7 +8,7 @@ import Navbar from "@components/Navbar.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allEvents = await getCollection("event");
-  return paginate(allEvents, { pageSize: 6 });
+  return paginate(allEvents, { pageSize: 9 });
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
