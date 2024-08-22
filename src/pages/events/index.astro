@@ -5,8 +5,8 @@ import { Image } from "astro:assets";
 import Layout from "layouts/Layout.astro";
 import singapore from "@assets/putrajaya.jpg";
 import { getCollection } from "astro:content";
-import EventCard from "@components/EventCard.astro";
 import ContentContainer from "@components/ContentContainer.astro";
+import EventList from "@components/EventList.astro";
 
 const allEvents = await getCollection("event");
 ---
@@ -25,10 +25,8 @@ const allEvents = await getCollection("event");
   </header>
   <main>
     <ContentContainer class="min-h-dvh">
-      <div
-        class="max-w-6xl px-4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-      >
-        {allEvents.map((event) => <EventCard {...event.data} />)}
+      <div class="max-w-6xl px-4 mx-auto">
+        <EventList events={allEvents} listOnly />
       </div>
     </ContentContainer>
   </main>

@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import CardContainer from "./CardContainer.astro";
 import EventCard from "./EventCard.astro";
 import SectionHeader from "./SectionHeader.astro";
 import Button from "./Button.astro";
@@ -8,18 +7,32 @@ import Button from "./Button.astro";
 type Props = {
   events: CollectionEntry<"event">[];
   city?: string;
+  listOnly?: boolean;
 };
 
-const { events, city } = Astro.props;
+const { events, city, listOnly = false } = Astro.props;
 ---
 
-<SectionHeader title={`Upcoming events${city ? ` in ${city}` : ""}`} />
-<CardContainer>
+{
+  !listOnly && (
+    <SectionHeader title={`Upcoming events${city ? ` in ${city}` : ""}`} />
+  )
+}
+<div
+  class:list={[
+    "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-7",
+    { "mt-6": !listOnly },
+  ]}
+>
   {events.map((event) => <EventCard {...event.data} />)}
-</CardContainer>
-<a href={`/events${city ? `?city=${city}` : ""}`}>
-  <Button
-    label={`View ${city ? "" : "all "}events ${city ? ` in ${city}` : ""}`}
-    class="mt-8 mb-16"
-  />
-</a>
+</div>
+{
+  !listOnly && (
+    <a href={`/events${city ? `?city=${city}` : ""}`}>
+      <Button
+        label={`View ${city ? "" : "all "}events ${city ? ` in ${city}` : ""}`}
+        class="mt-8 mb-16"
+      />
+    </a>
+  )
+}

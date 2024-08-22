@@ -2,10 +2,10 @@
 import { getCollection } from "astro:content";
 import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 import Layout from "layouts/Layout.astro";
-import EventCard from "@components/EventCard.astro";
 import Footer from "@components/Footer.astro";
 import Navbar from "@components/Navbar.astro";
 import ContentContainer from "@components/ContentContainer.astro";
+import EventList from "@components/EventList.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allEvents = await getCollection("event");
@@ -26,10 +26,8 @@ console.log(page.currentPage);
   </header>
   <main>
     <ContentContainer class="min-h-dvh">
-      <div
-        class="max-w-6xl px-4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-      >
-        {page.data.map(({ data: event }) => <EventCard {...event} />)}
+      <div class="max-w-6xl px-4 mx-auto">
+        <EventList events={page.data} listOnly />
       </div>
     </ContentContainer>
   </main>
