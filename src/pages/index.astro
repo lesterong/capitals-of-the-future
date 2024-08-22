@@ -12,6 +12,7 @@ import Navbar from "@components/Navbar.astro";
 import Footer from "@components/Footer.astro";
 import { getSortedEvents } from "@utils/eventUtils";
 import { getSortedNews } from "@utils/newsUtils";
+import ContentContainer from "@components/ContentContainer.astro";
 
 const { data: allCities } = await getEntry("city", "cities");
 const allEvents = getSortedEvents(await getCollection("event"));
@@ -32,12 +33,7 @@ const allResearch = await getCollection("research");
         </div>
       </div>
     </div>
-    <div
-      class:list={[
-        "bg-gray-50 rounded-[40px] pt-12 relative z-10",
-        allCities.length > 6 ? "md:pt-12" : "md:pt-6",
-      ]}
-    >
+    <ContentContainer class={allCities.length > 6 ? "md:pt-12" : "md:pt-6"}>
       <div
         class:list={[
           "md:h-dvh flex justify-center",
@@ -86,7 +82,7 @@ const allResearch = await getCollection("research");
           </a>
         </div>
       </div>
-    </div>
+    </ContentContainer>
   </main>
   <Footer />
 </Layout>

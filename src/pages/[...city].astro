@@ -11,6 +11,7 @@ import EventCard from "@components/EventCard.astro";
 import Button from "@components/Button.astro";
 import { getSortedNewsByCity } from "@utils/newsUtils";
 import NewsCard from "@components/NewsCard.astro";
+import ContentContainer from "@components/ContentContainer.astro";
 
 export const getStaticPaths = async () => {
   {
@@ -44,7 +45,7 @@ const allCityNews = getSortedNewsByCity(await getCollection("news"), name);
     </div>
   </header>
   <main>
-    <div class:list={["bg-gray-50 rounded-[40px] pt-12 z-10"]}>
+    <ContentContainer>
       <div class="max-w-6xl px-4 mx-auto">
         <SectionHeader title={`Latest research on ${name}`} />
         <SectionHeader title={`Upcoming events on ${name}`} />
@@ -67,7 +68,7 @@ const allCityNews = getSortedNewsByCity(await getCollection("news"), name);
         </a>
         <SectionHeader title={`Social media on ${name}`} />
       </div>
-    </div>
+    </ContentContainer>
   </main>
   <Footer />
 </Layout>
