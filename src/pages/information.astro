@@ -42,13 +42,13 @@ const { data: team } = await getEntry("team", "team");
                     />
                     <div class="absolute rounded-full transition-opacity opacity-0 hover:opacity-100 top-0 bg-black/50 h-full w-full">
                       <div class="w-full h-full inline-flex flex-nowrap font-light text-white uppercase text-4xl italic">
-                        <ul class="flex items-center justify-center md:justify-start [&_li]:mx-3 animate-marquee">
+                        <ul class="flex items-center justify-center md:justify-start [&_li]:mx-3 animate-marquee motion-reduce:animate-none">
                           {[...Array(8)].map((_) => {
                             return <li>{city.name}</li>;
                           })}
                         </ul>
                         <ul
-                          class="flex items-center justify-center md:justify-start [&_li]:mx-3 animate-marquee"
+                          class="flex items-center justify-center md:justify-start [&_li]:mx-3 animate-marquee motion-reduce:animate-none"
                           aria-hidden="true"
                         >
                           {[...Array(8)].map((_) => {
