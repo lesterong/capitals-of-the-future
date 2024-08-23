@@ -1,6 +1,6 @@
 ---
 import { SITE_TITLE } from "consts";
-import { LinkIcon } from '@heroicons/react/24/solid'
+import { LinkIcon } from "@heroicons/react/24/solid";
 const SHARE_TEXT = `See this on ${SITE_TITLE}: ${Astro.url}`;
 ---
 
@@ -11,7 +11,8 @@ const SHARE_TEXT = `See this on ${SITE_TITLE}: ${Astro.url}`;
       class="p-1.5 border border-gray-900 rounded-md transition-colors hover:bg-sky-200"
       onclick={`navigator.clipboard.writeText('${Astro.url}')`}
     >
-    <LinkIcon className="size-5 stroke-current" />
+      <span class="sr-only">Copy to clipboard</span>
+      <LinkIcon className="size-5 stroke-current" />
     </button>
     <a
       target="_blank"
@@ -20,6 +21,7 @@ const SHARE_TEXT = `See this on ${SITE_TITLE}: ${Astro.url}`;
       <button
         class="p-1.5 border border-gray-900 rounded-md transition-colors hover:bg-sky-200"
       >
+        <span class="sr-only">Share on Facebook</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="size-5"
@@ -37,6 +39,7 @@ const SHARE_TEXT = `See this on ${SITE_TITLE}: ${Astro.url}`;
       target="_blank"
       href={`https://api.whatsapp.com/send?text=${SHARE_TEXT}`}
     >
+      <span class="sr-only">Share on WhatsApp</span>
       <button
         class="p-1.5 border border-gray-900 rounded-md transition-colors hover:bg-sky-200"
       >
@@ -57,6 +60,7 @@ const SHARE_TEXT = `See this on ${SITE_TITLE}: ${Astro.url}`;
       <button
         class="p-1.5 border border-gray-900 rounded-md transition-colors hover:bg-sky-200"
       >
+        <span class="sr-only">Share on Telegram</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="size-5"
