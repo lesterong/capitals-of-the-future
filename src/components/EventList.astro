@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import EventCard from "./EventCard";
 import SectionHeader from "./SectionHeader.astro";
 import Button from "./Button.astro";
+import { EVENTS_LATEST } from "consts";
 
 type Props = {
   events: CollectionEntry<"event">[];
@@ -24,7 +25,11 @@ const { events, city, listOnly = false } = Astro.props;
     { "mt-6": !listOnly },
   ]}
 >
-  {events.map((event) => <EventCard slug={event.slug} data={event.data} />)}
+  {
+    events
+      .slice(0, EVENTS_LATEST)
+      .map((event) => <EventCard slug={event.slug} data={event.data} />)
+  }
 </div>
 {
   !listOnly && (
