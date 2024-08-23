@@ -1,4 +1,4 @@
-import { defineCollection, z, type InferEntrySchema } from "astro:content";
+import { defineCollection, z } from "astro:content";
 
 const city = defineCollection({
   type: "data",

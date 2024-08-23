@@ -4,6 +4,7 @@ import ContentContainer from "@components/ContentContainer.astro";
 import Footer from "@components/Footer.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import Navbar from "@components/Navbar.astro";
+import Prose from "@components/Prose.astro";
 import ShareLinks from "@components/ShareLinks.astro";
 import { Picture } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
@@ -30,7 +31,8 @@ const { Content } = await render();
       <h1 class="font-bold text-5xl max-w-3xl mt-1">{data.title}</h1>
       <p class="text-gray-500 mt-2 text-lg">{data.description}</p>
       <p class="text-gray-500 mt-4 text-sm">
-        <FormattedDate date={data.eventDate} /> / {data.organisers.join(', ')} / 0 comments
+        <FormattedDate date={data.eventDate} /> / {data.organisers.join(", ")} /
+        0 comments
       </p>
     </div>
   </header>
@@ -48,7 +50,9 @@ const { Content } = await render();
           )
         }
         <div class="max-w-3xl mx-auto">
-          <Content />
+          <Prose>
+            <Content />
+          </Prose>
           <ShareLinks />
         </div>
       </div>
