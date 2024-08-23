@@ -29,7 +29,7 @@ const allResearch = getSortedResearch(await getCollection("research"));
         <div class="h-[110lvh]" id="map"></div>
       </div>
       <div class="px-4 h-full flex items-center mx-auto max-w-6xl">
-        <div class="w-96 z-[9998]">
+        <div class="w-96 z-[9998] text-white">
           <h1 class="text-7xl font-bold">Capitals of the future</h1>
           <p class="mt-8">
             The future of our cities. What's it going to be like?
@@ -78,13 +78,28 @@ const allResearch = getSortedResearch(await getCollection("research"));
     zoomControl: false,
     scrollWheelZoom: false,
     dragging: false,
-  }).setView([0.218, 93.728], 5);
-  
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution:
-      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  }).addTo(map);
+  }).setView([0.218, 98.728], 5);
+
+  window.addEventListener("resize", function (_) {
+    var width = document.documentElement.clientWidth;
+    if (width < 968) {
+      map.setView([0.218, 98.728]);
+    } else {
+      map.setView([0.218, 98.728]);
+    }
+  });
+
+  var Stadia_AlidadeSmoothDark = L.tileLayer(
+    "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}",
+    {
+      minZoom: 0,
+      maxZoom: 20,
+      attribution:
+        '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      // @ts-ignore
+      ext: "png",
+    }
+  ).addTo(map);
 
   const singaporeMarker = L.marker([1.283333, 103.833333]).addTo(map);
   const nusantaraMarker = L.marker([-0.973056, 116.708611]).addTo(map);
