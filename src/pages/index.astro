@@ -25,6 +25,10 @@ const allResearch = getSortedResearch(await getCollection("research"));
   <Navbar />
   <main>
     <div class="relative h-lvh">
+      <div
+        class="absolute h-[110lvh] top-0 left-0 right-0 bottom-0 bg-black/20 pointer-events-none z-[9997]"
+      >
+      </div>
       <div class="absolute top-0 left-0 right-0 bottom-0">
         <div class="h-[110lvh]" id="map"></div>
       </div>
@@ -73,20 +77,34 @@ const allResearch = getSortedResearch(await getCollection("research"));
 <script>
   import * as L from "leaflet";
 
-  // initialize the map on the "map" div with a given center and zoom
   const map = L.map("map", {
     zoomControl: false,
     scrollWheelZoom: false,
     dragging: false,
-  }).setView([0.218, 98.728], 5);
+  }).setView([0.218, 98.728], 5, {
+    animate: false,
+  });
+
+  const handleMapPosition = (width: number) => {
+    if (width < 438) {
+      map.setView([8.218, 109.4], 4, {
+        animate: false,
+      });
+    } else if (width < 968) {
+      map.setView([8.218, 109.4], 5, {
+        animate: false,
+      });
+    } else {
+      map.setView([0.218, 98.728], 5, {
+        animate: false,
+      });
+    }
+  };
+
+  handleMapPosition(document.documentElement.clientWidth);
 
   window.addEventListener("resize", function (_) {
-    var width = document.documentElement.clientWidth;
-    if (width < 968) {
-      map.setView([0.218, 98.728]);
-    } else {
-      map.setView([0.218, 98.728]);
-    }
+    handleMapPosition(document.documentElement.clientWidth);
   });
 
   var Stadia_AlidadeSmoothDark = L.tileLayer(
