@@ -20,40 +20,46 @@ import singapore from "@assets/singapore.jpg";
   <main>
     <ContentContainer>
       <div class="max-w-6xl px-4 mx-auto">
-        <div class:list={["min-h-lvh grid grid-cols-5 gap-12 items-center"]}>
-          <div class="grid grid-rows-3 col-span-3">
+        <div
+          class:list={[
+            "min-h-lvh grid grid-cols-1 lg:grid-cols-5 gap-x-12 items-center",
+          ]}
+        >
+          <div
+            class="grid grid-cols-3 lg:grid-cols-1 lg:grid-rows-3 lg:col-span-3"
+          >
             <div
-              class="h-full rounded-full flex items-center overflow-hidden odd:ml-16 even:mr-16 aspect-[24/9]"
+              class="rounded-full odd:mt-8 even:mb-8 overflow-hidden lg:flex lg:items-center lg:rounded-full lg:odd:ml-16 lg:even:mr-16 lg:odd:mt-0 lg:even:mb-0 lg:aspect-[24/9]"
             >
               <Picture
-                class="min-h-full min-w-full"
+                class="h-96 object-cover lg:object-fill lg:h-full"
                 src={singapore}
                 alt=""
                 formats={["avif", "webp"]}
               />
             </div>
             <div
-              class="h-full rounded-full flex items-center overflow-hidden odd:ml-16 even:mr-16 aspect-[24/9]"
+              class="rounded-full odd:mt-8 even:mb-8 overflow-hidden lg:flex lg:items-center lg:rounded-full lg:odd:ml-16 lg:even:mr-16 lg:odd:mt-0 lg:even:mb-0 lg:aspect-[24/9]"
             >
               <Picture
-                class="min-h-full min-w-full"
+                class="h-96 object-cover lg:object-fill lg:h-full"
                 src={singapore}
                 alt=""
                 formats={["avif", "webp"]}
               />
             </div>
             <div
-              class="h-full rounded-full flex items-center overflow-hidden odd:ml-16 even:mr-16 aspect-[24/9]"
+              class="rounded-full odd:mt-8 even:mb-8 overflow-hidden lg:flex lg:items-center lg:rounded-full lg:odd:ml-16 lg:even:mr-16 lg:odd:mt-0 lg:even:mb-0 lg:aspect-[24/9]"
             >
               <Picture
-                class="min-h-full min-w-full"
+                class="h-96 object-cover lg:object-fill lg:h-full"
                 src={singapore}
                 alt=""
                 formats={["avif", "webp"]}
               />
             </div>
           </div>
-          <div class="col-span-2">
+          <div class="lg:col-span-2">
             <SectionHeader title="Our vision" />
             <p class="mt-8">
               Our research seeks to understand the interaction between
