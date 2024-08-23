@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import SectionHeader from "./SectionHeader.astro";
 import Button from "./Button.astro";
 import ResearchCard from "./ResearchCard";
+import { RESEARCH_LATEST } from "consts";
 
 type Props = {
   research: CollectionEntry<"research">[];
@@ -14,7 +15,11 @@ const { research, city } = Astro.props;
 
 <SectionHeader title={`Latest research${city ? ` on ${city}` : ""}`} />
 <div class="grid grid-cols-1 gap-y-7 mt-6">
-  {research.map((r) => <ResearchCard slug={r.slug} data={r.data} />)}
+  {
+    research
+      .slice(0, RESEARCH_LATEST)
+      .map((r) => <ResearchCard slug={r.slug} data={r.data} />)
+  }
 </div>
 <a href={`/research${city ? `?city=${city}` : ""}`}>
   <Button
