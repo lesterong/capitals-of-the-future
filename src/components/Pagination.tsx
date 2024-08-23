@@ -19,14 +19,14 @@ const Pagination = ({
   return (
     <>
       <button
-        className="p-2 rounded-lg disabled:text-gray-400"
+        className="p-2 rounded-lg transition-colors disabled:text-gray-400"
         onClick={() => handlePageChange(1)}
         disabled={page === 1}
       >
         <ChevronDoubleLeftIcon className="size-4 stroke-current" />
       </button>
       <button
-        className="p-2 rounded-lg disabled:text-gray-400"
+        className="p-2 rounded-lg transition-colors disabled:text-gray-400"
         disabled={page === 1}
         onClick={() => handlePageChange(page - 1)}
       >
@@ -42,7 +42,7 @@ const Pagination = ({
         }
         return (
           <button
-            className={`p-2 rounded-lg ${page === p ? "bg-sky-800 text-white" : ""}`}
+            className={`p-2 rounded-lg transition-colors ${page === p ? "bg-sky-800 text-white" : ""}`}
             onClick={() => handlePageChange(p)}
             key={p}
           >
@@ -51,14 +51,14 @@ const Pagination = ({
         );
       })}
       <button
-        className="p-2 rounded-lg disabled:text-gray-400"
+        className="p-2 rounded-lg transition-colors disabled:text-gray-400"
         disabled={page === totalPages}
         onClick={() => handlePageChange(page + 1)}
       >
         <ChevronRightIcon className="size-4 stroke-current" />
       </button>
       <button
-        className="p-2 rounded-lg disabled:text-gray-400"
+        className="p-2 rounded-lg transition-colors disabled:text-gray-400"
         disabled={page === totalPages}
         onClick={() => handlePageChange(totalPages)}
       >
