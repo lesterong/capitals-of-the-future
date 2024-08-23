@@ -8,15 +8,9 @@ import {
   ListboxOption,
   ListboxOptions,
 } from "@headlessui/react";
-import {
-  ChevronDoubleLeftIcon,
-  ChevronDoubleRightIcon,
-  ChevronDownIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from "@heroicons/react/24/solid";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { EVENTS_PER_PAGE } from "consts";
-import { getPagination } from "@utils/pagination";
+import Pagination from "./Pagination";
 
 const PaginatedEventList = ({
   events,
@@ -55,9 +49,6 @@ const PaginatedEventList = ({
     (page - 1) * EVENTS_PER_PAGE,
     page * EVENTS_PER_PAGE,
   );
-
-  const pagination = getPagination(page, totalPages);
-  console.log(pagination);
 
   const handleCityChange = (newCity: string) => {
     setCity(newCity);
@@ -178,52 +169,14 @@ const PaginatedEventList = ({
                 <EventCard {...event} key={event.id} />
               ))}
             </div>
-            <div className="flex justify-center mt-8">
-              <button
-                className="p-2 rounded-lg disabled:text-gray-400"
-                onClick={() => handlePageChange(1)}
-                disabled={page === 1}
-              >
-                <ChevronDoubleLeftIcon className="size-4 stroke-current" />
-              </button>
-              <button
-                className="p-2 rounded-lg disabled:text-gray-400"
-                disabled={page === 1}
-                onClick={() => handlePageChange(page - 1)}
-              >
-                <ChevronLeftIcon className="size-4 stroke-current" />
-              </button>
-              {pagination.map((p) => {
-                if (p === "...") {
-                  return (
-                    <button disabled className="p-2 rounded-lg">
-                      {p}
-                    </button>
-                  );
-                }
-                return (
-                  <button
-                    className={`p-2 rounded-lg ${page === p ? "bg-sky-800 text-white" : ""}`}
-                    onClick={() => handlePageChange(p)}
-                  >
-                    {p}
-                  </button>
-                );
-              })}
-              <button
-                className="p-2 rounded-lg disabled:text-gray-400"
-                disabled={page === totalPages}
-                onClick={() => handlePageChange(page + 1)}
-              >
-                <ChevronRightIcon className="size-4 stroke-current" />
-              </button>
-              <button
-                className="p-2 rounded-lg disabled:text-gray-400"
-                disabled={page === totalPages}
-                onClick={() => handlePageChange(totalPages)}
-              >
-                <ChevronDoubleRightIcon className="size-4 stroke-current" />
-              </button>
+            <div className="flex justify-center mt-8 pb-12">
+              {totalPages > 1 && (
+                <Pagination
+                  page={page}
+                  totalPages={totalPages}
+                  handlePageChange={handlePageChange}
+                />
+              )}
             </div>
           </div>
         </div>
