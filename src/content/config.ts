@@ -9,6 +9,7 @@ const city = defineCollection({
         description: z.string(),
         mainImg: image(),
         headerImg: image().optional(),
+        infoImg: image(),
       }),
     ),
 });

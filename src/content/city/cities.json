@@ -3,18 +3,21 @@
     "name": "Singapore",
     "description": "A melting pot of cultures, offering lush gardens, iconic landmarks, and a dynamic blend of modernity and heritage—all set within a tropical paradise.",
     "mainImg": "@assets/singapore.jpg",
-    "headerImg": "@assets/singapore.jpg"
+    "headerImg": "@assets/singapore.jpg",
+    "infoImg": "@assets/singapore.jpg"
   },
   {
     "name": "Nusantara",
     "description": "Indonesia's emerald jewel, a sustainable metropolis where ancient wisdom meets cutting-edge innovation.",
     "mainImg": "@assets/nusantara.jpg",
-    "headerImg": "@assets/nusantara.jpg"
+    "headerImg": "@assets/nusantara.jpg",
+    "infoImg": "@assets/nusantara.jpg"
   },
   {
     "name": "Putrajaya",
     "description": "Malaysia's future forged, a harmonious symphony of nature and governance, where innovation finds its home.",
     "mainImg": "@assets/putrajaya.jpg",
-    "headerImg": "@assets/putrajaya.jpg"
+    "headerImg": "@assets/putrajaya.jpg",
+    "infoImg": "@assets/putrajaya.jpg"
   }
 ]
