@@ -17,7 +17,7 @@ const Pagination = ({
 }) => {
   const pagination = getPagination(page, totalPages);
   return (
-    <>
+    <div className="text-gray-700">
       <button
         className="p-2 rounded-lg transition-colors disabled:text-gray-400"
         onClick={() => handlePageChange(1)}
@@ -64,7 +64,7 @@ const Pagination = ({
       >
         <ChevronDoubleRightIcon className="size-4 stroke-current" />
       </button>
-    </>
+    </div>
   );
 };
 

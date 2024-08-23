@@ -123,7 +123,7 @@ const PaginatedEventList = ({
         <div className="max-w-6xl px-4 mx-auto">
           <div className="flex gap-1">
             <h1 className="font-bold text-5xl">Events</h1>
-            <span>{eventsToShow.length}</span>
+            <span>{filteredEvents.length}</span>
           </div>
           <div className="space-x-4 mt-4 flex">
             <Listbox value={city} onChange={handleCityChange}>
