@@ -36,8 +36,8 @@ const allResearch = getSortedResearch(await getCollection("research"));
     <ContentContainer class={allCities.length > 6 ? "md:pt-12" : "md:pt-6"}>
       <div
         class:list={[
-          "flex justify-center",
-          allCities.length > 6 ? "" : "md:h-lvh items-center",
+          "min-h-lvh flex justify-center",
+          { "items-center": allCities.length <= 6 },
         ]}
       >
         <div class="max-w-6xl w-full px-4">

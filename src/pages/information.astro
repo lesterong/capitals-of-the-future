@@ -1,0 +1,71 @@
+---
+import Footer from "@components/Footer.astro";
+import Navbar from "@components/Navbar.astro";
+import Layout from "layouts/Layout.astro";
+import ContentContainer from "@components/ContentContainer.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { Picture } from "astro:assets";
+import singapore from "@assets/singapore.jpg";
+---
+
+<Layout title="Events">
+  <Navbar />
+  <header class="pt-32 pb-6 relative">
+    <div class="max-w-6xl px-4 mx-auto">
+      <div class="flex gap-1">
+        <h1 class="font-bold text-5xl">Information</h1>
+      </div>
+    </div>
+  </header>
+  <main>
+    <ContentContainer>
+      <div class="max-w-6xl px-4 mx-auto">
+        <div class:list={["min-h-lvh grid grid-cols-5 gap-12 items-center"]}>
+          <div class="col-span-3 grid grid-rows-3 max-h-[70vh]">
+            <div
+              class="h-full rounded-full flex items-center overflow-hidden odd:ml-16 even:mr-16"
+            >
+              <Picture
+                class="min-h-full min-w-full"
+                src={singapore}
+                alt=""
+                formats={["avif", "webp"]}
+              />
+            </div>
+            <div
+              class="h-full rounded-full flex items-center overflow-hidden odd:ml-16 even:mr-16"
+            >
+              <Picture
+                class="min-h-full min-w-full"
+                src={singapore}
+                alt=""
+                formats={["avif", "webp"]}
+              />
+            </div>
+            <div
+              class="h-full rounded-full flex items-center overflow-hidden odd:ml-16 even:mr-16"
+            >
+              <Picture
+                class="min-h-full min-w-full"
+                src={singapore}
+                alt=""
+                formats={["avif", "webp"]}
+              />
+            </div>
+          </div>
+          <div class="col-span-2">
+            <SectionHeader title="Our vision" />
+            <p class="mt-8">
+              Our research seeks to understand the interaction between
+              imaginations of the future, discourses of urban planning and
+              pathways of urban development. Interdisciplinary in thrust, our
+              research involves geography, sociology, history, and planning
+              studies
+            </p>
+          </div>
+        </div>
+      </div>
+    </ContentContainer>
+    <Footer />
+  </main>
+</Layout>
