@@ -5,7 +5,9 @@ import Layout from "layouts/Layout.astro";
 import ContentContainer from "@components/ContentContainer.astro";
 import SectionHeader from "@components/SectionHeader.astro";
 import { Picture } from "astro:assets";
-import singapore from "@assets/singapore.jpg";
+import { getEntry } from "astro:content";
+
+const cities = await getEntry("city", "cities");
 ---
 
 <Layout title="Events">
@@ -21,43 +23,25 @@ import singapore from "@assets/singapore.jpg";
     <ContentContainer>
       <div class="max-w-6xl px-4 mx-auto">
         <div
-          class:list={[
-            "min-h-lvh grid grid-cols-1 lg:grid-cols-5 gap-x-12 items-center",
-          ]}
+          class="min-h-lvh grid grid-cols-1 lg:grid-cols-5 gap-x-12 items-center"
         >
           <div
-            class="grid grid-cols-3 lg:grid-cols-1 lg:grid-rows-3 lg:col-span-3"
+            class="flex flex-row md:flex-col items-center lg:max-h-max md:col-span-3"
           >
-            <div
-              class="rounded-full odd:mt-8 even:mb-8 overflow-hidden lg:flex lg:items-center lg:rounded-full lg:odd:ml-16 lg:even:mr-16 lg:odd:mt-0 lg:even:mb-0 lg:aspect-[24/9]"
-            >
-              <Picture
-                class="h-96 object-cover lg:object-fill lg:h-full"
-                src={singapore}
-                alt=""
-                formats={["avif", "webp"]}
-              />
-            </div>
-            <div
-              class="rounded-full odd:mt-8 even:mb-8 overflow-hidden lg:flex lg:items-center lg:rounded-full lg:odd:ml-16 lg:even:mr-16 lg:odd:mt-0 lg:even:mb-0 lg:aspect-[24/9]"
-            >
-              <Picture
-                class="h-96 object-cover lg:object-fill lg:h-full"
-                src={singapore}
-                alt=""
-                formats={["avif", "webp"]}
-              />
-            </div>
-            <div
-              class="rounded-full odd:mt-8 even:mb-8 overflow-hidden lg:flex lg:items-center lg:rounded-full lg:odd:ml-16 lg:even:mr-16 lg:odd:mt-0 lg:even:mb-0 lg:aspect-[24/9]"
-            >
-              <Picture
-                class="h-96 object-cover lg:object-fill lg:h-full"
-                src={singapore}
-                alt=""
-                formats={["avif", "webp"]}
-              />
-            </div>
+            {
+              cities.data.map((city) => {
+                return (
+                  <div class="md:h-52 rounded-full odd:mt-8 even:mb-8 overflow-hidden md:flex md:items-center md:odd:ml-16 md:even:mr-16 md:odd:mt-0 md:even:mb-0 md:max-w-lg lg:max-w-full lg:aspect-[24/9]">
+                    <Picture
+                      class="h-96 object-cover md:object-fill md:h-full"
+                      src={city.mainImg}
+                      alt=""
+                      formats={["avif", "webp"]}
+                    />
+                  </div>
+                );
+              })
+            }
           </div>
           <div class="lg:col-span-2">
             <SectionHeader title="Our vision" />
