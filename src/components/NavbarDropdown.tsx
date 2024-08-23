@@ -12,7 +12,7 @@ const NavbarDropdown = ({ path }: { path: string }) => {
       </MenuButton>
       <MenuItems
         anchor="bottom start"
-        className="bg-white/70 backdrop-blur-xl rounded-xl mt-3 py-1 z-20"
+        className={`bg-white/70 backdrop-blur-xl rounded-xl mt-3 py-1 z-20 grid grid-rows-${cities.length <= 5 ? cities.length : 5} grid-flow-col`}
       >
         {cities.map((city) => {
           return (

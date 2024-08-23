@@ -41,7 +41,7 @@ const allResearch = getSortedResearch(await getCollection("research"));
         ]}
       >
         <div class="max-w-6xl w-full px-4">
-          <SectionHeader title="3 cities" />
+          <SectionHeader title={`${allCities.length} cities`} />
           <p class="font-bold text-5xl">Many connections.</p>
           <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-7">
             {allCities.map((city) => <CityCard {...city} />)}
