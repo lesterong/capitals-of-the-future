@@ -2,7 +2,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import Cities from "@content/city/cities.json";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
-const NavbarDropdown = () => {
+const NavbarDropdown = ({ path }: { path: string }) => {
   const cities = Cities.map((city) => city.name);
   return (
     <Menu>
@@ -16,9 +16,14 @@ const NavbarDropdown = () => {
       >
         {cities.map((city) => {
           return (
-            <MenuItem>
+            <MenuItem key={city}>
               <a
-                className="block py-1 pl-3 pr-8 text-gray-900/65 hover:text-gray-900"
+                className={`block py-1 pl-3 pr-8 
+                  ${
+                    `/${city.toLowerCase()}` === path
+                      ? "text-sky-600 after:content-['']"
+                      : "text-gray-900/65 hover:text-gray-900"
+                  }`}
                 href={city.toLowerCase()}
               >
                 {city}
