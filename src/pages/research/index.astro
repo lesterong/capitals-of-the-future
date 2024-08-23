@@ -1,0 +1,16 @@
+---
+import Footer from "@components/Footer.astro";
+import Navbar from "@components/Navbar.astro";
+import Layout from "layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import PaginatedResearchList from "@components/PaginatedResearchList";
+import { getSortedResearch } from "@utils/researchUtils";
+
+const allResearch = getSortedResearch(await getCollection("research"));
+---
+
+<Layout title="Research">
+  <Navbar />
+  <PaginatedResearchList client:load research={allResearch} />
+  <Footer />
+</Layout>

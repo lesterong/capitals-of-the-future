@@ -8,3 +8,6 @@ export const EVENTS_LATEST = 3;
 
 export const NEWS_PER_PAGE = 6;
 export const NEWS_LATEST = 3;
+
+export const RESEARCH_PER_PAGE = 7;
+export const RESEARCH_LATEST = 5;
