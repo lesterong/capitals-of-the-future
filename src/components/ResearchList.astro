@@ -7,27 +7,18 @@ import ResearchCard from "./ResearchCard";
 type Props = {
   research: CollectionEntry<"research">[];
   city?: string;
-  listOnly?: boolean;
 };
 
-const { research, city, listOnly = false } = Astro.props;
+const { research, city } = Astro.props;
 ---
 
-{
-  !listOnly && (
-    <SectionHeader title={`Latest research${city ? ` on ${city}` : ""}`} />
-  )
-}
-<div class:list={["grid grid-cols-1 gap-y-7", { "mt-6": !listOnly }]}>
+<SectionHeader title={`Latest research${city ? ` on ${city}` : ""}`} />
+<div class="grid grid-cols-1 gap-y-7 mt-6">
   {research.map((r) => <ResearchCard slug={r.slug} data={r.data} />)}
 </div>
-{
-  !listOnly && (
-    <a href={`/research${city ? `?city=${city}` : ""}`}>
-      <Button
-        label={`View ${city ? "" : "all "}research ${city ? ` on ${city}` : ""}`}
-        class="mt-8 mb-16"
-      />
-    </a>
-  )
-}
+<a href={`/research${city ? `?city=${city}` : ""}`}>
+  <Button
+    label={`View ${city ? "" : "all "}research ${city ? ` on ${city}` : ""}`}
+    class="mt-8 mb-16"
+  />
+</a>

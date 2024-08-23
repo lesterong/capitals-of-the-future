@@ -8,22 +8,14 @@ import { EVENTS_LATEST } from "consts";
 type Props = {
   events: CollectionEntry<"event">[];
   city?: string;
-  listOnly?: boolean;
 };
 
-const { events, city, listOnly = false } = Astro.props;
+const { events, city } = Astro.props;
 ---
 
-{
-  !listOnly && (
-    <SectionHeader title={`Upcoming events${city ? ` in ${city}` : ""}`} />
-  )
-}
+<SectionHeader title={`Upcoming events${city ? ` in ${city}` : ""}`} />
 <div
-  class:list={[
-    "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-7",
-    { "mt-6": !listOnly },
-  ]}
+  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-7 mt-6"
 >
   {
     events
@@ -31,13 +23,9 @@ const { events, city, listOnly = false } = Astro.props;
       .map((event) => <EventCard slug={event.slug} data={event.data} />)
   }
 </div>
-{
-  !listOnly && (
-    <a href={`/events${city ? `?city=${city}` : ""}`}>
-      <Button
-        label={`View ${city ? "" : "all "}events ${city ? ` in ${city}` : ""}`}
-        class="mt-8 mb-16"
-      />
-    </a>
-  )
-}
+<a href={`/events${city ? `?city=${city}` : ""}`}>
+  <Button
+    label={`View ${city ? "" : "all "}events ${city ? ` in ${city}` : ""}`}
+    class="mt-8 mb-16"
+  />
+</a>
