@@ -58,6 +58,19 @@ const research = defineCollection({
     }),
 });
 
+const team = defineCollection({
+  type: "data",
+  schema: ({ image }) =>
+    z.array(
+      z.object({
+        name: z.string(),
+        description: z.string(),
+        email: z.string().email().optional(),
+        img: image(),
+      }),
+    ),
+});
+
 const blog = defineCollection({
   type: "content",
   schema: z.object({
@@ -69,4 +82,4 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog, city, event, news, research };
+export const collections = { blog, city, event, news, team, research };

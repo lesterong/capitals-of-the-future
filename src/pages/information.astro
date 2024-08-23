@@ -4,10 +4,12 @@ import Navbar from "@components/Navbar.astro";
 import Layout from "layouts/Layout.astro";
 import ContentContainer from "@components/ContentContainer.astro";
 import SectionHeader from "@components/SectionHeader.astro";
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { Picture } from "astro:assets";
 import { getEntry } from "astro:content";
 
 const cities = await getEntry("city", "cities");
+const { data: team } = await getEntry("team", "team");
 ---
 
 <Layout title="Events">
@@ -45,13 +47,43 @@ const cities = await getEntry("city", "cities");
           </div>
           <div class="lg:col-span-2 w-full">
             <SectionHeader title="Our vision" />
-            <p class="mt-8">
+            <p class="mt-4 lg:mt-8">
               Our research seeks to understand the interaction between
               imaginations of the future, discourses of urban planning and
               pathways of urban development. Interdisciplinary in thrust, our
               research involves geography, sociology, history, and planning
               studies
             </p>
+          </div>
+        </div>
+        <div>
+          <SectionHeader title="Our team" />
+          <div
+            class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-8 gap-x-3 gap-y-6 pb-12"
+          >
+            {
+              team.map((person) => {
+                return (
+                  <div>
+                    <Picture
+                      class="aspect-[3/4] object-cover rounded-lg"
+                      src={person.img}
+                      alt=""
+                    />
+                    <h3 class="font-bold text-xl mt-1.5">John Doe</h3>
+                    <p class="text-gray-700 text-sm">{person.description}</p>
+                    {person.email && (
+                      <a
+                        class="inline-block transition-colors hover:text-sky-600"
+                        href={`mailto:${person.email}`}
+                      >
+                        <EnvelopeIcon className="size-5 stroke-current mt-3" />
+                      </a>
+                    )}
+                  </div>
+                );
+              })
+            }
           </div>
         </div>
       </div>
