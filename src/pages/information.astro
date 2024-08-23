@@ -23,7 +23,7 @@ const cities = await getEntry("city", "cities");
     <ContentContainer>
       <div class="max-w-6xl px-4 mx-auto">
         <div
-          class="min-h-lvh grid grid-cols-1 lg:grid-cols-5 gap-x-12 items-center"
+          class="min-h-lvh flex flex-col justify-center lg:grid lg:grid-cols-5 gap-x-12 gap-y-8 items-center"
         >
           <div
             class="flex flex-row md:flex-col items-center lg:max-h-max md:col-span-3"
@@ -31,9 +31,9 @@ const cities = await getEntry("city", "cities");
             {
               cities.data.map((city) => {
                 return (
-                  <div class="md:h-52 rounded-full odd:mt-8 even:mb-8 overflow-hidden md:flex md:items-center md:odd:ml-16 md:even:mr-16 md:odd:mt-0 md:even:mb-0 md:max-w-lg lg:max-w-full lg:aspect-[24/9]">
+                  <div class="md:h-52 rounded-full odd:mt-8 even:mb-8 overflow-hidden md:flex md:items-center md:odd:ml-12 md:even:mr-12 md:odd:mt-0 md:even:mb-0 md:max-w-lg lg:max-w-full lg:aspect-[24/9]">
                     <Picture
-                      class="h-96 object-cover md:object-fill md:h-full"
+                      class="h-72 min-[468px]:h-96 object-cover md:object-fill md:h-full"
                       src={city.mainImg}
                       alt=""
                       formats={["avif", "webp"]}
@@ -43,7 +43,7 @@ const cities = await getEntry("city", "cities");
               })
             }
           </div>
-          <div class="lg:col-span-2">
+          <div class="lg:col-span-2 w-full">
             <SectionHeader title="Our vision" />
             <p class="mt-8">
               Our research seeks to understand the interaction between
