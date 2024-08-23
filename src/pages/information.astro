@@ -33,7 +33,10 @@ const { data: team } = await getEntry("team", "team");
             {
               cities.data.map((city) => {
                 return (
-                  <div class="relative md:h-52 rounded-full odd:mt-8 even:mb-8 overflow-hidden md:flex md:items-center md:odd:ml-12 md:even:mr-12 md:odd:mt-0 md:even:mb-0 md:max-w-lg lg:max-w-full lg:aspect-[24/9]">
+                  <a
+                    href={`/${city.name.toLowerCase()}`}
+                    class="relative block md:h-52 rounded-full odd:mt-8 even:mb-8 overflow-hidden md:flex md:items-center md:odd:ml-12 md:even:mr-12 md:odd:mt-0 md:even:mb-0 md:max-w-lg lg:max-w-full lg:aspect-[24/9]"
+                  >
                     <Picture
                       class="h-72 min-[468px]:h-96 object-cover md:object-fill md:h-full"
                       src={city.infoImg}
@@ -57,7 +60,7 @@ const { data: team } = await getEntry("team", "team");
                         </ul>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 );
               })
             }
