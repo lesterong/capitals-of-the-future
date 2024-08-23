@@ -33,13 +33,30 @@ const { data: team } = await getEntry("team", "team");
             {
               cities.data.map((city) => {
                 return (
-                  <div class="md:h-52 rounded-full odd:mt-8 even:mb-8 overflow-hidden md:flex md:items-center md:odd:ml-12 md:even:mr-12 md:odd:mt-0 md:even:mb-0 md:max-w-lg lg:max-w-full lg:aspect-[24/9]">
+                  <div class="relative md:h-52 rounded-full odd:mt-8 even:mb-8 overflow-hidden md:flex md:items-center md:odd:ml-12 md:even:mr-12 md:odd:mt-0 md:even:mb-0 md:max-w-lg lg:max-w-full lg:aspect-[24/9]">
                     <Picture
                       class="h-72 min-[468px]:h-96 object-cover md:object-fill md:h-full"
                       src={city.infoImg}
                       alt=""
                       formats={["avif", "webp"]}
                     />
+                    <div class="absolute rounded-full transition-opacity opacity-0 hover:opacity-100 top-0 bg-black/50 h-full w-full">
+                      <div class="w-full h-full inline-flex flex-nowrap font-light text-white uppercase text-4xl italic">
+                        <ul class="flex items-center justify-center md:justify-start [&_li]:mx-3 animate-marquee">
+                          {[...Array(8)].map((_) => {
+                            return <li>{city.name}</li>;
+                          })}
+                        </ul>
+                        <ul
+                          class="flex items-center justify-center md:justify-start [&_li]:mx-3 animate-marquee"
+                          aria-hidden="true"
+                        >
+                          {[...Array(8)].map((_) => {
+                            return <li>{city.name}</li>;
+                          })}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 );
               })

@@ -1,4 +1,5 @@
 import defaultTheme from "tailwindcss/defaultTheme";
+import { transform } from "typescript";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -7,6 +8,15 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Plus Jakarta Sans Variable", ...defaultTheme.fontFamily.sans],
+      },
+      animation: {
+        'marquee': 'scroll 25s linear infinite',
+      },
+      keyframes: {
+        scroll: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - 8px))" },
+        },
       },
     },
   },
