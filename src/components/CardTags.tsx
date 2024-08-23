@@ -1,3 +1,5 @@
+import { SlashIcon } from "@heroicons/react/24/solid";
+
 const CardTags = ({
   type,
   tags = [],
@@ -13,21 +15,7 @@ const CardTags = ({
       >
         {type}
       </a>
-      <span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          className="size-4 stroke-gray-700/40"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m9 20.247 6-16.5"
-          ></path>
-        </svg>
-      </span>
+      <SlashIcon className="size-4 fill-gray-700/40" />
       <div className="shrink flex flex-wrap gap-1">
         {tags.map((tag) => (
           <a href={`/${tag.toLowerCase()}`} key={tag}>
@@ -41,4 +29,4 @@ const CardTags = ({
   );
 };
 
-export default CardTags
+export default CardTags;
