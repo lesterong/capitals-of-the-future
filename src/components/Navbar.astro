@@ -1,7 +1,8 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
-import { Bars3Icon } from '@heroicons/react/24/solid'
+import { Bars3Icon } from "@heroicons/react/24/solid";
+import NavbarDropdown from "./NavbarDropdown";
 ---
 
 <div
@@ -15,11 +16,13 @@ import { Bars3Icon } from '@heroicons/react/24/solid'
     </h2>
     <div class="flex space-x-6">
       <Bars3Icon className="size-6 block md:hidden" />
-      <HeaderLink href="/cities" class="hidden md:block">Cities</HeaderLink>
+      <NavbarDropdown client:load />
       <HeaderLink href="/events" class="hidden md:block">Events</HeaderLink>
       <HeaderLink href="/research" class="hidden md:block">Research</HeaderLink>
       <HeaderLink href="/news" class="hidden md:block">News</HeaderLink>
-      <HeaderLink href="/information" class="hidden md:block">Information</HeaderLink>
+      <HeaderLink href="/information" class="hidden md:block">
+        Information
+      </HeaderLink>
     </div>
   </nav>
 </div>
