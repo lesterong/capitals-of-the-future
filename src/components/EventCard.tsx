@@ -32,7 +32,7 @@ const EventCard = ({
           month: "short",
           day: "numeric",
         })}{" "}
-        / {organisers.join(", ")} / 0 comments
+        / 0 comments
       </div>
     </article>
   );

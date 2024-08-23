@@ -8,6 +8,7 @@ import {
   ListboxOption,
   ListboxOptions,
 } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
 const PaginatedEventList = ({
   events,
@@ -85,16 +86,18 @@ const PaginatedEventList = ({
         <div className="max-w-6xl px-4 mx-auto">
           <div className="flex gap-1">
             <h1 className="font-bold text-5xl">Events</h1>
-            <span>{events.length}</span>
+            <span>{eventsToShow.length}</span>
           </div>
-          <div className="space-x-4 mt-4">
+          <div className="space-x-4 mt-4 flex">
             <Listbox value={city} onChange={handleCityChange}>
-              <ListboxButton className="border border-gray-900 py-0.5 px-3 rounded-md">
-                {!!city ? city : "All cities"}
+              <ListboxButton className="border border-gray-900 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
+                {!!city ? city : "All cities"}{" "}
+                <ChevronDownIcon className="size-3 stroke-current" />
               </ListboxButton>
               <ListboxOptions
                 anchor="bottom start"
-                className="z-10 bg-white drop-shadow-sm rounded-lg mt-1"
+                className="z-10 bg-white drop-shadow-sm rounded-lg mt-1 origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0"
+                transition
               >
                 <ListboxOption
                   value=""
@@ -114,12 +117,14 @@ const PaginatedEventList = ({
               </ListboxOptions>
             </Listbox>
             <Listbox value={organiser} onChange={handleOrganiserChange}>
-              <ListboxButton className="border border-gray-900 py-0.5 px-3 rounded-md">
-                {!!organiser ? organiser : "All organisers"}
+              <ListboxButton className="border border-gray-900 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
+                {!!organiser ? organiser : "All organisers"}{" "}
+                <ChevronDownIcon className="size-3 stroke-current" />
               </ListboxButton>
               <ListboxOptions
                 anchor="bottom start"
-                className="z-10 bg-white drop-shadow-sm rounded-lg mt-1"
+                className="z-10 bg-white drop-shadow-sm rounded-lg mt-1 origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0"
+                transition
               >
                 <ListboxOption
                   value=""
