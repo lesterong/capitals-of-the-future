@@ -22,18 +22,6 @@ const PaginatedEventList = ({
   const [city, setCity] = useState<string>("");
   const [organiser, setOrganiser] = useState<string>("");
 
-  useEffect(() => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    if (validCities.includes(urlParams.get("city") || "")) {
-      setCity(urlParams.get("city") || "");
-    }
-
-    if (validOrganisers.includes(urlParams.get("organiser") || "")) {
-      setOrganiser(urlParams.get("organiser") || "");
-    }
-  }, []);
-
   const filteredEvents = events
     .filter((event) => {
       return city === "" || event.data.cities.includes(city);
@@ -50,48 +38,83 @@ const PaginatedEventList = ({
     page * EVENTS_PER_PAGE,
   );
 
-  const handleCityChange = (newCity: string) => {
-    setCity(newCity);
+  useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const organiserParams = urlParams.get("organiser");
-    if (newCity) {
-      history.replaceState(
-        {},
-        "",
-        `events?city=${newCity}${!organiserParams ? "" : `&organiser=${organiserParams}`}`,
-      );
-    } else {
-      history.replaceState(
-        {},
-        "",
-        `events${!organiserParams ? "" : `?organiser=${organiserParams}`}`,
-      );
+    const urlCity = urlParams.get("city");
+    const urlOrganiser = urlParams.get("organiser");
+    const urlPage = Number(urlParams.get("page"));
+    if (validCities.includes(urlCity || "")) {
+      setCity(urlCity || "");
     }
+
+    if (validOrganisers.includes(urlOrganiser || "")) {
+      setOrganiser(urlOrganiser || "");
+    }
+
+    if (!isNaN(urlPage)) {
+      if (urlPage <= totalPages && urlPage > 0) {
+        setPage(urlPage);
+      }
+    }
+  }, []);
+
+  const handleCityChange = (newCity: string) => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (newCity) {
+      urlParams.set("city", newCity);
+    } else {
+      urlParams.delete("city");
+    }
+    if (newCity != city) {
+      urlParams.delete("page");
+      setPage(1);
+    }
+    history.replaceState(
+      {},
+      "",
+      `/events${urlParams.size > 0 ? `?${urlParams.toString()}` : ""}`,
+    );
+    setCity(newCity);
   };
 
   const handleOrganiserChange = (newOrganiser: string) => {
-    setOrganiser(newOrganiser);
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const cityParams = urlParams.get("city");
     if (newOrganiser) {
-      history.replaceState(
-        {},
-        "",
-        `events?organiser=${newOrganiser}${!cityParams ? "" : `&city=${cityParams}`}`,
-      );
+      urlParams.set("organiser", newOrganiser);
     } else {
-      history.replaceState(
-        {},
-        "",
-        `events${!cityParams ? "" : `?city=${cityParams}`}`,
-      );
+      urlParams.delete("organiser");
     }
+
+    if (newOrganiser != organiser) {
+      urlParams.delete("page");
+      setPage(1);
+    }
+
+    history.replaceState(
+      {},
+      "",
+      `/events${urlParams.size > 0 ? `?${urlParams.toString()}` : ""}`,
+    );
+    setOrganiser(newOrganiser);
   };
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (newPage) {
+      urlParams.set("page", `${newPage}`);
+    } else {
+      urlParams.delete("page");
+    }
+    history.replaceState(
+      {},
+      "",
+      `/events${urlParams.size > 0 ? `?${urlParams.toString()}` : ""}`,
+    );
   };
 
   return (
