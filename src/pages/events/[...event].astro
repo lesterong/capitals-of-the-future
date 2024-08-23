@@ -6,6 +6,7 @@ import FormattedDate from "@components/FormattedDate.astro";
 import Navbar from "@components/Navbar.astro";
 import Prose from "@components/Prose.astro";
 import ShareLinks from "@components/ShareLinks.astro";
+import { CalendarDaysIcon, UserGroupIcon, ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/solid";
 import { Picture } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "layouts/Layout.astro";
@@ -30,10 +31,18 @@ const { Content } = await render();
       <CardTags type="events" tags={data.cities} />
       <h1 class="font-bold text-5xl max-w-3xl mt-1">{data.title}</h1>
       <p class="text-gray-500 mt-2 text-lg">{data.description}</p>
-      <p class="text-gray-500 mt-4 text-sm">
-        <FormattedDate date={data.eventDate} /> / {data.organisers.join(", ")} /
+      <div class="text-gray-500 flex items-center gap-1 text-sm mt-4">
+        <CalendarDaysIcon className="size-4" />
+        <FormattedDate date={data.eventDate} />
+      </div>
+      <div class="text-gray-500 flex items-center gap-1 text-sm">
+        <UserGroupIcon className="size-4" />
+        {data.organisers.join(", ")}
+      </div>
+      <div class="text-gray-500 flex items-center gap-1 text-sm">
+        <ChatBubbleOvalLeftEllipsisIcon className="size-4" />
         0 comments
-      </p>
+      </div>
     </div>
   </header>
   <main>
