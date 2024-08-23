@@ -3,10 +3,7 @@ import Footer from "@components/Footer.astro";
 import Navbar from "@components/Navbar.astro";
 import Layout from "layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import ContentContainer from "@components/ContentContainer.astro";
-import EventList from "@components/EventList.astro";
 import { getSortedEvents } from "@utils/eventUtils";
-import { EVENTS_PER_PAGE } from "consts";
 import PaginatedEventList from "@components/PaginatedEventList";
 
 const allEvents = getSortedEvents(await getCollection("event"));

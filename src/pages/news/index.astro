@@ -1,0 +1,16 @@
+---
+import Footer from "@components/Footer.astro";
+import Navbar from "@components/Navbar.astro";
+import Layout from "layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import PaginatedNewsList from "@components/PaginatedNewsList";
+import { getSortedNews } from "@utils/newsUtils";
+
+const allNews = getSortedNews(await getCollection("news"));
+---
+
+<Layout title="News">
+  <Navbar />
+  <PaginatedNewsList client:load news={allNews} />
+  <Footer />
+</Layout>
