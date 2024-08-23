@@ -37,7 +37,9 @@ const allResearch = getSortedResearch(await getCollection("research"));
         </div>
       </div>
     </div>
-    <ContentContainer class={allCities.length > 6 ? "z-[9998] md:pt-12" : " z-[9998] md:pt-6"}>
+    <ContentContainer
+      class={allCities.length > 6 ? "z-[9998] md:pt-12" : " z-[9998] md:pt-6"}
+    >
       <div
         class:list={[
           "min-h-lvh flex justify-center",
@@ -72,10 +74,19 @@ const allResearch = getSortedResearch(await getCollection("research"));
   import * as L from "leaflet";
 
   // initialize the map on the "map" div with a given center and zoom
-  var map = L.map("map", { zoomControl: false, scrollWheelZoom: false, dragging: false }).setView([9.218, 108.728], 4);
+  const map = L.map("map", {
+    zoomControl: false,
+    scrollWheelZoom: false,
+    dragging: false,
+  }).setView([0.218, 93.728], 5);
+  
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
+
+  const singaporeMarker = L.marker([1.283333, 103.833333]).addTo(map);
+  const nusantaraMarker = L.marker([-0.973056, 116.708611]).addTo(map);
+  const putrajayaMarker = L.marker([2.93, 101.69]).addTo(map);
 </script>
