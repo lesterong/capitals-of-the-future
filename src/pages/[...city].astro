@@ -36,6 +36,13 @@ const allCityResearch = getSortedResearchByCity(
 );
 ---
 
+{
+  headerImg && (
+    <Fragment slot="head">
+      <link rel="preload" href={headerImg.src} as="image" />
+    </Fragment>
+  )
+}
 <Layout title={name}>
   <Navbar />
   <header class="pt-32 pb-6 relative">
@@ -47,7 +54,9 @@ const allCityResearch = getSortedResearchByCity(
       )
     }
     <div class="max-w-6xl px-4 mx-auto">
-      <h1 class:list={["font-bold text-5xl", { "text-white": !!headerImg }]}>{name}</h1>
+      <h1 class:list={["font-bold text-5xl", { "text-white": !!headerImg }]}>
+        {name}
+      </h1>
     </div>
   </header>
   <main>
