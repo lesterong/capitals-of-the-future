@@ -12,10 +12,11 @@ const NavbarDropdown = ({ path }: { path: string }) => {
       </MenuButton>
       <MenuItems
         anchor="bottom start"
-        className={`bg-white/70 backdrop-blur-xl rounded-xl mt-3 py-1 z-[9999] grid grid-flow-col`}
+        className={`shadow-sm border border-gray-100/30 bg-white/70 backdrop-blur-xl rounded-xl mt-3 py-1 z-[9999] grid grid-flow-col origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0`}
         style={{
           gridTemplateRows: `repeat(${cities.length <= 5 ? cities.length : 5}, minmax(0, 1fr))`,
         }}
+        transition
       >
         {cities.map((city) => {
           return (
@@ -24,7 +25,7 @@ const NavbarDropdown = ({ path }: { path: string }) => {
                 className={`block py-1 pl-3 pr-8 
                   ${
                     `/${city.toLowerCase()}` === path
-                      ? "text-sky-600 after:content-['']"
+                      ? "text-sky-700 after:content-['']"
                       : "text-gray-900/65 hover:text-gray-900"
                   }`}
                 href={city.toLowerCase()}
