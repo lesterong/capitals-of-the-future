@@ -1,0 +1,22 @@
+---
+interface Props {
+  class?: string;
+  label: string;
+  to: HTMLAttributes<"a">["href"];
+}
+
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import type { HTMLAttributes } from "astro/types";
+const { label, to, class: className = "" } = Astro.props;
+---
+
+<a
+  href={to}
+  class:list={[
+    "inline-flex items-center gap-1 border rounded-2xl px-4 py-1 border-gray-900 hover:bg-sky-600 hover:border-transparent hover:text-white",
+    className,
+  ]}
+>
+  {label}
+  <ArrowRightIcon className="size-3 stroke-current" />
+</a>

@@ -4,6 +4,7 @@ import NewsCard from "./NewsCard";
 import SectionHeader from "./SectionHeader.astro";
 import Button from "./Button.astro";
 import { NEWS_LATEST } from "consts";
+import LinkButton from "./LinkButton.astro";
 
 type Props = {
   news: CollectionEntry<"news">[];
@@ -23,9 +24,8 @@ const { news, city } = Astro.props;
       .map((n) => <NewsCard slug={n.slug} data={n.data} />)
   }
 </div>
-<a href={`/news${city ? `?city=${city}` : ""}`}>
-  <Button
-    label={`View ${city ? "" : "all "}news ${city ? ` on ${city}` : ""}`}
-    class="mt-8 mb-16"
-  />
-</a>
+<LinkButton
+  to={`/news${city ? `?city=${city}` : ""}`}
+  label={`View ${city ? "" : "all "}news ${city ? ` on ${city}` : ""}`}
+  class="mt-8 mb-16"
+/>

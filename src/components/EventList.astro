@@ -4,6 +4,7 @@ import EventCard from "./EventCard";
 import SectionHeader from "./SectionHeader.astro";
 import Button from "./Button.astro";
 import { EVENTS_LATEST } from "consts";
+import LinkButton from "@components/LinkButton.astro";
 
 type Props = {
   events: CollectionEntry<"event">[];
@@ -23,9 +24,8 @@ const { events, city } = Astro.props;
       .map((event) => <EventCard slug={event.slug} data={event.data} />)
   }
 </div>
-<a href={`/events${city ? `?city=${city}` : ""}`}>
-  <Button
-    label={`View ${city ? "" : "all "}events ${city ? ` in ${city}` : ""}`}
-    class="mt-8 mb-16"
-  />
-</a>
+<LinkButton
+  to={`/events${city ? `?city=${city}` : ""}`}
+  class="mt-8 mb-16"
+  label={`View ${city ? "" : "all "}events ${city ? ` in ${city}` : ""}`}
+/>
