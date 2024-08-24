@@ -16,7 +16,7 @@ export default {
       keyframes: {
         scroll: {
           from: { transform: "translateX(0)" },
-          to: { transform: "translateX(calc(-100% - 8px))" },
+          to: { transform: "translateX(calc(-100% - 24px))" },
         },
         dash: {
           from: {
