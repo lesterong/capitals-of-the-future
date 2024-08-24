@@ -124,11 +124,18 @@ const allResearch = getSortedResearch(await getCollection("research"));
     }
   ).addTo(map);
 
+  var dot = L.icon({
+    iconUrl: "dot.png",
+    iconSize: [20, 20], 
+    tooltipAnchor: [0, -10],
+  });
+
   allCities.map((city) => {
-    const marker = L.marker([city.lat, city.long])
+    const marker = L.marker([city.lat, city.long], { icon: dot })
       .on("click", () => (window.location.href = city.name.toLowerCase()))
       .addTo(map);
     marker.bindTooltip(city.name, {
+      direction: 'top',
       className: "font-sans text-base",
     });
   });
