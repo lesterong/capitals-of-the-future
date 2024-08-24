@@ -18,10 +18,12 @@ const CardTags = ({
       <SlashIcon className="size-4 fill-gray-700/40" />
       <div className="shrink flex flex-wrap gap-1">
         {tags.map((tag) => (
-          <a href={`/${type}?city=${tag}`} key={tag}>
-            <button className="text-sm bg-gray-100 border border-gray-200/70 px-2 py-0.5 rounded-lg transition-all hover:border-sky-600 active:scale-95">
-              {tag}
-            </button>
+          <a
+            className="text-sm bg-gray-100 border border-gray-200/70 px-2 py-0.5 rounded-lg transition-all hover:border-sky-600 active:scale-95"
+            href={`/${type}?city=${tag}`}
+            key={tag}
+          >
+            {tag}
           </a>
         ))}
       </div>
