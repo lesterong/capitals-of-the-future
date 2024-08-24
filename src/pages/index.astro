@@ -112,17 +112,11 @@ const allResearch = getSortedResearch(await getCollection("research"));
     handleMapPosition(document.documentElement.clientWidth);
   });
 
-  var Stadia_AlidadeSmoothDark = L.tileLayer(
-    "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}",
-    {
-      minZoom: 0,
-      maxZoom: 20,
-      attribution:
-        '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      // @ts-ignore
-      ext: "png",
-    },
-  ).addTo(map);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution:
+      '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+  }).addTo(map);
 
   var dot = L.icon({
     iconUrl: "dot.png",
@@ -155,12 +149,12 @@ const allResearch = getSortedResearch(await getCollection("research"));
         [cityB.lat, cityB.long],
       ],
       {
-        color: "white",
+        color: "black",
         weight: 2,
-        dashOffset: '1000',
+        dashOffset: "1000",
         dashArray: [1000],
         className: "animate-draw",
-      },
+      }
     ).addTo(map);
   });
 </script>
