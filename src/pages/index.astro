@@ -32,9 +32,13 @@ const allResearch = getSortedResearch(await getCollection("research"));
       <div class="absolute top-0 left-0 right-0 bottom-0">
         <div class="h-[110lvh]" id="map"></div>
       </div>
-      <div class="px-4 h-full flex pt-32 min-[438px]:pt-0 min-[438px]:items-center mx-auto max-w-6xl">
+      <div
+        class="px-4 h-full flex pt-32 min-[438px]:pt-0 min-[438px]:items-center mx-auto max-w-6xl"
+      >
         <div class="w-96 z-[9998] text-white text-center min-[438px]:text-left">
-          <h1 class="text-6xl font-bold min-[438px]:text-7xl">Capitals of the future</h1>
+          <h1 class="text-6xl font-bold min-[438px]:text-7xl">
+            Capitals of the future
+          </h1>
           <p class="mt-8">
             The future of our cities. What's it going to be like?
           </p>
@@ -122,4 +126,16 @@ const allResearch = getSortedResearch(await getCollection("research"));
   const singaporeMarker = L.marker([1.283333, 103.833333]).addTo(map);
   const nusantaraMarker = L.marker([-0.973056, 116.708611]).addTo(map);
   const putrajayaMarker = L.marker([2.93, 101.69]).addTo(map);
+
+  const latlngs = [];
+
+  latlngs.push(singaporeMarker.getLatLng());
+  latlngs.push(nusantaraMarker.getLatLng());
+
+  const polyline = L.polyline(latlngs, {
+    color: "white",
+    weight: 2,
+    dashArray: [10],
+    className: "animate-draw motion-reduce:animate-none",
+  }).addTo(map);
 </script>
