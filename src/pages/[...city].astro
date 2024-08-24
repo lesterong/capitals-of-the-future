@@ -2,7 +2,7 @@
 import Footer from "@components/Footer.astro";
 import Navbar from "@components/Navbar.astro";
 import { getCollection, getEntry, type InferEntrySchema } from "astro:content";
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import Layout from "layouts/Layout.astro";
 import SectionHeader from "@components/SectionHeader.astro";
 import { getSortedEventsByCity } from "@utils/eventUtils";
@@ -49,7 +49,7 @@ const allCityResearch = getSortedResearchByCity(
     {
       headerImg && (
         <div class="h-[50vh] w-full absolute top-0 left-0 -z-10 before:content-[''] before:absolute before:top-0 before:left-0 before:bottom-0 before:right-0 before:bg-black/60">
-          <Image src={headerImg} alt="" class="object-cover w-full h-full" />
+          <Picture loading="eager" src={headerImg} alt="" class="object-cover w-full h-full" />
         </div>
       )
     }
