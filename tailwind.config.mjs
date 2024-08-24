@@ -10,7 +10,7 @@ export default {
       },
       animation: {
         marquee: "scroll 25s linear infinite",
-        draw: "dash 10s linear infinite",
+        draw: "dash 8s linear forwards",
       },
       keyframes: {
         scroll: {
@@ -18,11 +18,8 @@ export default {
           to: { transform: "translateX(calc(-100% - 24px))" },
         },
         dash: {
-          from: {
-            strokeDashoffset: "0",
-          },
           to: {
-            strokeDashoffset: "100",
+            strokeDashoffset: "0",
           },
         },
       },

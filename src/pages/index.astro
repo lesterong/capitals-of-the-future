@@ -157,7 +157,8 @@ const allResearch = getSortedResearch(await getCollection("research"));
       {
         color: "white",
         weight: 2,
-        dashArray: [10],
+        dashOffset: '1000',
+        dashArray: [1000],
         className: "animate-draw motion-reduce:animate-none",
       },
     ).addTo(map);
