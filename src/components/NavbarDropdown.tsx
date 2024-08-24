@@ -20,7 +20,8 @@ const NavbarDropdown = ({ path }: { path: string }) => {
       >
         {cities.map((city) => {
           return (
-            <MenuItem key={city}>
+            // @ts-ignore
+            <MenuItem className="block data-[focus]:text-gray-900" key={city}>
               <a
                 className={`block py-1 pl-3 pr-8 
                   ${
