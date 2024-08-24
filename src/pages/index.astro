@@ -125,7 +125,12 @@ const allResearch = getSortedResearch(await getCollection("research"));
   ).addTo(map);
 
   allCities.map((city) => {
-    L.marker([city.lat, city.long]).addTo(map);
+    const marker = L.marker([city.lat, city.long])
+      .on("click", () => (window.location.href = city.name.toLowerCase()))
+      .addTo(map);
+    marker.bindTooltip(city.name, {
+      className: "font-sans text-base",
+    });
   });
 
   const pairs = [];
