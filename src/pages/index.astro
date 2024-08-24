@@ -13,6 +13,7 @@ import ContentContainer from "@components/ContentContainer.astro";
 import EventList from "@components/EventList.astro";
 import NewsList from "@components/NewsList.astro";
 import ResearchList from "@components/ResearchList.astro";
+import "leaflet/dist/leaflet.css";
 
 const { data: allCities } = await getEntry("city", "cities");
 const allEvents = getSortedEvents(await getCollection("event"));
@@ -24,16 +25,29 @@ const allResearch = getSortedResearch(await getCollection("research"));
   <Navbar />
   <main>
     <div class="relative h-lvh">
-      <div class="px-4 h-full flex items-center mx-auto max-w-6xl">
-        <div class="w-96">
-          <h1 class="text-7xl font-bold">Capitals of the future</h1>
+      <div
+        class="absolute h-[110lvh] top-0 left-0 right-0 bottom-0 bg-black/45 pointer-events-none z-[9997]"
+      >
+      </div>
+      <div class="absolute top-0 left-0 right-0 bottom-0">
+        <div class="h-[110lvh]" id="map"></div>
+      </div>
+      <div
+        class="px-4 h-full flex pt-40 min-[438px]:pt-0 min-[438px]:items-center mx-auto max-w-6xl"
+      >
+        <div class="w-96 z-[9998] text-white text-center min-[438px]:text-left">
+          <h1 class="text-6xl font-bold min-[438px]:text-7xl">
+            Capitals of the future
+          </h1>
           <p class="mt-8">
             The future of our cities. What's it going to be like?
           </p>
         </div>
       </div>
     </div>
-    <ContentContainer class={allCities.length > 6 ? "md:pt-12" : "md:pt-6"}>
+    <ContentContainer
+      class={allCities.length > 6 ? "z-[9998] md:pt-12" : " z-[9998] md:pt-6"}
+    >
       <div
         class:list={[
           "min-h-lvh flex justify-center",
@@ -64,3 +78,88 @@ const allResearch = getSortedResearch(await getCollection("research"));
   </main>
   <Footer />
 </Layout>
+<script>
+  import * as L from "leaflet";
+  import allCities from "@content/city/cities.json";
+
+  const map = L.map("map", {
+    zoomControl: false,
+    scrollWheelZoom: false,
+    dragging: false,
+  }).setView([0.218, 98.728], 5, {
+    animate: false,
+  });
+
+  const handleMapPosition = (width: number) => {
+    if (width < 438) {
+      map.setView([8.218, 109.4], 4, {
+        animate: false,
+      });
+    } else if (width < 968) {
+      map.setView([8.218, 109.4], 5, {
+        animate: false,
+      });
+    } else {
+      map.setView([0.218, 98.728], 5, {
+        animate: false,
+      });
+    }
+  };
+
+  handleMapPosition(document.documentElement.clientWidth);
+
+  window.addEventListener("resize", function (_) {
+    handleMapPosition(document.documentElement.clientWidth);
+  });
+
+  var Stadia_AlidadeSmoothDark = L.tileLayer(
+    "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}",
+    {
+      minZoom: 0,
+      maxZoom: 20,
+      attribution:
+        '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      // @ts-ignore
+      ext: "png",
+    }
+  ).addTo(map);
+
+  var dot = L.icon({
+    iconUrl: "dot.png",
+    iconSize: [20, 20], 
+    tooltipAnchor: [0, -10],
+  });
+
+  allCities.map((city) => {
+    const marker = L.marker([city.lat, city.long], { icon: dot })
+      .on("click", () => (window.location.href = city.name.toLowerCase()))
+      .addTo(map);
+    marker.bindTooltip(city.name, {
+      direction: 'top',
+      className: "font-sans text-base",
+    });
+  });
+
+  const pairs = [];
+
+  for (let i = 0; i < allCities.length; i++) {
+    for (let j = i + 1; j < allCities.length; j++) {
+      pairs.push([allCities[i], allCities[j]]);
+    }
+  }
+
+  pairs.map(([cityA, cityB]) => {
+    L.polyline(
+      [
+        [cityA.lat, cityA.long],
+        [cityB.lat, cityB.long],
+      ],
+      {
+        color: "white",
+        weight: 2,
+        dashArray: [10],
+        className: "animate-draw motion-reduce:animate-none",
+      }
+    ).addTo(map);
+  });
+</script>
