@@ -1,29 +1,101 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
-import { Bars3Icon } from "@heroicons/react/24/solid";
+import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import NavbarDropdown from "./NavbarDropdown";
+import { getEntry } from "astro:content";
 const { pathname } = Astro.url;
+
+const cities = (await getEntry("city", "cities")).data.map((city) => city.name);
 ---
 
 <div
   class="flex justify-center max-w-6xl px-4 mx-auto fixed w-full left-0 right-0 z-[9999]"
 >
   <nav
-    class="flex justify-between items-center w-full mt-2 px-4 py-2 shadow-sm border border-gray-100/30 bg-white/70 backdrop-blur-xl rounded-xl"
+    class="flex flex-col w-full mt-2 px-4 py-2 shadow-sm border border-gray-100/30 bg-white/70 backdrop-blur-xl rounded-xl"
   >
-    <h2 class="font-bold text-lg uppercase">
-      <a href="/">{SITE_TITLE}</a>
-    </h2>
-    <div class="flex space-x-6">
-      <Bars3Icon className="size-6 block md:hidden" />
-      <NavbarDropdown path={pathname} client:load />
-      <HeaderLink href="/events" class="hidden md:block">Events</HeaderLink>
-      <HeaderLink href="/research" class="hidden md:block">Research</HeaderLink>
-      <HeaderLink href="/news" class="hidden md:block">News</HeaderLink>
-      <HeaderLink href="/information" class="hidden md:block">
-        Information
-      </HeaderLink>
+    <div class="flex justify-between items-center">
+      <h2 class="font-bold text-lg uppercase">
+        <a href="/">{SITE_TITLE}</a>
+      </h2>
+      <div class="flex space-x-6">
+        <button id="menu-trigger" class="block md:hidden">
+          <Bars3Icon className="size-6" />
+        </button>
+        <NavbarDropdown path={pathname} client:load />
+        <HeaderLink href="/events" class="hidden md:block">Events</HeaderLink>
+        <HeaderLink href="/research" class="hidden md:block">
+          Research
+        </HeaderLink>
+        <HeaderLink href="/news" class="hidden md:block">News</HeaderLink>
+        <HeaderLink href="/information" class="hidden md:block">
+          Information
+        </HeaderLink>
+      </div>
+    </div>
+    <div
+      id="menu-links"
+      class="max-h-0 transition-[max_height] motion-reduce:transition-none ease-in-out duration-500 overflow-hidden flex flex-col space-y-4 md:hidden"
+    >
+      <button
+        id="city-trigger"
+        class="mt-5 inline-flex gap-1 items-center text-gray-900/65 hover:text-gray-900"
+      >
+        City
+        <ChevronDownIcon className="size-3 stroke-current" />
+      </button>
+      <div
+        id="city-links"
+        style="margin-top: 0"
+        class="max-h-0 motion-reduce:transition-none transition-[max_height] duration-300 overflow-hidden w-full flex flex-col gap-4 text-base pl-3"
+      >
+        {
+          cities.map((city) => (
+            <HeaderLink class="first:mt-4" href={`/${city.toLowerCase()}`}>
+              {city}
+            </HeaderLink>
+          ))
+        }
+      </div>
+      <HeaderLink href="/events">Events</HeaderLink>
+      <HeaderLink href="/research">Research</HeaderLink>
+      <HeaderLink href="/news">News</HeaderLink>
+      <HeaderLink href="/information">Information</HeaderLink>
     </div>
   </nav>
 </div>
+<script>
+  const menuTrigger = document.querySelector("#menu-trigger");
+
+  menuTrigger?.addEventListener("click", () => {
+    const menuLinks = document.getElementById("menu-links");
+    if (!menuLinks) {
+      return;
+    }
+
+    if (menuLinks.style.maxHeight === "100vh") {
+      menuLinks.style.maxHeight = "0";
+    } else {
+      menuLinks.style.maxHeight = "100vh";
+    }
+  });
+
+  const cityTrigger = document.querySelector("#city-trigger");
+  cityTrigger?.addEventListener("click", () => {
+    const cityLinks = document.getElementById("city-links");
+    if (!cityLinks) {
+      return;
+    }
+
+    if (cityLinks.style.maxHeight === "100vh") {
+      cityTrigger.classList.add("text-gray-900/65");
+      cityTrigger.classList.remove("text-gray-900");
+      cityLinks.style.maxHeight = "0";
+    } else {
+      cityTrigger.classList.remove("text-gray-900/65");
+      cityTrigger.classList.add("text-gray-900");
+      cityLinks.style.maxHeight = "100vh";
+    }
+  });
+</script>
