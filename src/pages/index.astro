@@ -80,6 +80,7 @@ const allResearch = getSortedResearch(await getCollection("research"));
 </Layout>
 <script>
   import * as L from "leaflet";
+  import allCities from "@content/city/cities.json";
 
   const map = L.map("map", {
     zoomControl: false,
@@ -123,19 +124,30 @@ const allResearch = getSortedResearch(await getCollection("research"));
     }
   ).addTo(map);
 
-  const singaporeMarker = L.marker([1.283333, 103.833333]).addTo(map);
-  const nusantaraMarker = L.marker([-0.973056, 116.708611]).addTo(map);
-  const putrajayaMarker = L.marker([2.93, 101.69]).addTo(map);
+  allCities.map((city) => {
+    L.marker([city.lat, city.long]).addTo(map);
+  });
 
-  const latlngs = [];
+  const pairs = [];
 
-  latlngs.push(singaporeMarker.getLatLng());
-  latlngs.push(nusantaraMarker.getLatLng());
+  for (let i = 0; i < allCities.length; i++) {
+    for (let j = i + 1; j < allCities.length; j++) {
+      pairs.push([allCities[i], allCities[j]]);
+    }
+  }
 
-  const polyline = L.polyline(latlngs, {
-    color: "white",
-    weight: 2,
-    dashArray: [10],
-    className: "animate-draw motion-reduce:animate-none",
-  }).addTo(map);
+  pairs.map(([cityA, cityB]) => {
+    L.polyline(
+      [
+        [cityA.lat, cityA.long],
+        [cityB.lat, cityB.long],
+      ],
+      {
+        color: "white",
+        weight: 2,
+        dashArray: [10],
+        className: "animate-draw motion-reduce:animate-none",
+      }
+    ).addTo(map);
+  });
 </script>
