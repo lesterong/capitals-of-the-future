@@ -13,8 +13,12 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title: pageTitle, description = SITE_DESCRIPTION, image = "/blog-placeholder-1.jpg" } = Astro.props;
-const title = !pageTitle ? SITE_TITLE : `${SITE_TITLE} | ${pageTitle}`
+const {
+  title: pageTitle,
+  description = SITE_DESCRIPTION,
+  image = "/blog-placeholder-1.jpg",
+} = Astro.props;
+const title = !pageTitle ? SITE_TITLE : `${SITE_TITLE} | ${pageTitle}`;
 ---
 
 <!doctype html>

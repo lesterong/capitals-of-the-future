@@ -31,7 +31,9 @@ const { Content } = await render();
 <Layout>
   <Navbar />
   <header class="pt-32 pb-6 relative">
-    <div class="max-w-6xl px-4 mx-auto flex flex-col items-start gap-y-6 gap-x-12 md:items-center md:flex-row">
+    <div
+      class="max-w-6xl px-4 mx-auto flex flex-col items-start gap-y-6 gap-x-12 md:items-center md:flex-row"
+    >
       <div>
         <CardTags type="events" tags={data.cities} />
         <h1 class="font-bold text-5xl max-w-3xl mt-1">{data.title}</h1>

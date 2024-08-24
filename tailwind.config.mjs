@@ -1,5 +1,4 @@
 import defaultTheme from "tailwindcss/defaultTheme";
-import { transform } from "typescript";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -11,7 +10,7 @@ export default {
       },
       animation: {
         marquee: "scroll 25s linear infinite",
-        draw: "dash 10s linear infinite"
+        draw: "dash 10s linear infinite",
       },
       keyframes: {
         scroll: {

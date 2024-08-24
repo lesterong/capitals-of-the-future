@@ -3,7 +3,10 @@ export const getPages = (length: number, start: number = 1) =>
     .fill(start)
     .map((prev, idx) => prev + idx);
 
-export const getPagination = (currentPage: number, totalPages: number): Array<number | '...'> => {
+export const getPagination = (
+  currentPage: number,
+  totalPages: number,
+): Array<number | "..."> => {
   if (totalPages <= 5) {
     return getPages(totalPages);
   }

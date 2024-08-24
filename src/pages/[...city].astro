@@ -32,7 +32,7 @@ const allCityEvents = getSortedEventsByCity(await getCollection("event"), name);
 const allCityNews = getSortedNewsByCity(await getCollection("news"), name);
 const allCityResearch = getSortedResearchByCity(
   await getCollection("research"),
-  name
+  name,
 );
 ---
 
@@ -42,7 +42,12 @@ const allCityResearch = getSortedResearchByCity(
     {
       headerImg && (
         <div class="h-[50vh] w-full absolute top-0 left-0 -z-10 before:content-[''] before:absolute before:top-0 before:left-0 before:bottom-0 before:right-0 before:bg-black/60">
-          <Picture loading="eager" src={headerImg} alt="" class="object-cover w-full h-full" />
+          <Picture
+            loading="eager"
+            src={headerImg}
+            alt=""
+            class="object-cover w-full h-full"
+          />
         </div>
       )
     }

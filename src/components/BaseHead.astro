@@ -2,9 +2,9 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
-import '@fontsource-variable/plus-jakarta-sans';
-import '@fontsource-variable/plus-jakarta-sans/wght-italic.css';
-import plusJakartaSans from "@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2?url"
+import "@fontsource-variable/plus-jakarta-sans";
+import "@fontsource-variable/plus-jakarta-sans/wght-italic.css";
+import plusJakartaSans from "@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2?url";
 
 interface Props {
   title: string;
@@ -38,7 +38,13 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
   type="font/woff"
   crossorigin
 />
-<link rel="preload" as="font" type="font/woff2" href={plusJakartaSans} crossorigin="anonymous" />
+<link
+  rel="preload"
+  as="font"
+  type="font/woff2"
+  href={plusJakartaSans}
+  crossorigin="anonymous"
+/>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />

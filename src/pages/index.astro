@@ -121,12 +121,12 @@ const allResearch = getSortedResearch(await getCollection("research"));
         '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       // @ts-ignore
       ext: "png",
-    }
+    },
   ).addTo(map);
 
   var dot = L.icon({
     iconUrl: "dot.png",
-    iconSize: [20, 20], 
+    iconSize: [20, 20],
     tooltipAnchor: [0, -10],
   });
 
@@ -135,7 +135,7 @@ const allResearch = getSortedResearch(await getCollection("research"));
       .on("click", () => (window.location.href = city.name.toLowerCase()))
       .addTo(map);
     marker.bindTooltip(city.name, {
-      direction: 'top',
+      direction: "top",
       className: "font-sans text-base",
     });
   });
@@ -159,7 +159,7 @@ const allResearch = getSortedResearch(await getCollection("research"));
         weight: 2,
         dashArray: [10],
         className: "animate-draw motion-reduce:animate-none",
-      }
+      },
     ).addTo(map);
   });
 </script>

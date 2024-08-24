@@ -3,7 +3,7 @@ type Props = {
   class?: string;
 };
 
-const { class: className = '' } = Astro.props;
+const { class: className = "" } = Astro.props;
 ---
 
 <div class:list={["bg-gray-50 rounded-[40px] pt-12 relative z-10", className]}>
