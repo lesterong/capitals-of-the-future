@@ -35,7 +35,9 @@ const allResearch = getSortedResearch(await getCollection("research"));
       <div
         class="px-4 h-full flex pt-40 min-[438px]:pt-0 min-[438px]:items-center mx-auto max-w-6xl"
       >
-        <div class="w-96 z-[9998] text-white text-center min-[438px]:text-left">
+        <div
+          class="hero-text w-96 z-[9998] text-white text-center min-[438px]:text-left"
+        >
           <h1 class="text-6xl font-bold min-[438px]:text-7xl">
             Capitals of the future
           </h1>
@@ -46,7 +48,7 @@ const allResearch = getSortedResearch(await getCollection("research"));
       </div>
     </div>
     <ContentContainer
-      class={allCities.length > 6 ? "z-[9998] md:pt-12" : " z-[9998] md:pt-6"}
+      class={allCities.length > 6 ? "z-[9998] md:pt-12" : "z-[9998] md:pt-6"}
     >
       <div
         class:list={[
@@ -121,7 +123,7 @@ const allResearch = getSortedResearch(await getCollection("research"));
         '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       // @ts-ignore
       ext: "png",
-    },
+    }
   ).addTo(map);
 
   var dot = L.icon({
@@ -157,10 +159,25 @@ const allResearch = getSortedResearch(await getCollection("research"));
       {
         color: "white",
         weight: 2,
-        dashOffset: '1000',
+        dashOffset: "1000",
         dashArray: [1000],
         className: "animate-draw",
-      },
+      }
     ).addTo(map);
+  });
+</script>
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".hero-text > *", {
+    scrollTrigger: ".hero-text",
+    duration: 0.8,
+    y: 50,
+    opacity: 0,
+    stagger: 0.2,
+    ease: "power2.out",
   });
 </script>
