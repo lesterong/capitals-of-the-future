@@ -1,7 +1,11 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
-import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/solid";
+import {
+  Bars3Icon,
+  ChevronDownIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/solid";
 import NavbarDropdown from "./NavbarDropdown";
 import { getEntry } from "astro:content";
 const { pathname } = Astro.url;
@@ -21,8 +25,16 @@ const cities = (await getEntry("city", "cities")).data.map((city) => city.name);
         <a href="/">{SITE_TITLE}</a>
       </h2>
       <div class="flex space-x-6">
-        <button id="menu-trigger" class="block md:hidden">
-          <Bars3Icon className="size-6" />
+        <button
+          id="menu-trigger"
+          class="grid grid-cols-1 grid-rows-1 h-6 w-6 md:hidden text-gray-900/65 hover:text-gray-900"
+        >
+          <Bars3Icon
+            className="transition-opacity duration-300 ease-in-out size-6"
+          />
+          <XMarkIcon
+            className="transition-opacity duration-300 ease-in-out opacity-0 size-6"
+          />
         </button>
         <NavbarDropdown path={pathname} client:load />
         <HeaderLink href="/events" class="hidden md:block">Events</HeaderLink>
@@ -72,10 +84,12 @@ const cities = (await getEntry("city", "cities")).data.map((city) => city.name);
   const navbar = document.getElementById("nav");
 
   const closeAll = () => {
-    if (!menuLinks) {
+    if (!menuLinks || !menuTrigger) {
       return;
     }
 
+    menuTrigger.children[0].classList.remove("opacity-0");
+    menuTrigger.children[1].classList.add("opacity-0");
     menuLinks.style.maxHeight = "0";
     closeCityLinks();
   };
@@ -99,6 +113,8 @@ const cities = (await getEntry("city", "cities")).data.map((city) => city.name);
     if (menuLinks.style.maxHeight === "100vh") {
       closeAll();
     } else {
+      menuTrigger.children[1].classList.remove("opacity-0");
+      menuTrigger.children[0].classList.add("opacity-0");
       menuLinks.style.maxHeight = "100vh";
     }
   });
