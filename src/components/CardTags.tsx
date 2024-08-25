@@ -11,7 +11,7 @@ const CardTags = ({
     <div className="flex items-center space-x-1">
       <a
         href={`/${type}`}
-        className="text-sm font-bold uppercase transition-colors text-sky-600 hover:text-sky-800"
+        className="text-sm font-bold uppercase transition-colors text-sky-700 hover:text-sky-800"
       >
         {type}
       </a>
