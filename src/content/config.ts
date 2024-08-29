@@ -3,17 +3,19 @@ import { defineCollection, z } from "astro:content";
 const city = defineCollection({
   type: "data",
   schema: ({ image }) =>
-    z.array(
-      z.object({
-        name: z.string(),
-        description: z.string(),
-        mainImg: image(),
-        headerImg: image().optional(),
-        infoImg: image(),
-        lat: z.number(),
-        long: z.number(),
-      }),
-    ),
+    z.object({
+      cities: z.array(
+        z.object({
+          name: z.string(),
+          description: z.string(),
+          mainImg: image(),
+          headerImg: image().optional(),
+          infoImg: image(),
+          lat: z.number(),
+          long: z.number(),
+        }),
+      ),
+    }),
 });
 
 const event = defineCollection({

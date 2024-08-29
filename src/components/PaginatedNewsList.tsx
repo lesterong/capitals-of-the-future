@@ -13,7 +13,7 @@ import { NEWS_PER_PAGE } from "consts";
 import Pagination from "./Pagination";
 
 const PaginatedNewsList = ({ news }: { news: CollectionEntry<"news">[] }) => {
-  const validCities = Cities.map((city) => city.name);
+  const validCities = Cities.cities.map((city) => city.name);
   const [city, setCity] = useState<string>("");
 
   const filteredNews = news.filter((n) => {

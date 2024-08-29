@@ -46,19 +46,21 @@ const allResearch = getSortedResearch(await getCollection("research"));
       </div>
     </div>
     <ContentContainer
-      class={allCities.length > 6 ? "z-[9998] md:pt-12" : " z-[9998] md:pt-6"}
+      class={allCities.cities.length > 6
+        ? "z-[9998] md:pt-12"
+        : " z-[9998] md:pt-6"}
     >
       <div
         class:list={[
           "min-h-lvh flex justify-center",
-          { "items-center": allCities.length <= 6 },
+          { "items-center": allCities.cities.length <= 6 },
         ]}
       >
         <div class="max-w-6xl w-full px-4">
-          <SectionHeader title={`${allCities.length} cities`} />
+          <SectionHeader title={`${allCities.cities.length} cities`} />
           <p class="font-bold text-5xl">Many connections.</p>
           <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-7">
-            {allCities.map((city) => <CityCard {...city} />)}
+            {allCities.cities.map((city) => <CityCard {...city} />)}
           </div>
         </div>
       </div>
@@ -66,7 +68,7 @@ const allResearch = getSortedResearch(await getCollection("research"));
         <div
           class:list={[
             "max-w-6xl px-4 mx-auto mt-16",
-            allCities.length > 6 ? "md:mt-16" : "md:mt-2",
+            allCities.cities.length > 6 ? "md:mt-16" : "md:mt-2",
           ]}
         >
           <EventList events={allEvents} />
@@ -80,7 +82,8 @@ const allResearch = getSortedResearch(await getCollection("research"));
 </Layout>
 <script>
   import * as L from "leaflet";
-  import allCities from "@content/city/cities.json";
+  import cities from "@content/city/cities.json";
+  const allCities = cities.cities;
 
   const map = L.map("map", {
     zoomControl: false,

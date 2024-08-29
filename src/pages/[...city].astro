@@ -15,8 +15,8 @@ import ResearchList from "@components/ResearchList.astro";
 
 export const getStaticPaths = async () => {
   {
-    const { data: cities } = await getEntry("city", "cities");
-    return cities.map((c) => {
+    const { data } = await getEntry("city", "cities");
+    return data.cities.map((c) => {
       return {
         params: { city: c.name.toLowerCase() },
         props: c,
@@ -25,7 +25,7 @@ export const getStaticPaths = async () => {
   }
 };
 
-type Props = InferEntrySchema<"city">[number];
+type Props = InferEntrySchema<"city">["cities"][number];
 
 const { name, headerImg } = Astro.props;
 const allCityEvents = getSortedEventsByCity(await getCollection("event"), name);

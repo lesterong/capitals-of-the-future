@@ -17,7 +17,7 @@ const PaginatedEventList = ({
 }: {
   events: CollectionEntry<"event">[];
 }) => {
-  const validCities = Cities.map((city) => city.name);
+  const validCities = Cities.cities.map((city) => city.name);
   const validOrganisers = ["Asia Research Institute", "Others"];
   const [city, setCity] = useState<string>("");
   const [organiser, setOrganiser] = useState<string>("");

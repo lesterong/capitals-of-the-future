@@ -17,7 +17,7 @@ const PaginatedResearchList = ({
 }: {
   research: CollectionEntry<"research">[];
 }) => {
-  const validCities = Cities.map((city) => city.name);
+  const validCities = Cities.cities.map((city) => city.name);
   const [city, setCity] = useState<string>("");
 
   const filteredResearch = research.filter((r) => {

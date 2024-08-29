@@ -31,7 +31,7 @@ const { data: team } = await getEntry("team", "team");
             class="flex flex-row md:flex-col items-center lg:max-h-max md:col-span-3"
           >
             {
-              cities.data.map((city) => {
+              cities.data.cities.map((city) => {
                 return (
                   <a
                     href={`/${city.name.toLowerCase()}`}
@@ -80,7 +80,7 @@ const { data: team } = await getEntry("team", "team");
         <div
           class:list={[
             "mt-16",
-            cities.data.length >= 5 ? "lg:mt-16" : "lg:mt-0",
+            cities.data.cities.length >= 5 ? "lg:mt-16" : "lg:mt-0",
           ]}
         >
           <SectionHeader title="Our team" />
