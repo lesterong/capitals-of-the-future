@@ -78,6 +78,12 @@ const allResearch = getSortedResearch(await getCollection("research"));
   </main>
   <Footer />
 </Layout>
+<style is:inline>
+  .leaflet-control-zoom.leaflet-bar.leaflet-control {
+    z-index: 20;
+    margin-bottom: 10vh;
+  }
+</style>
 <script>
   import * as L from "leaflet";
   import allCities from "@content/city/cities.json";
@@ -85,10 +91,12 @@ const allResearch = getSortedResearch(await getCollection("research"));
   const map = L.map("map", {
     zoomControl: false,
     scrollWheelZoom: false,
-    dragging: false,
+    dragging: !L.Browser.mobile,
   }).setView([0.218, 98.728], 5, {
     animate: false,
   });
+
+  new L.Control.Zoom({ position: "bottomright" }).addTo(map);
 
   const handleMapPosition = (width: number) => {
     if (width < 438) {
@@ -151,8 +159,8 @@ const allResearch = getSortedResearch(await getCollection("research"));
       {
         color: "black",
         weight: 2,
-        dashOffset: "1000",
-        dashArray: [1000],
+        dashOffset: "10000",
+        dashArray: [10000],
         className: "animate-draw",
       }
     ).addTo(map);

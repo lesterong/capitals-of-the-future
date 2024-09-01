@@ -10,7 +10,7 @@ export default {
       },
       animation: {
         marquee: "scroll 25s linear infinite",
-        draw: "dash 8s linear forwards",
+        draw: "dash 25s linear forwards",
       },
       keyframes: {
         scroll: {
