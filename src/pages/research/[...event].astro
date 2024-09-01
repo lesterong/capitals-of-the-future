@@ -6,11 +6,7 @@ import FormattedDate from "@components/FormattedDate.astro";
 import Navbar from "@components/Navbar.astro";
 import Prose from "@components/Prose.astro";
 import ShareLinks from "@components/ShareLinks.astro";
-import {
-  CalendarDaysIcon,
-  ChatBubbleOvalLeftEllipsisIcon,
-  PencilIcon,
-} from "@heroicons/react/24/solid";
+import { CalendarDaysIcon, PencilIcon } from "@heroicons/react/24/solid";
 import { Picture } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "layouts/Layout.astro";
@@ -47,10 +43,6 @@ const { Content } = await render();
         <div class="text-gray-500 flex items-center gap-1">
           <PencilIcon className="size-5 shrink-0" />
           {data.authors}
-        </div>
-        <div class="text-gray-500 flex items-center gap-1">
-          <ChatBubbleOvalLeftEllipsisIcon className="size-5 shrink-0" />
-          0 comments
         </div>
       </div>
     </div>

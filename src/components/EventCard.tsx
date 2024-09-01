@@ -31,8 +31,7 @@ const EventCard = ({
           year: "numeric",
           month: "short",
           day: "numeric",
-        })}{" "}
-        / 0 comments
+        })}
       </div>
     </article>
   );
