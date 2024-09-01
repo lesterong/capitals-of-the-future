@@ -26,8 +26,7 @@ const ResearchCard = ({
             year: "numeric",
             month: "short",
             day: "numeric",
-          })}{" "}
-          / 0 comments
+          })}
         </p>
       </div>
       <div className="col-span-1 md:col-span-3">
@@ -37,8 +36,7 @@ const ResearchCard = ({
             year: "numeric",
             month: "short",
             day: "numeric",
-          })}{" "}
-          / 0 comments
+          })}
         </p>
       </div>
     </article>

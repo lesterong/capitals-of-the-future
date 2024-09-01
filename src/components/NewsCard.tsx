@@ -28,8 +28,7 @@ const NewsCard = ({
           year: "numeric",
           month: "short",
           day: "numeric",
-        })}{" "}
-        / 0 comments
+        })}
       </div>
     </article>
   );
