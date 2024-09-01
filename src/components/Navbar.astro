@@ -37,24 +37,25 @@ const cities = (await getEntry("city", "cities")).data.map((city) => city.name);
           />
           <span class="sr-only">Menu</span>
         </button>
-        <NavbarDropdown path={pathname} client:load />
+        <HeaderLink href="/about" class="hidden md:block">About</HeaderLink>
+        <span class="hidden md:block">
+          <NavbarDropdown path={pathname} client:load />
+        </span>
         <HeaderLink href="/events" class="hidden md:block">Events</HeaderLink>
         <HeaderLink href="/research" class="hidden md:block">
           Research
         </HeaderLink>
         <HeaderLink href="/news" class="hidden md:block">News</HeaderLink>
-        <HeaderLink href="/information" class="hidden md:block">
-          Information
-        </HeaderLink>
       </div>
     </div>
     <div
       id="menu-links"
       class="max-h-0 transition-[max_height] motion-reduce:transition-none ease-in-out duration-500 overflow-hidden flex flex-col space-y-4 md:hidden"
     >
+      <HeaderLink class="mt-5" href="/about">About</HeaderLink>
       <button
         id="city-trigger"
-        class="mt-5 inline-flex gap-1 items-center text-gray-900/65 hover:text-gray-900 font-medium"
+        class="inline-flex gap-1 items-center text-gray-900/65 hover:text-gray-900 font-medium"
       >
         City
         <ChevronDownIcon className="size-3 stroke-current" />
@@ -73,7 +74,6 @@ const cities = (await getEntry("city", "cities")).data.map((city) => city.name);
       <HeaderLink href="/events">Events</HeaderLink>
       <HeaderLink href="/research">Research</HeaderLink>
       <HeaderLink href="/news">News</HeaderLink>
-      <HeaderLink href="/information">Information</HeaderLink>
     </div>
   </nav>
 </div>

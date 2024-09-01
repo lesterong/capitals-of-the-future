@@ -39,6 +39,12 @@ const { data: allCities } = await getEntry("city", "cities");
         <nav class="flex flex-col space-y-1">
           <span class="text-sm font-bold mb-2">Sitemap</span>
           <a
+            href="/about"
+            class="hover:text-sky-500 transition-colors inline-block"
+          >
+            About
+          </a>
+          <a
             href="/events"
             class="hover:text-sky-500 transition-colors inline-block"
           >
@@ -55,12 +61,6 @@ const { data: allCities } = await getEntry("city", "cities");
             class="hover:text-sky-500 transition-colors inline-block"
           >
             Research
-          </a>
-          <a
-            href="/information"
-            class="hover:text-sky-500 transition-colors inline-block"
-          >
-            Information
           </a>
         </nav>
         <nav class="flex flex-col space-y-1">

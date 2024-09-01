@@ -6,7 +6,7 @@ const NavbarDropdown = ({ path }: { path: string }) => {
   const cities = Cities.map((city) => city.name);
   return (
     <Menu>
-      <MenuButton className="text-gray-900/65 data-[active]:text-gray-900 hidden md:inline-flex gap-1 items-center">
+      <MenuButton className="font-medium text-gray-900/65 data-[active]:text-gray-900 hidden md:inline-flex gap-1 items-center">
         City
         <ChevronDownIcon className="size-3 stroke-current" />
       </MenuButton>
