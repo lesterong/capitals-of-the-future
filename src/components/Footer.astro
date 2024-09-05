@@ -5,7 +5,7 @@ const today = new Date();
 const { data: allCities } = await getEntry("city", "cities");
 ---
 
-<footer class="-mt-10 sticky bottom-0">
+<footer class="-mt-10">
   <div class="max-w-6xl mx-auto px-4 pt-16 pb-7 text-sky-700">
     <div class="flex justify-between">
       <div
@@ -87,3 +87,14 @@ const { data: allCities } = await getEntry("city", "cities");
     </div>
   </div>
 </footer>
+<script>
+  document.addEventListener("scroll", () => {
+    if ((document.querySelector("main")?.getBoundingClientRect().top || 0) <= -10) {
+      document.querySelector("footer")?.classList.add("sticky")
+      document.querySelector("footer")?.classList.add("bottom-0");
+    } else {
+      document.querySelector("footer")?.classList.remove("sticky");
+      document.querySelector("footer")?.classList.remove("bottom-0");
+    }
+  });
+</script>

@@ -23,28 +23,30 @@ const allResearch = getSortedResearch(await getCollection("research"));
 
 <Layout>
   <Navbar />
-  <main>
-    <div class="relative h-lvh">
+  <header class="h-lvh sticky top-0">
+    <div
+      class="absolute h-[110lvh] top-0 left-0 right-0 bottom-0 bg-black/45 pointer-events-none z-[9997]"
+    >
+    </div>
+    <div class="absolute top-0 left-0 right-0 bottom-0">
+      <div class="h-[110lvh]" id="map"></div>
+    </div>
+    <div
+      class="px-4 h-full flex pt-40 min-[438px]:pt-0 min-[438px]:items-center mx-auto max-w-6xl"
+    >
       <div
-        class="absolute h-[110lvh] top-0 left-0 right-0 bottom-0 bg-black/45 pointer-events-none z-[9997]"
+        class="w-96 h-max z-[9998] text-white text-center min-[438px]:text-left"
       >
-      </div>
-      <div class="absolute top-0 left-0 right-0 bottom-0">
-        <div class="h-[110lvh]" id="map"></div>
-      </div>
-      <div
-        class="px-4 h-full flex pt-40 min-[438px]:pt-0 min-[438px]:items-center mx-auto max-w-6xl"
-      >
-        <div class="w-96 h-max z-[9998] text-white text-center min-[438px]:text-left">
-          <h1 class="text-6xl font-bold min-[438px]:text-7xl">
-            Capitals of the future
-          </h1>
-          <p class="mt-8">
-            The future of our cities. What's it going to be like?
-          </p>
-        </div>
+        <h1 class="text-6xl font-bold min-[438px]:text-7xl">
+          Capitals of the future
+        </h1>
+        <p class="mt-8">
+          The future of our cities. What's it going to be like?
+        </p>
       </div>
     </div>
+  </header>
+  <main>
     <ContentContainer
       class={allCities.length > 6 ? "z-[9998] md:pt-12" : " z-[9998] md:pt-6"}
     >
@@ -164,5 +166,21 @@ const allResearch = getSortedResearch(await getCollection("research"));
         className: "animate-draw",
       }
     ).addTo(map);
+  });
+</script>
+<script>
+  document.addEventListener("scroll", () => {
+    if (
+      !(
+        (document.querySelector("main")?.getBoundingClientRect().top || 0) <=
+        -10
+      )
+    ) {
+      document.querySelector("header")?.classList.add("sticky");
+      document.querySelector("header")?.classList.add("top-0");
+    } else {
+      document.querySelector("header")?.classList.remove("sticky");
+      document.querySelector("header")?.classList.remove("top-0");
+    }
   });
 </script>
