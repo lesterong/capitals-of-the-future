@@ -52,6 +52,7 @@ const research = defineCollection({
       title: z.string(),
       abstract: z.string(),
       authors: z.string(),
+      organisation: z.string(),
       publication: z.string(),
       pubDate: z.coerce.date(),
       cities: z.array(z.string()).refine((val) => val.length > 0, {

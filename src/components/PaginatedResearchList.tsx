@@ -18,11 +18,17 @@ const PaginatedResearchList = ({
   research: CollectionEntry<"research">[];
 }) => {
   const validCities = Cities.map((city) => city.name);
+  const validOrganisations = ["Asia Research Institute", "Others"];
   const [city, setCity] = useState<string>("");
+  const [organisation, setOrganisation] = useState<string>("");
 
-  const filteredResearch = research.filter((r) => {
-    return city === "" || r.data.cities.includes(city);
-  });
+  const filteredResearch = research
+    .filter((r) => {
+      return city === "" || r.data.cities.includes(city);
+    })
+    .filter((r) => {
+      return organisation === "" || r.data.organisation === organisation;
+    });
 
   const [page, setPage] = useState<number>(1);
   const totalPages = Math.ceil(filteredResearch.length / RESEARCH_PER_PAGE);
@@ -36,9 +42,14 @@ const PaginatedResearchList = ({
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const urlCity = urlParams.get("city");
+    const urlOrganisation = urlParams.get("organisation");
     const urlPage = Number(urlParams.get("page"));
     if (validCities.includes(urlCity || "")) {
       setCity(urlCity || "");
+    }
+
+    if (validOrganisations.includes(urlOrganisation || "")) {
+      setOrganisation(urlOrganisation || "");
     }
 
     if (!isNaN(urlPage)) {
@@ -66,6 +77,28 @@ const PaginatedResearchList = ({
       `/research${urlParams.size > 0 ? `?${urlParams.toString()}` : ""}`,
     );
     setCity(newCity);
+  };
+
+  const handleOrganisationChange = (newOrganisation: string) => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (newOrganisation) {
+      urlParams.set("organisation", newOrganisation);
+    } else {
+      urlParams.delete("organisation");
+    }
+
+    if (newOrganisation != organisation) {
+      urlParams.delete("page");
+      setPage(1);
+    }
+
+    history.replaceState(
+      {},
+      "",
+      `/research${urlParams.size > 0 ? `?${urlParams.toString()}` : ""}`,
+    );
+    setOrganisation(newOrganisation);
   };
 
   const handlePageChange = (newPage: number) => {
@@ -116,6 +149,33 @@ const PaginatedResearchList = ({
                     className="data-[focus]:bg-sky-100 pl-2 pr-8 py-1"
                   >
                     {city}
+                  </ListboxOption>
+                ))}
+              </ListboxOptions>
+            </Listbox>
+            <Listbox value={organisation} onChange={handleOrganisationChange}>
+              <ListboxButton className="border border-gray-900 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
+                {!!city ? city : "All organisations"}{" "}
+                <ChevronDownIcon className="size-3 stroke-current" />
+              </ListboxButton>
+              <ListboxOptions
+                anchor="bottom start"
+                className="z-10 bg-white drop-shadow-sm rounded-lg mt-1 origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0"
+                transition
+              >
+                <ListboxOption
+                  value=""
+                  className="data-[focus]:bg-sky-100 pl-2 pr-8 py-1"
+                >
+                  All organisations
+                </ListboxOption>
+                {validOrganisations.map((org) => (
+                  <ListboxOption
+                    value={org}
+                    key={org}
+                    className="data-[focus]:bg-sky-100 pl-2 pr-8 py-1"
+                  >
+                    {org}
                   </ListboxOption>
                 ))}
               </ListboxOptions>
