@@ -82,7 +82,7 @@ const PaginatedNewsList = ({ news }: { news: CollectionEntry<"news">[] }) => {
 
   return (
     <>
-      <header className="pt-32 pb-6 relative">
+      <header className="pt-32 pb-6 sticky top-0">
         <div className="max-w-6xl px-4 mx-auto">
           <div className="flex gap-1">
             <h1 className="font-bold text-5xl">News</h1>
