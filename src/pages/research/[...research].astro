@@ -18,7 +18,7 @@ import Layout from "layouts/Layout.astro";
 export const getStaticPaths = async () => {
   const research = await getCollection("research");
   return research.map((r) => ({
-    params: { event: r.slug },
+    params: { research: r.slug },
     props: r,
   }));
 };
