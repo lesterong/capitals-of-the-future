@@ -6,7 +6,11 @@ import FormattedDate from "@components/FormattedDate.astro";
 import Navbar from "@components/Navbar.astro";
 import Prose from "@components/Prose.astro";
 import ShareLinks from "@components/ShareLinks.astro";
-import { CalendarDaysIcon, PencilIcon } from "@heroicons/react/24/solid";
+import {
+  CalendarDaysIcon,
+  PencilIcon,
+  LinkIcon,
+} from "@heroicons/react/24/solid";
 import { Picture } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "layouts/Layout.astro";
@@ -44,6 +48,15 @@ const { Content } = await render();
           <PencilIcon className="size-5 shrink-0" />
           {data.authors}
         </div>
+        <div class="text-gray-500 flex items-center gap-1">
+          <LinkIcon className="size-5 shrink-0" />
+          <a
+            class="text-sky-800 hover:underline"
+            target="_blank"
+            rel="noreferrer"
+            href={data.link}>{data.link}</a
+          >
+        </div>
       </div>
     </div>
   </header>
@@ -62,10 +75,6 @@ const { Content } = await render();
         }
         <div class="max-w-3xl mx-auto">
           <Prose>
-            <div class="text-gray-500 mt-2 whitespace-pre-line">
-              {data.abstract}
-            </div>
-            <hr />
             <Content />
           </Prose>
           <ShareLinks />

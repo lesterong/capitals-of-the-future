@@ -18,7 +18,7 @@ const { research, city } = Astro.props;
   {
     research
       .slice(0, RESEARCH_LATEST)
-      .map((r) => <ResearchCard slug={r.slug} data={r.data} />)
+      .map((r) => <ResearchCard {...r} />)
   }
 </div>
 <a href={`/research${city ? `?city=${city}` : ""}`}>

@@ -50,7 +50,7 @@ const research = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      abstract: z.string(),
+      link: z.string().url(),
       authors: z.string(),
       organisation: z.string(),
       publication: z.string(),

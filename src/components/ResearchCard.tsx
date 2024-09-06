@@ -4,11 +4,13 @@ import type { CollectionEntry } from "astro:content";
 const ResearchCard = ({
   slug,
   data,
+  body,
 }: {
   slug: string;
   data: CollectionEntry<"research">["data"];
+  body: CollectionEntry<"research">["body"];
 }) => {
-  const { title, abstract, publication, authors, pubDate, cities } = data;
+  const { title, publication, authors, pubDate, cities } = data;
   return (
     <article className="grid grid-cols-1 md:grid-cols-5 gap-x-10 gap-y-5">
       <div className="col-span-1 md:col-span-2">
@@ -30,7 +32,7 @@ const ResearchCard = ({
         </p>
       </div>
       <div className="col-span-1 md:col-span-3">
-        <p className="whitespace-pre-line">{abstract}</p>
+        <p className="whitespace-pre-line">{body}</p>
         <p className="text-gray-500 mt-4 block md:hidden text-sm">
           {pubDate.toLocaleDateString("en-us", {
             year: "numeric",

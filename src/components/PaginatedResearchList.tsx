@@ -155,7 +155,7 @@ const PaginatedResearchList = ({
             </Listbox>
             <Listbox value={organisation} onChange={handleOrganisationChange}>
               <ListboxButton className="border border-gray-900 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
-                {!!city ? city : "All organisations"}{" "}
+                {!!organisation ? organisation : "All organisations"}{" "}
                 <ChevronDownIcon className="size-3 stroke-current" />
               </ListboxButton>
               <ListboxOptions
