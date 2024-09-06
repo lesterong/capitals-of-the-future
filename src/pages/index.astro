@@ -168,19 +168,3 @@ const allResearch = getSortedResearch(await getCollection("research"));
     ).addTo(map);
   });
 </script>
-<script>
-  document.addEventListener("scroll", () => {
-    if (
-      !(
-        (document.querySelector("main")?.getBoundingClientRect().top || 0) <=
-        -10
-      )
-    ) {
-      document.querySelector("header")?.classList.add("sticky");
-      document.querySelector("header")?.classList.add("top-0");
-    } else {
-      document.querySelector("header")?.classList.remove("sticky");
-      document.querySelector("header")?.classList.remove("top-0");
-    }
-  });
-</script>

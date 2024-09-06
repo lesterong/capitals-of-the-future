@@ -89,12 +89,18 @@ const { data: allCities } = await getEntry("city", "cities");
 </footer>
 <script>
   document.addEventListener("scroll", () => {
-    if ((document.querySelector("main")?.getBoundingClientRect().top || 0) <= -10) {
-      document.querySelector("footer")?.classList.add("sticky")
+    if (
+      (document.querySelector("main")?.getBoundingClientRect().top || 0) <= -10
+    ) {
+      document.querySelector("footer")?.classList.add("sticky");
       document.querySelector("footer")?.classList.add("bottom-0");
+      document.querySelector("header")?.classList.remove("sticky");
+      document.querySelector("header")?.classList.remove("top-0");
     } else {
       document.querySelector("footer")?.classList.remove("sticky");
       document.querySelector("footer")?.classList.remove("bottom-0");
+      document.querySelector("header")?.classList.add("sticky");
+      document.querySelector("header")?.classList.add("top-0");
     }
   });
 </script>
