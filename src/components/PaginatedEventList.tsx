@@ -186,7 +186,7 @@ const PaginatedEventList = ({
       <main>
         <div className="bg-gray-50 rounded-[40px] pt-12 relative z-10 min-h-lvh">
           <div className="max-w-6xl px-4 mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-7">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-12">
               {eventsToShow.length === 0 && <p>No events found.</p>}
               {eventsToShow.map((event) => (
                 <EventCard {...event} key={event.id} />

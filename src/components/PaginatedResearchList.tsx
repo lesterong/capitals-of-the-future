@@ -186,7 +186,7 @@ const PaginatedResearchList = ({
       <main>
         <div className="bg-gray-50 rounded-[40px] pt-12 relative z-10 min-h-lvh">
           <div className="max-w-6xl px-4 mx-auto">
-            <div className="grid grid-cols-1 gap-y-7">
+            <div className="grid grid-cols-1 gap-y-12">
               {researchToShow.length === 0 && <p>No research found.</p>}
               {researchToShow.map((r) => (
                 <ResearchCard {...r} key={r.id} />

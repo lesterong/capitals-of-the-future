@@ -12,7 +12,7 @@ const ResearchCard = ({
 }) => {
   const { title, publication, authors, pubDate, cities } = data;
   return (
-    <article className="grid grid-cols-1 md:grid-cols-5 gap-x-10 gap-y-5">
+    <article className="grid grid-cols-1 md:grid-cols-5 gap-x-10 gap-y-4">
       <div className="col-span-1 md:col-span-2">
         <CardTags type="research" tags={cities} />
         <a
@@ -32,7 +32,7 @@ const ResearchCard = ({
         </p>
       </div>
       <div className="col-span-1 md:col-span-3">
-        <p className="whitespace-pre-line">{body}</p>
+        <p className="line-clamp-6">{body}</p>
         <p className="text-gray-500 mt-4 block md:hidden text-sm">
           {pubDate.toLocaleDateString("en-us", {
             year: "numeric",

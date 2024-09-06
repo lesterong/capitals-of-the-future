@@ -14,7 +14,7 @@ const { research, city } = Astro.props;
 ---
 
 <SectionHeader title={`Latest research${city ? ` on ${city}` : ""}`} />
-<div class="grid grid-cols-1 gap-y-7 mt-6">
+<div class="grid grid-cols-1 gap-y-12 mt-6">
   {
     research
       .slice(0, RESEARCH_LATEST)
