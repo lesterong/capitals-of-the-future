@@ -9,13 +9,17 @@ import { getPagination } from "@utils/pagination";
 const Pagination = ({
   page,
   totalPages,
-  handlePageChange,
+  handlePageChange: pageChange,
 }: {
   page: number;
   totalPages: number;
   handlePageChange: (page: number) => void;
 }) => {
   const pagination = getPagination(page, totalPages);
+  const handlePageChange = (page: number) => {
+    pageChange(page);
+    window.scrollTo(0, 0);
+  };
   return (
     <div className="text-gray-700">
       <button
