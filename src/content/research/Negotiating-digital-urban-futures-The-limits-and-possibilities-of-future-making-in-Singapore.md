@@ -1,7 +1,7 @@
 ---
 title: "Negotiating digital urban futures: The limits and possibilities of future-making in Singapore"
 authors: "Yeo, S.J.I."
-link: " https://doi.org/10.1111/tran.12632"
+link: "https://doi.org/10.1111/tran.12632"
 organisation: "Others"
 publication: "Transactions of the Institute of British Geographers, 49, e12632"
 pubDate: "Aug 3, 2023"
