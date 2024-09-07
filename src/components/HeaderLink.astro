@@ -13,11 +13,11 @@ const isActive = href === pathname || href === "/" + subpath?.[0];
 <a
   href={href}
   class:list={[
-    "inline-block relative font-medium",
+    "inline-block relative",
     className,
     isActive
       ? "text-sky-700 after:opacity-0 md:after:opacity-100 after:content-[''] after:block after:w-1 after:h-1 after:bg-sky-600 after:rounded-full after:absolute after:left-1/2 after:-bottom-2 after:-translate-x-1/2"
-      : "text-gray-900/65 hover:text-gray-900",
+      : "text-gray-900/55 hover:text-gray-900",
   ]}
   {...props}
 >

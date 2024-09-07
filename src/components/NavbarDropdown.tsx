@@ -6,13 +6,13 @@ const NavbarDropdown = ({ path }: { path: string }) => {
   const cities = Cities.map((city) => city.name);
   return (
     <Menu>
-      <MenuButton className="font-medium text-gray-900/65 data-[active]:text-gray-900 hidden md:inline-flex gap-1 items-center">
+      <MenuButton className="font-medium text-gray-900/55 data-[active]:text-gray-900 hidden md:inline-flex gap-1 items-center">
         City
         <ChevronDownIcon className="size-3 stroke-current" />
       </MenuButton>
       <MenuItems
         anchor="bottom start"
-        className={`shadow-sm border border-gray-100/30 bg-white/70 backdrop-blur-xl rounded-xl mt-3 py-1 z-[9999] grid grid-flow-col origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0`}
+        className={`shadow-sm border border-gray-400/30 bg-gray-50/70 backdrop-blur-xl rounded-xl mt-3 py-1 z-[9999] grid grid-flow-col origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0`}
         style={{
           gridTemplateRows: `repeat(${cities.length <= 5 ? cities.length : 5}, minmax(0, 1fr))`,
         }}
@@ -27,7 +27,7 @@ const NavbarDropdown = ({ path }: { path: string }) => {
                   ${
                     `/${city.toLowerCase()}` === path
                       ? "text-sky-700 after:content-['']"
-                      : "text-gray-900/65 hover:text-gray-900"
+                      : "text-gray-900/55 hover:text-gray-900"
                   }`}
                 href={city.toLowerCase()}
               >
