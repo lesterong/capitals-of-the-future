@@ -36,7 +36,7 @@ const news = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      description: z.string(),
+      description: z.string().optional(),
       link: z.string().url(),
       newsDate: z.coerce.date(),
       cities: z.array(z.string()).refine((val) => val.length > 0, {

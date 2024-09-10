@@ -22,7 +22,7 @@ const NewsCard = ({
           className="rounded-lg aspect-video mt-2"
         />
       )}
-      <p className="mt-2 text-gray-700">{description}</p>
+      {description && <p className="mt-2 text-gray-700">{description}</p>}
       <div className="text-gray-500 mt-6 text-sm">
         {newsDate.toLocaleDateString("en-us", {
           year: "numeric",
