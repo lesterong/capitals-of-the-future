@@ -37,6 +37,7 @@ const news = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
+      link: z.string().url(),
       newsDate: z.coerce.date(),
       cities: z.array(z.string()).refine((val) => val.length > 0, {
         message: "At least one city must be selected for a news article.",

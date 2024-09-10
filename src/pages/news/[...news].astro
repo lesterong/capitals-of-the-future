@@ -6,7 +6,7 @@ import FormattedDate from "@components/FormattedDate.astro";
 import Navbar from "@components/Navbar.astro";
 import Prose from "@components/Prose.astro";
 import ShareLinks from "@components/ShareLinks.astro";
-import { CalendarDaysIcon } from "@heroicons/react/24/solid";
+import { CalendarDaysIcon, LinkIcon } from "@heroicons/react/24/solid";
 import { Picture } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "layouts/Layout.astro";
@@ -32,13 +32,26 @@ const { Content } = await render();
     >
       <div>
         <CardTags type="news" tags={data.cities} />
-        <h1 class="font-bold text-3xl md:text-5xl max-w-3xl mt-1">{data.title}</h1>
+        <h1 class="font-bold text-3xl md:text-5xl max-w-3xl mt-1">
+          {data.title}
+        </h1>
         <p class="text-gray-500 mt-2 text-lg">{data.description}</p>
       </div>
       <div class="shrink-0">
         <div class="text-gray-500 flex items-center gap-1">
           <CalendarDaysIcon className="size-5" />
           <FormattedDate date={data.newsDate} />
+        </div>
+        <div class="text-gray-500 flex items-center gap-1">
+          <LinkIcon className="size-5 shrink-0" />
+          <a
+            class="text-sky-800 hover:underline break-all"
+            target="_blank"
+            rel="noreferrer"
+            href={data.link}
+          >
+            Link to article
+          </a>
         </div>
       </div>
     </div>
