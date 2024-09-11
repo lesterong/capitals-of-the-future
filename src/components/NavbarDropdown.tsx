@@ -26,7 +26,7 @@ const NavbarDropdown = ({ path }: { path: string }) => {
                 className={`block py-1 pl-3 pr-8 
                   ${
                     `/${city.toLowerCase()}` === path
-                      ? "text-sky-700 after:content-['']"
+                      ? "text-gray-900 after:content-['']"
                       : "text-gray-900/55 hover:text-gray-900"
                   }`}
                 href={city.toLowerCase()}
