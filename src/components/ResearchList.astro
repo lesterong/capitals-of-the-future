@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import SectionHeader from "./SectionHeader.astro";
-import Button from "./Button.astro";
+import LinkButton from "./LinkButton.astro";
 import ResearchCard from "./ResearchCard";
 import { RESEARCH_LATEST } from "consts";
 
@@ -21,9 +21,8 @@ const { research, city } = Astro.props;
       .map((r) => <ResearchCard {...r} />)
   }
 </div>
-<a href={`/research${city ? `?city=${city}` : ""}`}>
-  <Button
-    label={`View ${city ? "" : "all "}research ${city ? ` on ${city}` : ""}`}
-    class="mt-8 mb-16"
-  />
-</a>
+<LinkButton
+  to={`/research${city ? `?city=${city}` : ""}`}
+  label={`View ${city ? "" : "all "}research ${city ? ` on ${city}` : ""}`}
+  class="mt-8 mb-16"
+/>
