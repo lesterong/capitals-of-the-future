@@ -127,18 +127,18 @@ const PaginatedEventList = ({
           </div>
           <div className="space-x-4 mt-4 flex">
             <Listbox value={city} onChange={handleCityChange}>
-              <ListboxButton className="border border-gray-900 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
+            <ListboxButton className="border border-primary-100 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
                 {!!city ? city : "All cities"}{" "}
                 <ChevronDownIcon className="size-3 stroke-current" />
               </ListboxButton>
               <ListboxOptions
                 anchor="bottom start"
-                className="z-10 bg-white drop-shadow-sm rounded-lg mt-1 origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0"
+                className="z-10 text-gray-900 bg-white drop-shadow-sm rounded-lg mt-1 origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0"
                 transition
               >
                 <ListboxOption
                   value=""
-                  className="data-[focus]:bg-sky-100 pl-2 pr-8 py-1"
+                  className="data-[focus]:bg-primary-100 pl-2 pr-8 py-1 transition-colors duration-100"
                 >
                   All cities
                 </ListboxOption>
@@ -146,7 +146,7 @@ const PaginatedEventList = ({
                   <ListboxOption
                     value={city}
                     key={city}
-                    className="data-[focus]:bg-sky-100 pl-2 pr-8 py-1"
+                    className="data-[focus]:bg-primary-100 pl-2 pr-8 py-1 transition-colors duration-100"
                   >
                     {city}
                   </ListboxOption>
@@ -154,18 +154,18 @@ const PaginatedEventList = ({
               </ListboxOptions>
             </Listbox>
             <Listbox value={organiser} onChange={handleOrganiserChange}>
-              <ListboxButton className="border border-gray-900 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
+              <ListboxButton className="border border-primary-100 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
                 {!!organiser ? organiser : "All organisers"}{" "}
                 <ChevronDownIcon className="size-3 stroke-current" />
               </ListboxButton>
               <ListboxOptions
                 anchor="bottom start"
-                className="z-10 bg-white drop-shadow-sm rounded-lg mt-1 origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0"
+                className="z-10 text-gray-900 bg-white drop-shadow-sm rounded-lg mt-1 origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0"
                 transition
               >
                 <ListboxOption
                   value=""
-                  className="data-[focus]:bg-sky-100 pl-2 pr-8 py-1"
+                  className="data-[focus]:bg-primary-100 pl-2 pr-8 py-1 transition-colors duration-100"
                 >
                   All organisers
                 </ListboxOption>
@@ -173,7 +173,7 @@ const PaginatedEventList = ({
                   <ListboxOption
                     value={o}
                     key={o}
-                    className="data-[focus]:bg-sky-100 pl-2 pr-8 py-1"
+                    className="data-[focus]:bg-primary-100 pl-2 pr-8 py-1 transition-colors duration-100"
                   >
                     {o}
                   </ListboxOption>

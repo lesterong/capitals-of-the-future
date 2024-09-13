@@ -127,18 +127,18 @@ const PaginatedResearchList = ({
           </div>
           <div className="space-x-4 mt-4 flex">
             <Listbox value={city} onChange={handleCityChange}>
-              <ListboxButton className="border border-gray-900 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
+              <ListboxButton className="border border-primary-100 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
                 {!!city ? city : "All cities"}{" "}
                 <ChevronDownIcon className="size-3 stroke-current" />
               </ListboxButton>
               <ListboxOptions
                 anchor="bottom start"
-                className="z-10 bg-white drop-shadow-sm rounded-lg mt-1 origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0"
+                className="z-10 text-gray-900 bg-white drop-shadow-sm rounded-lg mt-1 origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0"
                 transition
               >
                 <ListboxOption
                   value=""
-                  className="data-[focus]:bg-sky-100 pl-2 pr-8 py-1"
+                  className="data-[focus]:bg-primary-100 pl-2 pr-8 py-1 transition-colors duration-100"
                 >
                   All cities
                 </ListboxOption>
@@ -146,7 +146,7 @@ const PaginatedResearchList = ({
                   <ListboxOption
                     value={city}
                     key={city}
-                    className="data-[focus]:bg-sky-100 pl-2 pr-8 py-1"
+                    className="data-[focus]:bg-primary-100 pl-2 pr-8 py-1 transition-colors duration-100"
                   >
                     {city}
                   </ListboxOption>
@@ -154,18 +154,18 @@ const PaginatedResearchList = ({
               </ListboxOptions>
             </Listbox>
             <Listbox value={organisation} onChange={handleOrganisationChange}>
-              <ListboxButton className="border border-gray-900 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
+              <ListboxButton className="border border-primary-100 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
                 {!!organisation ? organisation : "All organisations"}{" "}
                 <ChevronDownIcon className="size-3 stroke-current" />
               </ListboxButton>
               <ListboxOptions
                 anchor="bottom start"
-                className="z-10 bg-white drop-shadow-sm rounded-lg mt-1 origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0"
+                className="z-10 text-gray-900 bg-white drop-shadow-sm rounded-lg mt-1 origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0"
                 transition
               >
                 <ListboxOption
                   value=""
-                  className="data-[focus]:bg-sky-100 pl-2 pr-8 py-1"
+                  className="data-[focus]:bg-primary-100 pl-2 pr-8 py-1 transition-colors duration-100"
                 >
                   All organisations
                 </ListboxOption>
@@ -173,7 +173,7 @@ const PaginatedResearchList = ({
                   <ListboxOption
                     value={org}
                     key={org}
-                    className="data-[focus]:bg-sky-100 pl-2 pr-8 py-1"
+                    className="data-[focus]:bg-primary-100 pl-2 pr-8 py-1 transition-colors duration-100"
                   >
                     {org}
                   </ListboxOption>
@@ -183,7 +183,7 @@ const PaginatedResearchList = ({
           </div>
         </div>
       </header>
-      <main>
+      <main className="text-gray-900">
         <div className="bg-gray-50 rounded-[40px] pt-12 relative z-10 min-h-lvh">
           <div className="max-w-6xl px-4 mx-auto">
             <div className="grid grid-cols-1 gap-y-12">
