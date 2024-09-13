@@ -17,7 +17,7 @@ const ResearchCard = ({
         <CardTags type="research" tags={cities} />
         <a
           href={`/research/${slug}`}
-          className="hover:text-sky-700 hover:underline"
+          className="hover:text-primary-800 hover:underline"
         >
           <h3 className="text-[22px] font-bold">{title}</h3>
         </a>

@@ -11,7 +11,7 @@ const CardTags = ({
     <div className="flex items-center space-x-1">
       <a
         href={`/${type}`}
-        className="text-sm font-bold uppercase transition-colors text-sky-700 hover:text-sky-800"
+        className="text-sm font-bold uppercase transition-colors text-primary-700 hover:text-primary-900 duration-100"
       >
         {type}
       </a>
@@ -19,7 +19,7 @@ const CardTags = ({
       <div className="shrink flex flex-wrap gap-1">
         {tags.sort().map((tag) => (
           <a
-            className="text-sm bg-gray-100 border border-gray-200/70 px-2 py-0.5 rounded-lg transition-all hover:border-sky-600 active:scale-95"
+            className="text-sm bg-gray-100 border border-gray-200/70 px-2 py-0.5 rounded-lg transition-all hover:border-primary-700 active:scale-95"
             href={`/${type}?city=${tag}`}
             key={tag}
           >

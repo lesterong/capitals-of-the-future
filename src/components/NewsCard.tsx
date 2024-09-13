@@ -12,7 +12,7 @@ const NewsCard = ({
   return (
     <article>
       <CardTags type="news" tags={cities} />
-      <a href={`/news/${slug}`} className="hover:text-sky-700 hover:underline">
+      <a href={`/news/${slug}`} className="hover:text-primary-800 hover:underline">
         <h3 className="text-xl font-bold mt-1">{title}</h3>
       </a>
       {heroImg && (
