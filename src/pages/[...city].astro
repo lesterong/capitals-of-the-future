@@ -32,7 +32,7 @@ const allCityEvents = getSortedEventsByCity(await getCollection("event"), name);
 const allCityNews = getSortedNewsByCity(await getCollection("news"), name);
 const allCityResearch = getSortedResearchByCity(
   await getCollection("research"),
-  name,
+  name
 );
 ---
 
@@ -52,7 +52,7 @@ const allCityResearch = getSortedResearchByCity(
       )
     }
     <div class="max-w-6xl px-4 mx-auto">
-      <h1 class:list={["font-bold text-5xl", { "text-white": !!headerImg }]}>
+      <h1 class="font-bold text-5xl">
         {name}
       </h1>
     </div>

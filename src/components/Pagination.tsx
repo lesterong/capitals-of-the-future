@@ -51,7 +51,7 @@ const Pagination = ({
         return (
           <button
             className={`inline-flex items-center px-2 h-10 hover:bg-primary-100 rounded-lg transition-colors
-              ${page === p ? "bg-primary-800 text-white hover:bg-primary-800" : ""}
+              ${page === p ? "bg-primary-800 text-primary-50 hover:bg-primary-800" : ""}
               `}
             onClick={() => handlePageChange(p)}
             key={p}
