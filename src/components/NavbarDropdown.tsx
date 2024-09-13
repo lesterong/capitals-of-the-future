@@ -6,7 +6,7 @@ const NavbarDropdown = ({ path }: { path: string }) => {
   const cities = Cities.map((city) => city.name);
   return (
     <Menu>
-      <MenuButton className="font-medium text-gray-900/55 data-[active]:text-gray-900 hidden md:inline-flex gap-1 items-center">
+      <MenuButton className="font-medium text-gray-900/60 data-[active]:text-gray-900 hidden md:inline-flex gap-1 items-center">
         City
         <ChevronDownIcon className="size-3 stroke-current" />
       </MenuButton>
@@ -27,7 +27,7 @@ const NavbarDropdown = ({ path }: { path: string }) => {
                   ${
                     `/${city.toLowerCase()}` === path
                       ? "text-gray-900 after:content-['']"
-                      : "text-gray-900/55 hover:text-gray-900"
+                      : "text-gray-900/60 hover:text-gray-900"
                   }`}
                 href={`/${city.toLowerCase()}`}
               >
