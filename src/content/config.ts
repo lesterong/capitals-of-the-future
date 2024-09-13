@@ -71,6 +71,7 @@ const team = defineCollection({
         name: z.string(),
         description: z.string(),
         email: z.string().email().optional(),
+        website: z.string().url().optional(),
         img: image(),
       }),
     ),

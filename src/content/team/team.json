@@ -9,6 +9,7 @@
     "name": "John Doe",
     "description": "Principal Investigator, Asia Research Institute",
     "email": "john@wong.com",
+    "website": "https://www.google.com",
     "img": "@assets/singapore.jpg"
   },
   {
