@@ -82,7 +82,7 @@ const PaginatedNewsList = ({ news }: { news: CollectionEntry<"news">[] }) => {
 
   return (
     <>
-      <header className="pt-32 pb-6">
+      <header className="pt-20 pb-6">
         <div className="max-w-6xl px-4 mx-auto">
           <div className="flex gap-1">
             <h1 className="font-bold text-5xl">News</h1>
@@ -95,6 +95,7 @@ const PaginatedNewsList = ({ news }: { news: CollectionEntry<"news">[] }) => {
                 <ChevronDownIcon className="size-3 stroke-current" />
               </ListboxButton>
               <ListboxOptions
+                modal={false}
                 anchor="bottom start"
                 className="z-10 text-gray-900 bg-white drop-shadow-sm rounded-lg mt-1 origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0"
                 transition

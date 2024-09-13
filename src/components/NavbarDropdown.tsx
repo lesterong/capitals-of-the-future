@@ -11,6 +11,7 @@ const NavbarDropdown = ({ path }: { path: string }) => {
         <ChevronDownIcon className="size-3 stroke-current" />
       </MenuButton>
       <MenuItems
+        modal={false}
         anchor="bottom start"
         className={`shadow-sm border border-gray-400/30 bg-gray-50/70 backdrop-blur-xl rounded-xl mt-3 py-1 z-[9999] grid grid-flow-col origin-top-left transition duration-200 ease-out data-[closed]:scale-90 data-[closed]:opacity-0`}
         style={{
