@@ -11,6 +11,7 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { RESEARCH_PER_PAGE } from "consts";
 import Pagination from "./Pagination";
 import ResearchCard from "./ResearchCard";
+import * as PageHeader from "@components/PageHeader";
 
 const PaginatedResearchList = ({
   research,
@@ -119,8 +120,8 @@ const PaginatedResearchList = ({
 
   return (
     <>
-      <header className="pt-32 pb-6 md:mt-[-54px]">
-        <div className="max-w-6xl px-4 mx-auto">
+      <PageHeader.Root>
+        <PageHeader.Content>
           <div className="flex gap-1">
             <h1 className="font-bold text-5xl">Research</h1>
             <span>{filteredResearch.length}</span>
@@ -183,8 +184,8 @@ const PaginatedResearchList = ({
               </ListboxOptions>
             </Listbox>
           </div>
-        </div>
-      </header>
+        </PageHeader.Content>
+      </PageHeader.Root>
       <main className="text-gray-900">
         <div className="bg-gray-50 rounded-[40px] pt-12 relative z-10 min-h-lvh">
           <div className="max-w-6xl px-4 mx-auto">

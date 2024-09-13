@@ -11,6 +11,7 @@ import {
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { EVENTS_PER_PAGE } from "consts";
 import Pagination from "./Pagination";
+import * as PageHeader from "@components/PageHeader";
 
 const PaginatedEventList = ({
   events,
@@ -119,15 +120,15 @@ const PaginatedEventList = ({
 
   return (
     <>
-      <header className="pt-32 pb-6 md:mt-[-54px]">
-        <div className="max-w-6xl px-4 mx-auto">
+      <PageHeader.Root>
+        <PageHeader.Content>
           <div className="flex gap-1">
             <h1 className="font-bold text-5xl">Events</h1>
             <span>{filteredEvents.length}</span>
           </div>
           <div className="space-x-4 mt-4 flex">
             <Listbox value={city} onChange={handleCityChange}>
-            <ListboxButton className="border border-primary-100 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
+              <ListboxButton className="border border-primary-100 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
                 {!!city ? city : "All cities"}{" "}
                 <ChevronDownIcon className="size-3 stroke-current" />
               </ListboxButton>
@@ -183,8 +184,8 @@ const PaginatedEventList = ({
               </ListboxOptions>
             </Listbox>
           </div>
-        </div>
-      </header>
+        </PageHeader.Content>
+      </PageHeader.Root>
       <main className="text-gray-900">
         <div className="bg-gray-50 rounded-[40px] pt-12 relative z-10 min-h-lvh">
           <div className="max-w-6xl px-4 mx-auto">

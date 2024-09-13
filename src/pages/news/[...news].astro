@@ -10,6 +10,7 @@ import { CalendarDaysIcon, LinkIcon } from "@heroicons/react/24/solid";
 import { Picture } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "layouts/Layout.astro";
+import * as PageHeader from "@components/PageHeader";
 
 export const getStaticPaths = async () => {
   const news = await getCollection("news");
@@ -26,40 +27,42 @@ const { Content } = await render();
 
 <Layout>
   <Navbar />
-  <header class="pt-32 pb-6 md:mt-[-54px]">
-    <div
-      class="max-w-6xl px-4 mx-auto flex flex-col items-start gap-y-6 gap-x-12 md:items-center md:flex-row"
-    >
-      <div>
-        <CardTags type="news" tags={data.cities} light />
-        <h1 class="font-bold text-3xl md:text-5xl max-w-3xl mt-1">
-          {data.title}
-        </h1>
-        {
-          data.description && (
-            <p class="text-gray-300 mt-2 text-lg">{data.description}</p>
-          )
-        }
-      </div>
-      <div class="shrink-0">
-        <div class="text-gray-300 flex items-center gap-1">
-          <CalendarDaysIcon className="size-5" />
-          <FormattedDate date={data.newsDate} />
+  <PageHeader.Root>
+    <PageHeader.Content>
+      <div
+        class="flex flex-col items-start gap-y-6 gap-x-12 md:items-center md:flex-row"
+      >
+        <div>
+          <CardTags type="news" tags={data.cities} light />
+          <h1 class="font-bold text-3xl md:text-5xl max-w-3xl mt-1">
+            {data.title}
+          </h1>
+          {
+            data.description && (
+              <p class="text-gray-300 mt-2 text-lg">{data.description}</p>
+            )
+          }
         </div>
-        <div class="text-gray-300 flex items-center gap-1">
-          <LinkIcon className="size-5 shrink-0" />
-          <a
-            class="text-primary-300 hover:underline break-all"
-            target="_blank"
-            rel="noreferrer"
-            href={data.link}
-          >
-            Link to article
-          </a>
+        <div class="shrink-0">
+          <div class="text-gray-300 flex items-center gap-1">
+            <CalendarDaysIcon className="size-5" />
+            <FormattedDate date={data.newsDate} />
+          </div>
+          <div class="text-gray-300 flex items-center gap-1">
+            <LinkIcon className="size-5 shrink-0" />
+            <a
+              class="text-primary-300 hover:underline break-all"
+              target="_blank"
+              rel="noreferrer"
+              href={data.link}
+            >
+              Link to article
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </PageHeader.Content>
+  </PageHeader.Root>
   <main>
     <ContentContainer class="min-h-lvh">
       <div class="max-w-6xl px-4 mx-auto">

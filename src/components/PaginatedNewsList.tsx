@@ -11,6 +11,7 @@ import {
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { NEWS_PER_PAGE } from "consts";
 import Pagination from "./Pagination";
+import * as PageHeader from "@components/PageHeader";
 
 const PaginatedNewsList = ({ news }: { news: CollectionEntry<"news">[] }) => {
   const validCities = Cities.map((city) => city.name);
@@ -82,8 +83,8 @@ const PaginatedNewsList = ({ news }: { news: CollectionEntry<"news">[] }) => {
 
   return (
     <>
-      <header className="pt-32 pb-6 md:mt-[-54px]">
-        <div className="max-w-6xl px-4 mx-auto">
+      <PageHeader.Root>
+        <PageHeader.Content>
           <div className="flex gap-1">
             <h1 className="font-bold text-5xl">News</h1>
             <span>{filteredNews.length}</span>
@@ -118,8 +119,8 @@ const PaginatedNewsList = ({ news }: { news: CollectionEntry<"news">[] }) => {
               </ListboxOptions>
             </Listbox>
           </div>
-        </div>
-      </header>
+        </PageHeader.Content>
+      </PageHeader.Root>
       <main className="text-gray-900">
         <div className="bg-gray-50 rounded-[40px] pt-12 relative z-10 min-h-lvh">
           <div className="max-w-6xl px-4 mx-auto">
