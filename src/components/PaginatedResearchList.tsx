@@ -119,7 +119,7 @@ const PaginatedResearchList = ({
 
   return (
     <>
-      <header className="pt-20 pb-6">
+      <header className="pt-32 pb-6 md:mt-[-54px]">
         <div className="max-w-6xl px-4 mx-auto">
           <div className="flex gap-1">
             <h1 className="font-bold text-5xl">Research</h1>
