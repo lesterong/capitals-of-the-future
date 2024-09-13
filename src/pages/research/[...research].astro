@@ -35,25 +35,25 @@ const { Content } = await render();
       class="max-w-6xl px-4 mx-auto flex flex-col items-start gap-y-6 gap-x-12 md:items-center md:flex-row"
     >
       <div>
-        <CardTags type="research" tags={data.cities} />
+        <CardTags type="research" tags={data.cities} light />
         <h1 class="font-bold text-3xl md:text-5xl max-w-3xl mt-1">
           {data.title}
         </h1>
-        <p class="text-gray-500 mt-2 text-lg">{data.publication}</p>
+        <p class="text-gray-300 mt-2 text-lg">{data.publication}</p>
       </div>
       <div class="shrink-0">
-        <div class="text-gray-500 flex items-center gap-1">
+        <div class="text-gray-300 flex items-center gap-1">
           <CalendarDaysIcon className="size-5 shrink-0" />
           <FormattedDate date={data.pubDate} />
         </div>
-        <div class="text-gray-500 flex items-center gap-1">
+        <div class="text-gray-300 flex items-center gap-1">
           <PencilIcon className="size-5 shrink-0" />
           {data.authors}
         </div>
-        <div class="text-gray-500 flex items-center gap-1">
+        <div class="text-gray-300 flex items-center gap-1">
           <LinkIcon className="size-5 shrink-0" />
           <a
-            class="text-sky-800 hover:underline break-all"
+            class="text-primary-300 hover:underline break-all"
             target="_blank"
             rel="noreferrer"
             href={data.link}
