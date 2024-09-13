@@ -29,7 +29,7 @@ const NavbarDropdown = ({ path }: { path: string }) => {
                       ? "text-gray-900 after:content-['']"
                       : "text-gray-900/55 hover:text-gray-900"
                   }`}
-                href={city.toLowerCase()}
+                href={`/${city.toLowerCase()}`}
               >
                 {city}
               </a>
