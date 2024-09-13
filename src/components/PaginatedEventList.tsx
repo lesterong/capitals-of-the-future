@@ -183,7 +183,7 @@ const PaginatedEventList = ({
           </div>
         </div>
       </header>
-      <main>
+      <main className="text-gray-900">
         <div className="bg-gray-50 rounded-[40px] pt-12 relative z-10 min-h-lvh">
           <div className="max-w-6xl px-4 mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-12">

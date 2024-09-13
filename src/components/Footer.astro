@@ -6,7 +6,7 @@ const { data: allCities } = await getEntry("city", "cities");
 ---
 
 <footer class="-mt-10">
-  <div class="max-w-6xl mx-auto px-4 pt-16 pb-7 text-sky-700">
+  <div class="max-w-6xl mx-auto px-4 pt-16 pb-7">
     <div class="flex justify-between">
       <div
         class={`grid gap-8 grid-cols-1 min-[428px]:grid-cols-2 md:grid-cols-4 w-3/4 max-w-xs md:max-w-md`}
@@ -28,7 +28,7 @@ const { data: allCities } = await getEntry("city", "cities");
               allCities.map((city) => (
                 <a
                   href={`/${city.name.toLowerCase()}`}
-                  class="hover:text-sky-500 transition-colors inline-block"
+                  class="hover:text-secondary-400 transition-colors inline-block"
                 >
                   {city.name}
                 </a>
@@ -40,41 +40,41 @@ const { data: allCities } = await getEntry("city", "cities");
           <span class="text-sm font-bold mb-2">Sitemap</span>
           <a
             href="/about"
-            class="hover:text-sky-500 transition-colors inline-block"
+            class="hover:text-secondary-400 transition-colors inline-block"
           >
             About
           </a>
           <a
             href="/events"
-            class="hover:text-sky-500 transition-colors inline-block"
+            class="hover:text-secondary-400 transition-colors inline-block"
           >
             Events
           </a>
           <a
             href="/news"
-            class="hover:text-sky-500 transition-colors inline-block"
+            class="hover:text-secondary-400 transition-colors inline-block"
           >
             News
           </a>
           <a
             href="/research"
-            class="hover:text-sky-500 transition-colors inline-block"
+            class="hover:text-secondary-400 transition-colors inline-block"
           >
             Research
           </a>
         </nav>
         <nav class="flex flex-col space-y-1">
           <span class="text-sm font-bold mb-2">Socials</span>
-          <a href="#" class="hover:text-sky-500 transition-colors inline-block">
+          <a href="#" class="hover:text-secondary-400 transition-colors inline-block">
             Facebook
           </a>
-          <a href="#" class="hover:text-sky-500 transition-colors inline-block">
+          <a href="#" class="hover:text-secondary-400 transition-colors inline-block">
             LinkedIn
           </a>
         </nav>
       </div>
       <div class="flex space-y-1 flex-col items-end text-right">
-        <p class="text-sky-900 font-bold text-[40px] leading-9 w-48">
+        <p class="bg-clip-text text-transparent bg-gradient-to-b from-primary-300 to-primary-400 font-bold text-[40px] leading-9 w-48">
           Capitals of the future
         </p>
         <p class="leading-5">
@@ -82,7 +82,7 @@ const { data: allCities } = await getEntry("city", "cities");
         </p>
       </div>
     </div>
-    <div class="text-sky-600/60 text-sm mt-7 text-center sm:text-left">
+    <div class="text-primary-100/65 text-sm mt-7 text-center sm:text-left">
       &copy; {today.getFullYear()} Capitals of the Future. All rights reserved.
     </div>
   </div>
