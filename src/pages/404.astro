@@ -4,12 +4,10 @@ import Navbar from "@components/Navbar.astro";
 import Layout from "layouts/Layout.astro";
 import * as PageHeader from "@components/PageHeader";
 import Footer from "@components/Footer.astro";
-import { getEntry } from "astro:content";
 import LinkButton from "@components/LinkButton.astro";
-const { data: allCities } = await getEntry("city", "cities");
 ---
 
-<Layout title="Events">
+<Layout title="Page not found">
   <Navbar />
   <PageHeader.Root>
     <PageHeader.Content>
@@ -20,7 +18,7 @@ const { data: allCities } = await getEntry("city", "cities");
     <ContentContainer>
       <div class="max-w-6xl px-4 mx-auto min-h-lvh">
         <p class="mb-4">You're lost. This page does not exist.</p>
-        <LinkButton to={"/home"} label="Visit homepage" />
+        <LinkButton to={"/home"} label="Return to homepage" />
       </div>
     </ContentContainer>
   </main>

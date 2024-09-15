@@ -18,7 +18,7 @@ const {
   description = SITE_DESCRIPTION,
   image = "/blog-placeholder-1.jpg",
 } = Astro.props;
-const title = !pageTitle ? SITE_TITLE : `${SITE_TITLE} | ${pageTitle}`;
+const title = !pageTitle ? SITE_TITLE : `${pageTitle} | ${SITE_TITLE} `;
 ---
 
 <!doctype html>
