@@ -38,6 +38,11 @@ const allCityResearch = getSortedResearchByCity(
 ---
 
 <Layout title={name}>
+  {
+    headerImg && (
+      <link rel="preload" as="image" href={headerImg.src} slot="head" />
+    )
+  }
   <Navbar />
   <PageHeader.Root>
     {
