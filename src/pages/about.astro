@@ -87,10 +87,10 @@ const { data: team } = await getEntry("team", "team");
             {
               team.map((person) => {
                 return (
-                  <div class="flex w-full gap-x-6">
+                  <div class="flex flex-col min-[428px]:flex-row gap-y-2 w-full gap-x-6">
                     <div class="shrink-0">
                       <Picture
-                        class="aspect-[1/1] max-h-32 md:max-h-40 w-auto object-cover rounded-lg"
+                        class="aspect-[1/1] max-h-48 min-[428px]:max-h-32 md:max-h-40 w-auto object-cover rounded-lg"
                         src={person.img}
                         alt=""
                       />
