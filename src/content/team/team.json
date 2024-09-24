@@ -22,8 +22,7 @@
     "email": "leekahwee@nus.edu.sg",
     "img": "@assets/kahwee.png",
     "website": "https://cde.nus.edu.sg/arch/staffs/lee-kah-wee-dr/"
-  }
-  ,
+  },
   {
     "name": "Nick R. Smith",
     "title": "Assistant Professor of Architecture and Urban Studies Program",
@@ -31,5 +30,13 @@
     "email": "nrsmith@barnard.edu",
     "img": "@assets/nicksmith.png",
     "website": "https://architecture.barnard.edu/profiles/nick-r-smith"
+  },
+  {
+    "name": "Priza Marendraputra",
+    "title": "Postdoctoral Fellow",
+    "description": "Dr Priza Marendraputra commenced his appointment as Postdoctoral Fellow with the Asian Urbanisms Cluster with effect from 22 August 2023.\n\nHe attained his PHD in Philosophy (Environment and Resources) from the University of Wisconsin-Madison in 2023. His doctoral research focused on political ecology, exploring intricate human-environment relationships to comprehend urban development’s nature and dynamics. Dr Marendraputra has taught courses on green urbanism, planning studios, infrastructure planning, spatial information systems and statistics in Wisconsin, Hawaii and Indonesia. He gained valuable experience travelling and conducting research across the Hawaiian Islands with the University of Hawaii at Manoa and the Department of Transportation of Hawaii. He has also been involved in numerous urban planning research studies in various locations throughout Indonesia. At ARI, he will be involved in the Capitals of the Future: Place, Power and Possibility in Southeast Asia project.",
+    "email": "priza@nus.edu.sg",
+    "img": "@assets/priza.png",
+    "website": "https://ari.nus.edu.sg/people/marendraputra-priza/"
   }
 ]
