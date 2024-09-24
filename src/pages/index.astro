@@ -34,14 +34,13 @@ const allResearch = getSortedResearch(await getCollection("research"));
     <div
       class="px-4 h-full flex pt-40 min-[438px]:pt-0 min-[438px]:items-center mx-auto max-w-6xl"
     >
-      <div
-        class="w-96 h-max z-[9998] text-center min-[438px]:text-left"
-      >
+      <div class="w-96 h-max z-[9998] text-center min-[438px]:text-left">
         <h1 class="text-6xl font-bold min-[438px]:text-7xl">
           Capitals of the future
         </h1>
         <p class="mt-8">
-          The future of our cities. What's it going to be like?
+          Imagining Future Cities: Singapore, Putrajaya, and Nusantara as
+          Gateways to Urban Innovation
         </p>
       </div>
     </div>
@@ -50,6 +49,23 @@ const allResearch = getSortedResearch(await getCollection("research"));
     <ContentContainer
       class={allCities.length > 6 ? "z-[9998] md:pt-12" : " z-[9998] md:pt-6"}
     >
+      <div class="py-16 flex justify-center">
+        <div class="max-w-6xl w-full px-4">
+          <SectionHeader title={`About this website`} />
+          <p class="mt-4 prose">
+            This research website serves as a platform for academics, planners,
+            and the public to investigate how future-oriented imaginations
+            impact urban planning and design, particularly in Singapore,
+            Putrajaya, and Nusantara. It explores the roles of governments,
+            societal actors, and market forces in urban development by using
+            other cities as reference points in various contexts. By adopting an
+            interdisciplinary approach that incorporates geography, sociology,
+            history, and urban planning, the site aims to stimulate discussions
+            on the environmental, technological, and civilizational factors that
+            shape and reshape the planning of future cities.
+          </p>
+        </div>
+      </div>
       <div
         class:list={[
           "min-h-lvh flex justify-center",
