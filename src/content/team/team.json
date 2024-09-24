@@ -23,4 +23,13 @@
     "img": "@assets/kahwee.png",
     "website": "https://cde.nus.edu.sg/arch/staffs/lee-kah-wee-dr/"
   }
+  ,
+  {
+    "name": "Nick R. Smith",
+    "title": "Assistant Professor of Architecture and Urban Studies Program",
+    "description": "Smith is currently Assistant Professor of Architecture and Urban Studies at Barnard College, Columbia University. Prior to joining Barnard, he was a founding member of the Urban Studies faculty at Yale-NUS College in Singapore. At Barnard, he teaches a variety of courses in the Architecture Department and the Urban Studies Program, including Urban Elsewheres, Urbanizing China, and Key Debates in Urban Planning and Policy.\n\nSmith received his A.B. (East Asian Studies), A.M. (Architecture), and Ph.D. (Urban Planning) from Harvard University. He has also held visiting positions at Oxford University (Oxford China Centre), Chongqing University (Faculty of Architecture and Urban Planning), and Renmin University (History). Smith’s work has been supported by the National Science Foundation (USA), the Fulbright Scholarship, the Wenner-Gren Foundation, the Kaifeng Foundation, the Fairbank Center for Chinese Studies, the Ministry of Education (PRC), and the Ministry of Science and Technology (PRC). In 2011 and 2012, Smith served as Secretary of the International Association for China Planning. He is a member of the Advisory Board of the Urban China Research Network and serves on the editorial boards of Transactions in Planning and Urban Research and Dialogues in Urban Research.",
+    "email": "nrsmith@barnard.edu",
+    "img": "@assets/nicksmith.png",
+    "website": "https://architecture.barnard.edu/profiles/nick-r-smith"
+  }
 ]
