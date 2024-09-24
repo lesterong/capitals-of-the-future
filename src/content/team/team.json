@@ -16,10 +16,11 @@
     "img": "@assets/danielpsgoh.png"
   },
   {
-    "name": "John Doe",
-    "title": "",
-    "description": "Principal Investigator, Asia Research Institute",
-    "email": "john@wong.com",
-    "img": "@assets/singapore.jpg"
+    "name": "Lee Kah-Wee (Dr)",
+    "title": "Associate Professor, Deputy Head (Graduate Studies)",
+    "description": "Kah-Wee Lee teaches history and theory of planning and qualitative methods. He works on the relationships between space and power, particularly through the lenses of modern expertise such as architecture, urban planning, law and public administration. His current project, \"Casino Urbanism\", examines the expansion of the casino industry across Singapore, Manila and Macau and asks how licit and illicit channels of capital flow are transforming these cities. Lee’s research has been published in the International Journal of Urban and Regional Research, Environment and Planning A and C, Geoforum, and local professional journals. He is the author of Las Vegas in Singapore: Violence, Progress and the Crisis of Nationalist Modernity (2018).",
+    "email": "leekahwee@nus.edu.sg",
+    "img": "@assets/kahwee.png",
+    "website": "https://cde.nus.edu.sg/arch/staffs/lee-kah-wee-dr/"
   }
 ]
