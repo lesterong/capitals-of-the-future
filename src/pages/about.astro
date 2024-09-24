@@ -83,14 +83,14 @@ const { data: team } = await getEntry("team", "team");
           ]}
         >
           <SectionHeader title="Our team" />
-          <div class="grid grid-cols-1 mt-8 gap-x-3 gap-y-6 pb-12">
+          <div class="grid grid-cols-1 mt-8 gap-x-3 gap-y-10 pb-12">
             {
               team.map((person) => {
                 return (
                   <div class="flex w-full gap-x-6">
                     <div class="shrink-0">
                       <Picture
-                        class="aspect-[3/4] max-h-32 md:max-h-64 w-auto object-cover rounded-lg"
+                        class="aspect-[1/1] max-h-32 md:max-h-40 w-auto object-cover rounded-lg"
                         src={person.img}
                         alt=""
                       />
