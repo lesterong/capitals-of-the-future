@@ -1,12 +1,15 @@
 [
   {
-    "name": "John Doe",
-    "description": "Principal Investigator, Asia Research Institute",
-    "email": "john@wong.com",
-    "img": "@assets/singapore.jpg"
+    "name": "Tim Bunnell",
+    "title": "Director, Asia Research Institute",
+    "description": "Professor Tim Bunnell assumed duty as Director of ARI on 1 July 2019 and resumed leadership of the Asian Urbanisms Cluster from 1 July 2021.\n\nHe has a PhD in Geography from University of Nottingham. He first joined NUS as a Postdoctoral Fellow in the Department of Geography in 1999, and gained tenure there in 2006. He served as research leader of ARI’s Asian Urbanisms Cluster in an earlier period of joint appointment (2010-2012). Prof Bunnell’s research interests concern human geographies of urban and regional change. That includes examination of the socio-spatial transformation of urban regions (cities and wider urban territories), the lives and aspirations of people in those territories, and constitutive connections between them. Empirically, he focuses on Southeast Asia – mostly on cities in Malaysia and Indonesia – and on interurban connections between that region and elsewhere. Prof Bunnell also has a longstanding interest in the place of urbanising Asia in global urban studies.\n\nIn his cluster role at ARI, Prof Bunnell will extend his recent research on the geography of urban futures. This will include work on: (1) the role of place in authoritative imaginings of “the future”; (2) the planning and construction of new cities and districts in Southeast Asia, historical as well as ongoing; and (3) the spatial politics of digital, smart and sustainable futures.",
+    "email": "aridir@nus.edu.sg",
+    "img": "@assets/tim-bunnell.png",
+    "website": "https://ari.nus.edu.sg/people/tim-bunnell/"
   },
   {
     "name": "John Doe",
+    "title": "",
     "description": "Principal Investigator, Asia Research Institute",
     "email": "john@wong.com",
     "website": "https://www.google.com",
@@ -14,6 +17,7 @@
   },
   {
     "name": "John Doe",
+    "title": "",
     "description": "Principal Investigator, Asia Research Institute",
     "email": "john@wong.com",
     "img": "@assets/singapore.jpg"

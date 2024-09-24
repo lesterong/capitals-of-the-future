@@ -69,6 +69,7 @@ const team = defineCollection({
     z.array(
       z.object({
         name: z.string(),
+        title: z.string(),
         description: z.string(),
         email: z.string().email().optional(),
         website: z.string().url().optional(),
