@@ -23,6 +23,7 @@ const City: Collection = {
           label: "Name",
           name: "name",
           type: "string",
+          required: true,
         },
         {
           label: "Description",
@@ -31,12 +32,14 @@ const City: Collection = {
           ui: {
             component: "textarea",
           },
+          required: true,
         },
         {
           label: "Main image",
           name: "mainImg",
           description: "This image will be displayed on the landing page.",
           type: "image",
+          required: true,
         },
         {
           label: "Header image",
@@ -44,12 +47,14 @@ const City: Collection = {
           description:
             "This image will be displayed at the header of each city's page.",
           type: "image",
+          required: true,
         },
         {
           label: "About image",
           name: "infoImg",
           description: "This image will be displayed in the about page.",
           type: "image",
+          required: true,
         },
         {
           label: "Latitude",
@@ -57,6 +62,7 @@ const City: Collection = {
           description:
             "The latitude in degrees to mark on the map for this city.",
           type: "number",
+          required: true,
         },
         {
           label: "Longitude",
@@ -64,6 +70,7 @@ const City: Collection = {
           description:
             "The longitude in degrees to mark on the map for this city.",
           type: "number",
+          required: true,
         },
       ],
     },
