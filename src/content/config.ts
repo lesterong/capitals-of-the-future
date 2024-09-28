@@ -89,7 +89,8 @@ const homepage = defineCollection({
     heroDescription: z.string().optional(),
     joinLines: z.boolean().optional(),
     aboutTitle: z.string().optional(),
-    aboutDescription: z.string().optional()
+    aboutDescription: z.string().optional(),
+    cityTitle: z.string().optional()
   })
 })
 

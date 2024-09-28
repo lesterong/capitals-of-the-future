@@ -2,7 +2,7 @@
   "cities": [
     {
       "name": "Singapore",
-      "description": "A melting pot of cultures, offering lush gardens, iconic landmarks, and a dynamic blend of modernity and heritage—all set within a tropical paradise.",
+      "description": "Ambitious and futuristic urbanisation began in earnest with the development of industrial Jurong Town in 1961 and the city-state has not looked back since.",
       "mainImg": "@assets/singapore.jpg",
       "headerImg": "@assets/singapore.jpg",
       "infoImg": "@assets/singapore.jpg",
@@ -11,7 +11,7 @@
     },
     {
       "name": "Nusantara",
-      "description": "Indonesia's emerald jewel, a sustainable metropolis where ancient wisdom meets cutting-edge innovation.",
+      "description": "Much more than the future capital of Indonesia, the smart forest city is planned to be an exemplar to secure our ecological future in the face of the climate crisis.",
       "mainImg": "@assets/nusantara.jpg",
       "headerImg": "@assets/nusantara.jpg",
       "infoImg": "@assets/nusantara.jpg",
@@ -20,7 +20,7 @@
     },
     {
       "name": "Putrajaya",
-      "description": "Malaysia's future forged, a harmonious symphony of nature and governance, where innovation finds its home.",
+      "description": "Construction began in 1995 for the new administrative centre off Kuala Lumpur, planned as a garden city with new Islamic architecture sited next to Cyberjaya.",
       "mainImg": "@assets/putrajaya.jpg",
       "headerImg": "@assets/putrajaya.jpg",
       "infoImg": "@assets/putrajaya.jpg",

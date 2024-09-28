@@ -39,6 +39,12 @@ const HomePage: Collection = {
         component: 'textarea'
       }
     },
+    {
+      type: "string",
+      name: "cityTitle",
+      label: "City section title",
+      description: "The title for the city section, under the about section.", 
+    }
   ],
 };
 
