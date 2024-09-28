@@ -1,5 +1,8 @@
 import type { Collection } from "tinacms";
 import cities from "../../src/content/city/cities.json";
+import { z } from "astro/zod";
+
+const urlValidator = z.string().url();
 
 const News: Collection = {
   name: "news",
@@ -23,9 +26,21 @@ const News: Collection = {
       }
     },
     {
+      type: "string",
+      name: "link",
+      label: "Link",
+      ui: {
+        validate: (value, _) => {
+          if (value && !urlValidator.safeParse(value).success) {
+            return "Please enter a valid URL."
+          }
+        }
+      }
+    },
+    {
       type: "datetime",
       name: "newsDate",
-      label: "News publication date",
+      label: "Publication date",
     },
     {
       type: "image",
