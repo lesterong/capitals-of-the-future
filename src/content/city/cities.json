@@ -3,27 +3,27 @@
     {
       "name": "Nusantara",
       "description": "Much more than the future capital of Indonesia, the smart forest city is planned to be an exemplar to secure our ecological future in the face of the climate crisis.",
-      "mainImg": "@assets/nusantara.jpg",
-      "headerImg": "@assets/nusantara.jpg",
-      "infoImg": "@assets/nusantara.jpg",
+      "mainImg": "/src/assets/nusantara.jpg",
+      "headerImg": "/src/assets/nusantara.jpg",
+      "infoImg": "/src/assets/nusantara.jpg",
       "lat": -0.973056,
       "long": 116.708611
     },
     {
       "name": "Putrajaya",
       "description": "Construction began in 1995 for the new administrative centre off Kuala Lumpur, planned as a garden city with new Islamic architecture sited next to Cyberjaya.",
-      "mainImg": "@assets/putrajaya.jpg",
-      "headerImg": "@assets/putrajaya.jpg",
-      "infoImg": "@assets/putrajaya.jpg",
+      "mainImg": "/src/assets/putrajaya.jpg",
+      "headerImg": "/src/assets/putrajaya.jpg",
+      "infoImg": "/src/assets/putrajaya.jpg",
       "lat": 2.93,
       "long": 101.69
     },
     {
       "name": "Singapore",
       "description": "Ambitious and futuristic urbanisation began in earnest with the development of industrial Jurong Town in 1961 and the city-state has not looked back since.",
-      "mainImg": "@assets/singapore.jpg",
-      "headerImg": "@assets/singapore.jpg",
-      "infoImg": "@assets/singapore.jpg",
+      "mainImg": "/src/assets/singapore.jpg",
+      "headerImg": "/src/assets/singapore.jpg",
+      "infoImg": "/src/assets/singapore.jpg",
       "lat": 1.283333,
       "long": 103.833333
     }

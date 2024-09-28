@@ -46,9 +46,9 @@ const City: Collection = {
           type: "image",
         },
         {
-          label: "Information image",
+          label: "About image",
           name: "infoImg",
-          description: "This image will be displayed in the information page.",
+          description: "This image will be displayed in the about page.",
           type: "image",
         },
         {
