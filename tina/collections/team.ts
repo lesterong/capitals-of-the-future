@@ -4,11 +4,11 @@ import { z } from "astro/zod";
 const emailValidator = z.string().email();
 const urlValidator = z.string().url();
 
-const About: Collection = {
-  name: "about",
-  label: "About",
+const Team: Collection = {
+  name: "team",
+  label: "Team",
   format: "json",
-  path: "src/content/about",
+  path: "src/content/team",
   fields: [
     {
       type: "object",
@@ -76,4 +76,4 @@ const About: Collection = {
   ],
 };
 
-export default About;
+export default Team;

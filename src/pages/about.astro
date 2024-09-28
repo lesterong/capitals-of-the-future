@@ -10,7 +10,8 @@ import { getEntry } from "astro:content";
 import * as PageHeader from "@components/PageHeader";
 
 const cities = await getEntry("city", "cities");
-const { data: team } = await getEntry("team", "team");
+const { data } = await getEntry("team", "team");
+const team = data.team;
 const allCities = cities.data.cities
 ---
 
