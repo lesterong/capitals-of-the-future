@@ -6,6 +6,7 @@ import Research from "./collections/research";
 import Team from "./collections/team";
 import HomePage from "./collections/homepage";
 import AboutPage from "./collections/aboutpage";
+import Social from "./collections/social";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -34,6 +35,6 @@ export default defineConfig({
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
-    collections: [City, Team, Event, Research, News, HomePage, AboutPage],
+    collections: [City, Team, Event, Research, News, HomePage, AboutPage, Social],
   },
 });

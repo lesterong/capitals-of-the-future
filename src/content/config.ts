@@ -101,4 +101,12 @@ const aboutpage = defineCollection({
   })
 })
 
-export const collections = { city, event, news, team, research, homepage, aboutpage };
+const social = defineCollection({
+  type: 'data',
+  schema: z.object({
+    label: z.string().optional(),
+    url: z.string().url().optional()
+  })
+})
+
+export const collections = { city, event, news, team, research, homepage, aboutpage, social };
