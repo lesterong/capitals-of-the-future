@@ -1,10 +1,10 @@
 ---
-title: "The cities of Singapore, Nusantara and Putrajaya"
-description: "Find out about how Singapore, Nusantara and Putrajaya come together as one."
-eventDate: "Aug 20, 2024"
-heroImg: "@assets/singapore.jpg"
+title: 'The cities of Singapore, Nusantara and Putrajaya'
+description: 'Find out about how Singapore, Nusantara and Putrajaya come together as one.'
+eventDate: 2024-08-19T16:00:00.000Z
 organisers:
   - Asia Research Institute
+heroImg: /src/assets/singapore.jpg
 cities:
   - Singapore
   - Nusantara
@@ -30,4 +30,4 @@ code?
 
 > quote?
 
-![test image](@assets/singapore.jpg)
+![](/src/assets/singapore.jpg)

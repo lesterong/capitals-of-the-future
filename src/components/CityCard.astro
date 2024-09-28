@@ -3,7 +3,7 @@ import type { InferEntrySchema } from "astro:content";
 import { Picture } from "astro:assets";
 import LinkButton from "@components/LinkButton.astro";
 
-type Props = InferEntrySchema<"city">[number];
+type Props = InferEntrySchema<"city">["cities"][number];
 const { name, description, mainImg } = Astro.props;
 ---
 
