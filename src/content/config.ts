@@ -89,8 +89,16 @@ const homepage = defineCollection({
     heroDescription: z.string().optional(),
     joinLines: z.boolean().optional(),
     aboutTitle: z.string().optional(),
-    aboutDesciption: z.string().optional()
+    aboutDescription: z.string().optional()
   })
 })
 
-export const collections = { city, event, news, team, research };
+const aboutpage = defineCollection({
+  type: 'data',
+  schema: z.object({
+    heroTitle: z.string().optional(),
+    heroDescription: z.string().optional(),
+  })
+})
+
+export const collections = { city, event, news, team, research, homepage, aboutpage };
