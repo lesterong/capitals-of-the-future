@@ -15,7 +15,8 @@ import NewsList from "@components/NewsList.astro";
 import ResearchList from "@components/ResearchList.astro";
 import "leaflet/dist/leaflet.css";
 
-const { data: allCities } = await getEntry("city", "cities");
+const { data } = await getEntry("city", "cities");
+const allCities = data.cities
 const allEvents = getSortedEvents(await getCollection("event"));
 const allNews = getSortedNews(await getCollection("news"));
 const allResearch = getSortedResearch(await getCollection("research"));
@@ -104,7 +105,9 @@ const allResearch = getSortedResearch(await getCollection("research"));
 </style>
 <script>
   import * as L from "leaflet";
-  import allCities from "@content/city/cities.json";
+  import data from "@content/city/cities.json";
+
+  const allCities = data.cities
 
   const map = L.map("map", {
     zoomControl: false,

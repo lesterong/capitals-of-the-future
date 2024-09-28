@@ -2,7 +2,8 @@
 import { getEntry } from "astro:content";
 
 const today = new Date();
-const { data: allCities } = await getEntry("city", "cities");
+const { data } = await getEntry("city", "cities");
+const allCities = data.cities
 ---
 
 <footer class="-mt-10">

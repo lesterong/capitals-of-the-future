@@ -10,7 +10,7 @@ import NavbarDropdown from "./NavbarDropdown";
 import { getEntry } from "astro:content";
 const { pathname } = Astro.url;
 
-const cities = (await getEntry("city", "cities")).data.map((city) => city.name);
+const cities = (await getEntry("city", "cities")).data.cities.map((city) => city.name);
 ---
 <div
   class="flex justify-center max-w-6xl px-2 mx-auto fixed md:sticky top-0 w-full left-0 right-0 z-[9999]"
