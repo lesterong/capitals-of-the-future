@@ -37,9 +37,8 @@ const Event: Collection = {
     {
       type: "string",
       name: "institution",
-      label: "institutions",
+      label: "Institution",
       description: "The institution the authors are from.",
-      list: true,
       options: ["Capitals of the Future", "Asia Research Institute", "Others"]
     },
     {
