@@ -4,7 +4,7 @@ description: 'Find out about how Singapore, Nusantara and Putrajaya come togethe
 eventDate: 2024-08-19T16:00:00.000Z
 organisers:
   - Asia Research Institute
-heroImg: /src/assets/singapore.jpg
+heroImg: ../../assets/singapore.jpg
 cities:
   - Singapore
   - Nusantara
@@ -30,4 +30,4 @@ code?
 
 > quote?
 
-![](/src/assets/singapore.jpg)
+![](../../assets/singapore.jpg)

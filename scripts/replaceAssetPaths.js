@@ -11,7 +11,7 @@ const replace = "../../assets/";
 import { exec } from "child_process";
 // execute bash command
 exec(
-  `find ${process.cwd()}${postsDirectory} -type f -name '*.md' -print0 | xargs -0 sed -i -e 's:${find}:${replace}:g'`,
+  `find ${process.cwd()}${postsDirectory} -type f -name '*.md' -print0 | xargs -0 sed -i -e 's:${find}:${replace}:g' && find ${process.cwd()}${postsDirectory} -type f -name "*.md-e" -exec rm {} +`,
   // Note: GNU sed that runs on Linux but not on mac (most servers use Linux)
   (error, stdout, stderr) => {
     // error handling
