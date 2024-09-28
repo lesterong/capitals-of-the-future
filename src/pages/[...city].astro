@@ -4,7 +4,6 @@ import Navbar from "@components/Navbar.astro";
 import { getCollection, getEntry, type InferEntrySchema } from "astro:content";
 import { Picture } from "astro:assets";
 import Layout from "layouts/Layout.astro";
-import SectionHeader from "@components/SectionHeader.astro";
 import { getSortedEventsByCity } from "@utils/eventUtils";
 import { getSortedNewsByCity } from "@utils/newsUtils";
 import { getSortedResearchByCity } from "@utils/researchUtils";
@@ -17,7 +16,7 @@ import * as PageHeader from "@components/PageHeader";
 export const getStaticPaths = async () => {
   {
     const { data: cities } = await getEntry("city", "cities");
-    return cities.map((c) => {
+    return cities.cities.map((c) => {
       return {
         params: { city: c.name.toLowerCase() },
         props: c,
@@ -26,7 +25,7 @@ export const getStaticPaths = async () => {
   }
 };
 
-type Props = InferEntrySchema<"city">[number];
+type Props = InferEntrySchema<"city">["cities"][number];
 
 const { name, headerImg } = Astro.props;
 const allCityEvents = getSortedEventsByCity(await getCollection("event"), name);
