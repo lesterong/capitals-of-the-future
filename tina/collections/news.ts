@@ -32,7 +32,7 @@ const News: Collection = {
       ui: {
         validate: (value, _) => {
           if (value && !urlValidator.safeParse(value).success) {
-            return "Please enter a valid URL."
+            return "Please enter a valid website, beginning with https://."
           }
         }
       }

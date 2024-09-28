@@ -3,7 +3,7 @@ import cities from "../../src/content/city/cities.json";
 
 const Event: Collection = {
   name: "event",
-  label: "Event",
+  label: "Events",
   format: "md",
   path: "src/content/event",
   fields: [
