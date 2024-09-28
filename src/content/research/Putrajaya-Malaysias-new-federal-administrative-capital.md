@@ -2,7 +2,7 @@
 title: "Putrajaya: Malaysia’s new federal administrative capital"
 authors: "Moser, S."
 link: "https://doi.org/10.1016/j.cities.2009.11.002"
-organisation: "Others"
+institution: "Others"
 publication: "Cities, 27(4), 285-297"
 pubDate: "1 November 2009"
 cities:

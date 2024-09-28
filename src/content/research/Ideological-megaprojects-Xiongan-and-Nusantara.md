@@ -2,7 +2,7 @@
 title: "Ideological (mega)projects: Xiong’an and Nusantara"
 authors: "Lezhi, W."
 link: "https://www.newmandala.org/ideological-megaprojects-xiongan-and-nusantara/"
-organisation: "Others"
+institution: "Others"
 publication: "New Mandala"
 pubDate: "26 Aug, 2024"
 cities:

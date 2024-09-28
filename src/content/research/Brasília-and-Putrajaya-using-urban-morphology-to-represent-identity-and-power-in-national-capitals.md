@@ -2,7 +2,7 @@
 title: "Brasília and Putrajaya: using urban morphology to represent identity and power in national capitals"
 authors: "Macedo, J., & Tran, L. V."
 link: "http://doi.org/10.1080/17549175.2013.820209"
-organisation: "Others"
+institution: "Others"
 publication: "Journal of urbanism: international research on placemaking and urban sustainability, 6(2), 139-159"
 pubDate: "Jul 2023"
 cities:

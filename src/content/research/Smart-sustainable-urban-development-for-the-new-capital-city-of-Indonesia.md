@@ -2,7 +2,7 @@
 title: "Smart sustainable urban development for the new capital city of Indonesia"
 authors: "Rachmawati, R., Reinhart, H., Rohmah, A. A., Sensuse, D. I., & Sunindyo, W. D."
 link: "http://doi.org/10.37043/JURA.2024.16.1.4"
-organisation: "Others"
+institution: "Others"
 publication: "Journal of Urban and Regional Analysis, 16(1), 85-113"
 pubDate: "22 Mar, 2024"
 cities:

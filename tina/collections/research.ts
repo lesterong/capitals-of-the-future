@@ -36,11 +36,11 @@ const Event: Collection = {
     },
     {
       type: "string",
-      name: "organisation",
-      label: "Organisations",
-      description: "The organisation the authors are from.",
+      name: "institution",
+      label: "institutions",
+      description: "The institution the authors are from.",
       list: true,
-      options: ["Asia Research Institute", "Others"]
+      options: ["Capitals of the Future", "Asia Research Institute", "Others"]
     },
     {
       type: "string",
