@@ -16,7 +16,8 @@ import ResearchList from "@components/ResearchList.astro";
 import "leaflet/dist/leaflet.css";
 
 const { data } = await getEntry("city", "cities");
-const allCities = data.cities
+const { data: homepageData } = await getEntry("homepage", "homepage");
+const allCities = data.cities;
 const allEvents = getSortedEvents(await getCollection("event"));
 const allNews = getSortedNews(await getCollection("news"));
 const allResearch = getSortedResearch(await getCollection("research"));
@@ -37,11 +38,13 @@ const allResearch = getSortedResearch(await getCollection("research"));
     >
       <div class="w-96 h-max z-[9998] text-center min-[438px]:text-left">
         <h1 class="text-6xl font-bold min-[438px]:text-7xl">
-          Capitals of the future
+          {homepageData.heroTitle || "Capitals of the Future"}
         </h1>
         <p class="mt-8">
-          Imagining Future Cities: Singapore, Putrajaya, and Nusantara as
-          Gateways to Urban Innovation
+          {
+            homepageData.heroDescripton ||
+              "Imagining Future Cities: Singapore, Putrajaya, and Nusantara as Gateways to Urban Innovation"
+          }
         </p>
       </div>
     </div>
@@ -52,18 +55,9 @@ const allResearch = getSortedResearch(await getCollection("research"));
     >
       <div class="py-16 flex justify-center">
         <div class="max-w-6xl w-full px-4">
-          <SectionHeader title={`About this website`} />
+          <SectionHeader title={homepageData.aboutTitle ? homepageData.aboutTitle : `About this website`} />
           <p class="mt-4 prose">
-            This research website serves as a platform for academics, planners,
-            and the public to investigate how future-oriented imaginations
-            impact urban planning and design, particularly in Singapore,
-            Putrajaya, and Nusantara. It explores the roles of governments,
-            societal actors, and market forces in urban development by using
-            other cities as reference points in various contexts. By adopting an
-            interdisciplinary approach that incorporates geography, sociology,
-            history, and urban planning, the site aims to stimulate discussions
-            on the environmental, technological, and civilizational factors that
-            shape and reshape the planning of future cities.
+            {homepageData.aboutDescription}
           </p>
         </div>
       </div>
@@ -106,8 +100,9 @@ const allResearch = getSortedResearch(await getCollection("research"));
 <script>
   import * as L from "leaflet";
   import data from "@content/city/cities.json";
+  import homepageData from "@content/homepage/homepage.json"
 
-  const allCities = data.cities
+  const allCities = data.cities;
 
   const map = L.map("map", {
     zoomControl: false,
@@ -154,6 +149,10 @@ const allResearch = getSortedResearch(await getCollection("research"));
   });
 
   allCities.map((city) => {
+    if (!homepageData.joinLines) {
+      return;
+    }
+
     const marker = L.marker([city.lat, city.long], { icon: dot })
       .on("click", () => (window.location.href = city.name.toLowerCase()))
       .addTo(map);
