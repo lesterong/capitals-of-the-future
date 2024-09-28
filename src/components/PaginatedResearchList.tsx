@@ -18,7 +18,7 @@ const PaginatedResearchList = ({
 }: {
   research: CollectionEntry<"research">[];
 }) => {
-  const validCities = Cities.map((city) => city.name);
+  const validCities = Cities.cities.map((city) => city.name);
   const validOrganisations = ["Asia Research Institute", "Others"];
   const [city, setCity] = useState<string>("");
   const [organisation, setOrganisation] = useState<string>("");
