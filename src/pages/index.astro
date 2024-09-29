@@ -149,10 +149,6 @@ const allResearch = getSortedResearch(await getCollection("research"));
   });
 
   allCities.map((city) => {
-    if (!homepageData.joinLines) {
-      return;
-    }
-
     const marker = L.marker([city.lat, city.long], { icon: dot })
       .on("click", () => (window.location.href = city.name.toLowerCase()))
       .addTo(map);
@@ -165,6 +161,10 @@ const allResearch = getSortedResearch(await getCollection("research"));
   const pairs = [];
 
   for (let i = 0; i < allCities.length; i++) {
+    if (!homepageData.joinLines) {
+      break;
+    }
+
     for (let j = i + 1; j < allCities.length; j++) {
       pairs.push([allCities[i], allCities[j]]);
     }
