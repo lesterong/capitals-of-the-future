@@ -1,8 +1,11 @@
 ---
+import { getCollection } from "astro:content";
 import { getEntry } from "astro:content";
 
 const today = new Date();
-const { data: allCities } = await getEntry("city", "cities");
+const { data } = await getEntry("city", "cities");
+const socialLinks = await getCollection("social");
+const allCities = data.cities;
 ---
 
 <footer class="-mt-10">
@@ -65,16 +68,22 @@ const { data: allCities } = await getEntry("city", "cities");
         </nav>
         <nav class="flex flex-col space-y-1">
           <span class="text-sm font-bold mb-2">Socials</span>
-          <a href="#" class="hover:text-secondary-400 transition-colors inline-block">
-            Facebook
-          </a>
-          <a href="#" class="hover:text-secondary-400 transition-colors inline-block">
-            LinkedIn
-          </a>
+          {
+            socialLinks.map(({ data }) => (
+              <a
+                href={data.url || "#"}
+                class="hover:text-secondary-400 transition-colors inline-block"
+              >
+                {data.label || "Link"}
+              </a>
+            ))
+          }
         </nav>
       </div>
       <div class="flex space-y-1 flex-col items-end text-right">
-        <p class="bg-clip-text text-transparent bg-gradient-to-b from-primary-300 to-primary-400 font-bold text-[40px] leading-9 w-48">
+        <p
+          class="bg-clip-text text-transparent bg-gradient-to-b from-primary-300 to-primary-400 font-bold text-[40px] leading-9 w-48"
+        >
           Capitals of the future
         </p>
         <p class="leading-5">

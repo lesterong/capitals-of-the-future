@@ -8,7 +8,7 @@ const EventCard = ({
   slug: string;
   data: CollectionEntry<"event">["data"];
 }) => {
-  const { title, description, heroImg, eventDate, cities, organisers } = data;
+  const { title, description, heroImg, eventDate, cities } = data;
   return (
     <article>
       <CardTags type="events" tags={cities} />

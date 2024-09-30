@@ -2,7 +2,7 @@
 title: "Re-writing the City Putrajaya as Representation"
 authors: "King, R."
 link: "https://doi.org/10.1080/13574800601071337"
-organisation: "Others"
+institution: "Others"
 publication: "Journal of Urban Design, 12(1), 117–138"
 pubDate: "21 June 2007"
 cities:

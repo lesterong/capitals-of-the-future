@@ -2,7 +2,7 @@
 title: "Antecedent Cities and Inter-referencing Effects: Learning from and Extending Beyond Critiques of Neoliberalisation"
 authors: "Bunnell, T."
 link: "https://doi.org/10.1177/0042098013505882"
-organisation: "Asia Research Institute"
+institution: "Asia Research Institute"
 publication: "Urban Studies, 52(11), 1983-2000"
 pubDate: "Oct 14, 2013"
 cities:

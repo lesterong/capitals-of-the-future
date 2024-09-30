@@ -3,13 +3,13 @@ import type { InferEntrySchema } from "astro:content";
 import { Picture } from "astro:assets";
 import LinkButton from "@components/LinkButton.astro";
 
-type Props = InferEntrySchema<"city">[number];
+type Props = InferEntrySchema<"city">["cities"][number];
 const { name, description, mainImg } = Astro.props;
 ---
 
 <div>
   <Picture
-    class="rounded-lg aspect-video"
+    class="rounded-lg aspect-video object-cover"
     src={mainImg}
     formats={["avif", "webp"]}
     alt=""

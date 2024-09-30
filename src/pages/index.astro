@@ -15,7 +15,9 @@ import NewsList from "@components/NewsList.astro";
 import ResearchList from "@components/ResearchList.astro";
 import "leaflet/dist/leaflet.css";
 
-const { data: allCities } = await getEntry("city", "cities");
+const { data } = await getEntry("city", "cities");
+const { data: homepageData } = await getEntry("homepage", "homepage");
+const allCities = data.cities;
 const allEvents = getSortedEvents(await getCollection("event"));
 const allNews = getSortedNews(await getCollection("news"));
 const allResearch = getSortedResearch(await getCollection("research"));
@@ -35,12 +37,14 @@ const allResearch = getSortedResearch(await getCollection("research"));
       class="px-4 h-full flex pt-40 min-[438px]:pt-0 min-[438px]:items-center mx-auto max-w-6xl"
     >
       <div class="w-96 h-max z-[9998] text-center min-[438px]:text-left">
-        <h1 class="text-6xl font-bold min-[438px]:text-7xl">
-          Capitals of the future
+        <h1 class="text-6xl font-bold min-[438px]:text-7xl tracking-tight">
+          {homepageData.heroTitle || "Capitals of the Future"}
         </h1>
-        <p class="mt-8">
-          Imagining Future Cities: Singapore, Putrajaya, and Nusantara as
-          Gateways to Urban Innovation
+        <p class="mt-8 whitespace-pre-line">
+          {
+            homepageData.heroDescription ||
+              "Imagining Future Cities: Singapore, Putrajaya, and Nusantara as Gateways to Urban Innovation"
+          }
         </p>
       </div>
     </div>
@@ -51,18 +55,9 @@ const allResearch = getSortedResearch(await getCollection("research"));
     >
       <div class="py-16 flex justify-center">
         <div class="max-w-6xl w-full px-4">
-          <SectionHeader title={`About this website`} />
+          <SectionHeader title={homepageData.aboutTitle ? homepageData.aboutTitle : `About this website`} />
           <p class="mt-4 prose">
-            This research website serves as a platform for academics, planners,
-            and the public to investigate how future-oriented imaginations
-            impact urban planning and design, particularly in Singapore,
-            Putrajaya, and Nusantara. It explores the roles of governments,
-            societal actors, and market forces in urban development by using
-            other cities as reference points in various contexts. By adopting an
-            interdisciplinary approach that incorporates geography, sociology,
-            history, and urban planning, the site aims to stimulate discussions
-            on the environmental, technological, and civilizational factors that
-            shape and reshape the planning of future cities.
+            {homepageData.aboutDescription}
           </p>
         </div>
       </div>
@@ -74,7 +69,7 @@ const allResearch = getSortedResearch(await getCollection("research"));
       >
         <div class="max-w-6xl w-full px-4">
           <SectionHeader title={`${allCities.length} cities`} />
-          <p class="font-bold text-5xl">Many connections.</p>
+          <p class="font-bold text-5xl tracking-tight">{homepageData.cityTitle || "Place, power and possibility"}</p>
           <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-12">
             {allCities.map((city) => <CityCard {...city} />)}
           </div>
@@ -104,7 +99,10 @@ const allResearch = getSortedResearch(await getCollection("research"));
 </style>
 <script>
   import * as L from "leaflet";
-  import allCities from "@content/city/cities.json";
+  import data from "@content/city/cities.json";
+  import homepageData from "@content/homepage/homepage.json"
+
+  const allCities = data.cities;
 
   const map = L.map("map", {
     zoomControl: false,
@@ -163,6 +161,10 @@ const allResearch = getSortedResearch(await getCollection("research"));
   const pairs = [];
 
   for (let i = 0; i < allCities.length; i++) {
+    if (!homepageData.joinLines) {
+      break;
+    }
+
     for (let j = i + 1; j < allCities.length; j++) {
       pairs.push([allCities[i], allCities[j]]);
     }

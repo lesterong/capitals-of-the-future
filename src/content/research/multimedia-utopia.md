@@ -2,7 +2,7 @@
 title: "Multimedia Utopia? A Geographical Critique of High-Tech Development in Malaysia’s Multimedia Super Corridor"
 authors: "Bunnell, T."
 link: "https://doi.org/10.1111/1467-8330.00238"
-organisation: "Asia Research Institute"
+institution: "Asia Research Institute"
 publication: "Antipode, 34: 265-295"
 pubDate: "16 Dec 2002"
 cities:

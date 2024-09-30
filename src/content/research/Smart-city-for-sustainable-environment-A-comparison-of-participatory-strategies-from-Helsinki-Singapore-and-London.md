@@ -2,7 +2,7 @@
 title: "Smart city for sustainable environment A comparison of participatory strategies from Helsinki, Singapore and London"
 authors: "Shamsuzzoha, A., Nieminen, J., Piya, S., & Rutledge, K."
 link: "https://doi.org/10.1016/j.cities.2021.103194"
-organisation: "Others"
+institution: "Others"
 publication: "Cities, 114, 103194"
 pubDate: "Mar 26, 2021"
 cities:

@@ -2,7 +2,7 @@
 title: "Pathways to the Making of Prosperous Smart Cities: An Exploratory Study on the Best Practice"
 authors: "Desouza, K. C., Hunter, M., Jacob, B., & Yigitcanlar, T. "
 link: "https://doi.org/10.1080/10630732.2020.1807251"
-organisation: "Others"
+institution: "Others"
 publication: "Journal of Urban Technology, 27(3), 3–32"
 pubDate: "Sep 14, 2020"
 cities:

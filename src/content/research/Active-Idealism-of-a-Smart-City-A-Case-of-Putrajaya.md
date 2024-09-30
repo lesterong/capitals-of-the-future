@@ -2,7 +2,7 @@
 title: "Active Idealism of a Smart City: A Case of Putrajaya"
 authors: "Lim, K. Y., Woods, P. C., & Koo, A. C."
 link: "https://doi.org/10.2991/978-2-494069-57-2_3"
-organisation: "Others"
+institution: "Others"
 publication: "2nd International Conference on Creative Multimedia 2022 (ICCM 2022) (pp. 15-21)"
 pubDate: "Dec 24, 2022"
 cities:

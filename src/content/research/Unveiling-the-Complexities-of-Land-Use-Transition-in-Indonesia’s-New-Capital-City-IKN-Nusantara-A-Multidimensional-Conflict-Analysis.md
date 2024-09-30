@@ -2,7 +2,7 @@
 title: "Unveiling the Complexities of Land Use Transition in Indonesia’s New Capital City IKN Nusantara: A Multidimensional Conflict Analysis"
 authors: "Syaban, A. S. N., & Appiah-Opoku, S."
 link: "https://doi.org/10.3390/land13050606"
-organisation: "Others"
+institution: "Others"
 publication: "Land 2024, 13(5), 606"
 pubDate: "30 Apr, 2024"
 cities:

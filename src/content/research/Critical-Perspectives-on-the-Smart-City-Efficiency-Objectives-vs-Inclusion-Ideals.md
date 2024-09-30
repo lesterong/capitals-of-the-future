@@ -2,7 +2,7 @@
 title: "Critical Perspectives on the Smart City: Efficiency Objectives vs Inclusion Ideals"
 authors: "Chib, A., Alvarez, K., & Todorovic, T."
 link: "https://doi.org/10.1080/10630732.2021.2001712"
-organisation: "Others"
+institution: "Others"
 publication: "Journal of Urban Technology, 29(4), 83–99"
 pubDate: "16 Dec, 2021"
 cities:

@@ -2,7 +2,7 @@
 title: "Creating the essence of cities the Putrajaya's experience"
 authors: "John, J. I."
 link: "http://doi.org/10.21837/pmjournal.v2.i1.39"
-organisation: "Others"
+institution: "Others"
 publication: "PLANNING MALAYSIA, 2"
 pubDate: "May 2006"
 cities:

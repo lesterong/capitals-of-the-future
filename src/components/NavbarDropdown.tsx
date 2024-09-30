@@ -3,7 +3,7 @@ import Cities from "@content/city/cities.json";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
 const NavbarDropdown = ({ path }: { path: string }) => {
-  const cities = Cities.map((city) => city.name);
+  const cities = Cities.cities.map((city) => city.name);
   return (
     <Menu>
       <MenuButton className="font-medium text-gray-900/60 data-[active]:text-gray-900 hidden md:inline-flex gap-1 items-center">

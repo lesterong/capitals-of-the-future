@@ -10,7 +10,10 @@ import { getEntry } from "astro:content";
 import * as PageHeader from "@components/PageHeader";
 
 const cities = await getEntry("city", "cities");
-const { data: team } = await getEntry("team", "team");
+const { data } = await getEntry("team", "team");
+const { data: aboutData } = await getEntry("aboutpage", "aboutpage");
+const team = data.team;
+const allCities = cities.data.cities;
 ---
 
 <Layout title="Events">
@@ -30,7 +33,7 @@ const { data: team } = await getEntry("team", "team");
             class="flex flex-row md:flex-col items-center lg:max-h-max md:col-span-3"
           >
             {
-              cities.data.map((city) => {
+              allCities.map((city) => {
                 return (
                   <a
                     href={`/${city.name.toLowerCase()}`}
@@ -66,21 +69,17 @@ const { data: team } = await getEntry("team", "team");
             }
           </div>
           <div class="lg:col-span-2 w-full">
-            <SectionHeader title="Our vision" />
-            <p class="mt-4 lg:mt-8">
-              Our research seeks to understand the interaction between
-              imaginations of the future, discourses of urban planning and
-              pathways of urban development. Interdisciplinary in thrust, our
-              research involves geography, sociology, history, and planning
-              studies
+            <SectionHeader title={aboutData.heroTitle || "Our research"} />
+            <p class="mt-4 lg:mt-8 whitespace-pre-line">
+              {
+                aboutData.heroDescription ||
+                  "Our research seeks to understand the interaction between imaginations of the future, discourses of urban planning and pathways of urban development. Interdisciplinary in thrust, our research involves geography, sociology, history, and planning studies."
+              }
             </p>
           </div>
         </div>
         <div
-          class:list={[
-            "mt-16",
-            cities.data.length >= 5 ? "lg:mt-16" : "lg:mt-0",
-          ]}
+          class:list={["mt-16", allCities.length >= 5 ? "lg:mt-16" : "lg:mt-0"]}
         >
           <SectionHeader title="Our team" />
           <div class="grid grid-cols-1 mt-8 gap-x-3 gap-y-10 pb-12">
@@ -123,8 +122,9 @@ const { data: team } = await getEntry("team", "team");
                           </a>
                         )}
                       </div>
-                      <p class="mt-4 whitespace-pre-line">{person.description}</p>
-                      
+                      <p class="mt-4 whitespace-pre-line">
+                        {person.description}
+                      </p>
                     </div>
                   </div>
                 );

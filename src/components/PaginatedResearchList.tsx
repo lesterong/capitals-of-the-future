@@ -18,17 +18,17 @@ const PaginatedResearchList = ({
 }: {
   research: CollectionEntry<"research">[];
 }) => {
-  const validCities = Cities.map((city) => city.name);
-  const validOrganisations = ["Asia Research Institute", "Others"];
+  const validCities = Cities.cities.map((city) => city.name);
+  const validInstitutions = ["Capitals of the Future", "Asia Research Institute", "Others"];
   const [city, setCity] = useState<string>("");
-  const [organisation, setOrganisation] = useState<string>("");
+  const [institution, setInstitution] = useState<string>("");
 
   const filteredResearch = research
     .filter((r) => {
       return city === "" || r.data.cities.includes(city);
     })
     .filter((r) => {
-      return organisation === "" || r.data.organisation === organisation;
+      return institution === "" || r.data.institution === institution;
     });
 
   const [page, setPage] = useState<number>(1);
@@ -43,14 +43,14 @@ const PaginatedResearchList = ({
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const urlCity = urlParams.get("city");
-    const urlOrganisation = urlParams.get("organisation");
+    const urlInstitution = urlParams.get("institution");
     const urlPage = Number(urlParams.get("page"));
     if (validCities.includes(urlCity || "")) {
       setCity(urlCity || "");
     }
 
-    if (validOrganisations.includes(urlOrganisation || "")) {
-      setOrganisation(urlOrganisation || "");
+    if (validInstitutions.includes(urlInstitution || "")) {
+      setInstitution(urlInstitution || "");
     }
 
     if (!isNaN(urlPage)) {
@@ -80,16 +80,16 @@ const PaginatedResearchList = ({
     setCity(newCity);
   };
 
-  const handleOrganisationChange = (newOrganisation: string) => {
+  const handleInstitutionChange = (newInstitution: string) => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    if (newOrganisation) {
-      urlParams.set("organisation", newOrganisation);
+    if (newInstitution) {
+      urlParams.set("institution", newInstitution);
     } else {
-      urlParams.delete("organisation");
+      urlParams.delete("institution");
     }
 
-    if (newOrganisation != organisation) {
+    if (newInstitution != institution) {
       urlParams.delete("page");
       setPage(1);
     }
@@ -99,7 +99,7 @@ const PaginatedResearchList = ({
       "",
       `/research${urlParams.size > 0 ? `?${urlParams.toString()}` : ""}`,
     );
-    setOrganisation(newOrganisation);
+    setInstitution(newInstitution);
   };
 
   const handlePageChange = (newPage: number) => {
@@ -155,9 +155,9 @@ const PaginatedResearchList = ({
                 ))}
               </ListboxOptions>
             </Listbox>
-            <Listbox value={organisation} onChange={handleOrganisationChange}>
+            <Listbox value={institution} onChange={handleInstitutionChange}>
               <ListboxButton className="border border-primary-100 py-0.5 pl-3 pr-2 rounded-md flex gap-2 items-center">
-                {!!organisation ? organisation : "All organisations"}{" "}
+                {!!institution ? institution : "All institutions"}{" "}
                 <ChevronDownIcon className="size-3 stroke-current" />
               </ListboxButton>
               <ListboxOptions
@@ -170,9 +170,9 @@ const PaginatedResearchList = ({
                   value=""
                   className="data-[focus]:bg-primary-100 pl-2 pr-8 py-1 transition-colors duration-100"
                 >
-                  All organisations
+                  All institutions
                 </ListboxOption>
-                {validOrganisations.map((org) => (
+                {validInstitutions.map((org) => (
                   <ListboxOption
                     value={org}
                     key={org}

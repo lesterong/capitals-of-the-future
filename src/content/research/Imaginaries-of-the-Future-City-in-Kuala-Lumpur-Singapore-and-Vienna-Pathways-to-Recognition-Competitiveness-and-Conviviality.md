@@ -2,7 +2,7 @@
 title: "Imaginaries of the Future City in Kuala Lumpur, Singapore, and Vienna: Pathways to Recognition, Competitiveness, and Conviviality"
 authors: "Götsch, B."
 link: "https://doi.org/10.47979/aror.s.2020.XII.79"
-organisation: "Others"
+institution: "Others"
 publication: "Archiv Orientalni, 79-109"
 pubDate: "Dec 4, 2020"
 cities:

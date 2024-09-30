@@ -3,17 +3,19 @@ import { defineCollection, z } from "astro:content";
 const city = defineCollection({
   type: "data",
   schema: ({ image }) =>
-    z.array(
-      z.object({
-        name: z.string(),
-        description: z.string(),
-        mainImg: image(),
-        headerImg: image().optional(),
-        infoImg: image(),
-        lat: z.number(),
-        long: z.number(),
-      }),
-    ),
+    z.object({
+      cities: z.array(
+        z.object({
+          name: z.string(),
+          description: z.string(),
+          mainImg: image(),
+          headerImg: image().optional(),
+          infoImg: image(),
+          lat: z.number(),
+          long: z.number(),
+        }),
+      ),
+    })
 });
 
 const event = defineCollection({
@@ -53,7 +55,7 @@ const research = defineCollection({
       title: z.string(),
       link: z.string().url(),
       authors: z.string(),
-      organisation: z.string(),
+      institution: z.string(),
       publication: z.string(),
       pubDate: z.coerce.date(),
       cities: z.array(z.string()).refine((val) => val.length > 0, {
@@ -66,16 +68,46 @@ const research = defineCollection({
 const team = defineCollection({
   type: "data",
   schema: ({ image }) =>
-    z.array(
-      z.object({
-        name: z.string(),
-        title: z.string(),
-        description: z.string(),
-        email: z.string().email().optional(),
-        website: z.string().url().optional(),
-        img: image(),
-      }),
-    ),
+    z.object({
+      team: z.array(
+        z.object({
+          name: z.string(),
+          title: z.string(),
+          description: z.string(),
+          email: z.string().email().optional(),
+          website: z.string().url().optional(),
+          img: image(),
+        }),
+      ),
+    })
 });
 
-export const collections = { city, event, news, team, research };
+const homepage = defineCollection({
+  type: 'data',
+  schema: z.object({
+    heroTitle: z.string().optional(),
+    heroDescription: z.string().optional(),
+    joinLines: z.boolean().optional(),
+    aboutTitle: z.string().optional(),
+    aboutDescription: z.string().optional(),
+    cityTitle: z.string().optional()
+  })
+})
+
+const aboutpage = defineCollection({
+  type: 'data',
+  schema: z.object({
+    heroTitle: z.string().optional(),
+    heroDescription: z.string().optional(),
+  })
+})
+
+const social = defineCollection({
+  type: 'data',
+  schema: z.object({
+    label: z.string().optional(),
+    url: z.string().url().optional()
+  })
+})
+
+export const collections = { city, event, news, team, research, homepage, aboutpage, social };

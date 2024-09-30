@@ -2,7 +2,7 @@
 title: "Building Indonesia’s new capital city: an in-depth analysis of prospects and challenges from current capital city of Jakarta to Kalimantan"
 authors: "Syaban, A. S. N., & Appiah-Opoku, S."
 link: "https://doi.org/10.1080/21650020.2023.2276415"
-organisation: "Others"
+institution: "Others"
 publication: "Urban, Planning and Transport Research, 11(1)"
 pubDate: "23 Oct 2023"
 cities:
